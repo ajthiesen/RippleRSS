@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FeedKit
 
 fileprivate extension Selector {
     static let addFeedItem = #selector(FeedViewController.addFeedItem)
@@ -74,11 +75,27 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = feedView.tableView.dequeueReusableCell(withIdentifier: "FeedCell") as! UITableViewCell
+        guard let cell = feedView.tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier) as? FeedTableViewCell else { return UITableViewCell() }
         
         cell.textLabel?.text = AppData.shared.feedURLs[indexPath.row]?.absoluteString
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let feedURL = AppData.shared.feedURLs[indexPath.row] else { return }
+        
+        let parser = FeedParser(URL: feedURL)
+        
+        parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
+            
+            DispatchQueue.main.async { [unowned self] in
+                
+                let pVC = PostsViewController()
+                self.navigationController?.show(pVC, sender: self)
+            }
+        }
     }
     
 }

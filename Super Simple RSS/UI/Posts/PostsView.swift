@@ -1,5 +1,5 @@
 //
-//  FeedView.swift
+//  PostsView.swift
 //  Super Simple RSS
 //
 //  Created by Geof Crowl on 2/3/19.
@@ -8,17 +8,14 @@
 
 import UIKit
 
-class FeedView: UIView {
+class PostsView: UIView {
     
-    let tableView = UITableView()
+    var tableView = UITableView()
 
     init() {
-        
         super.init(frame: .zero)
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "FeedCell")
-        tableView.tableFooterView = UIView(frame: .zero)    // blank if empty dataset
-        
+        tableView.tableFooterView = UIView(frame: .zero)
         addSubview(tableView)
     }
     
