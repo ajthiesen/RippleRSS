@@ -47,9 +47,7 @@ class FeedViewController: UIViewController {
         let alert = UIAlertController(title: "Add A Feed", message: "Feed URL?", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
-            textField.text = "http://geofcrowl.com/blog/feed/"
             textField.returnKeyType = .done
-//            textField.delegate = self
         }
         
         alert.addAction(UIAlertAction(title: "Add Feed", style: .default, handler: { [weak self] (action) in
@@ -102,7 +100,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             DispatchQueue.main.async { [unowned self] in
                 
                 let pVC = PostsViewController(withResult: result)
-                self.navigationController?.show(pVC, sender: self)
+                self.navigationController?.showDetailViewController(pVC, sender: self)
             }
         }
     }
