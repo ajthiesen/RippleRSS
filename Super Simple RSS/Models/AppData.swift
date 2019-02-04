@@ -43,4 +43,17 @@ class AppData {
         feedStrs.remove(at: index)
         UserDefaults.feedStrs = feedStrs
     }
+    
+    static func editFeed(_ feedStr: String, at index: Int) {
+        
+        guard let url = URL(string: feedStr) else { return }
+        
+        AppData.shared.feedURLs.remove(at: index)
+        AppData.shared.feedURLs.insert(url, at: index)
+        
+        var feedStrs = UserDefaults.feedStrs
+        feedStrs.remove(at: index)
+        feedStrs.insert(feedStr, at: index)
+        UserDefaults.feedStrs = feedStrs
+    }
 }
