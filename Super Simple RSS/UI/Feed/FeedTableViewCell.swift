@@ -10,12 +10,18 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
     
+    var activityIndicator = UIActivityIndicatorView()
+    
     static var identifier: String {
         return "FeedCell"
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = .blue
+        accessoryView = activityIndicator
     }
     
     required init?(coder aDecoder: NSCoder) {
