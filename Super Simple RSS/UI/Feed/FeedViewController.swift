@@ -92,7 +92,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             
             DispatchQueue.main.async { [unowned self] in
                 
-                let pVC = PostsViewController()
+                let pVC = PostsViewController(withResult: result)
                 self.navigationController?.show(pVC, sender: self)
             }
         }
