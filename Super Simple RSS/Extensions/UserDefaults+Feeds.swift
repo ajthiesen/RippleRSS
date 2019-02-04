@@ -22,6 +22,7 @@ extension UserDefaults {
             if let feeds = UserDefaults.standard.stringArray(forKey: .feedsKey) {
                 
                 return feeds
+                
             } else {
                 // set to blank String Array
                 let blank: [String] = []
