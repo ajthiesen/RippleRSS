@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let feedNavVC = FeedNavigationViewController(rootViewController: FeedViewController())
-        window?.rootViewController = feedNavVC
+        let feedSplitVC = FeedSplitViewController()
+        window?.rootViewController = feedSplitVC
         window?.makeKeyAndVisible()
         
         return true

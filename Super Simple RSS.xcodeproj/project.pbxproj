@@ -19,6 +19,7 @@
 		3C0ECF9E2207E3B1005FB711 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF9D2207E3B1005FB711 /* PostsViewController.swift */; };
 		3C0ECFA02207E3C1005FB711 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF9F2207E3C1005FB711 /* PostsView.swift */; };
 		3C0ECFA22207E3E3005FB711 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECFA12207E3E3005FB711 /* PostTableViewCell.swift */; };
+		3C6767242207ED9C00D7F452 /* FeedSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6767232207ED9C00D7F452 /* FeedSplitViewController.swift */; };
 		8901060414EFC5810FE1588F /* Pods_Super_Simple_RSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		3C0ECF9D2207E3B1005FB711 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		3C0ECF9F2207E3C1005FB711 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		3C0ECFA12207E3E3005FB711 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		3C6767232207ED9C00D7F452 /* FeedSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSplitViewController.swift; sourceTree = "<group>"; };
 		7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS.debug.xcconfig"; sourceTree = "<group>"; };
 		95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS.release.xcconfig"; sourceTree = "<group>"; };
 		AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Super_Simple_RSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 		3C0ECF9B2207E33B005FB711 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				3C6767232207ED9C00D7F452 /* FeedSplitViewController.swift */,
 				3C0ECF8E2207CE3D005FB711 /* FeedNavigationViewController.swift */,
 				3C0155AF2207C8E000139618 /* FeedViewController.swift */,
 				3C0ECF912207CF61005FB711 /* FeedView.swift */,
@@ -266,6 +269,7 @@
 				3C0155B02207C8E000139618 /* FeedViewController.swift in Sources */,
 				3C0ECF9E2207E3B1005FB711 /* PostsViewController.swift in Sources */,
 				3C0ECF8F2207CE3E005FB711 /* FeedNavigationViewController.swift in Sources */,
+				3C6767242207ED9C00D7F452 /* FeedSplitViewController.swift in Sources */,
 				3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */,
 				3C0ECFA22207E3E3005FB711 /* PostTableViewCell.swift in Sources */,
 				3C0ECF952207D010005FB711 /* AppData.swift in Sources */,
