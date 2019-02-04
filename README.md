@@ -7,4 +7,4 @@ A really simple RSS reader for iOS. Works on iPad and iPhone.
 
 ### TODO
 
-- Made TODO list
+- Make TODO list
