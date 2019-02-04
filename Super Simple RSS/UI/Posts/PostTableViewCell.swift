@@ -9,6 +9,10 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
+    
+    static var identifier: String {
+        return "PostCell"
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
