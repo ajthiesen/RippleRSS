@@ -33,6 +33,14 @@ class FeedViewController: UIViewController {
         feedView.tableView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        navigationController?.isToolbarHidden = false
+        
+        let selectedIndexPath = feedView.tableView.indexPathForSelectedRow
+        feedView.tableView.deselectRow(at: selectedIndexPath, animated: true)
+    }
+    
     @objc func addFeedItem() {
         
         let alert = UIAlertController(title: "Add A Feed", message: "Feed URL?", preferredStyle: .alert)
