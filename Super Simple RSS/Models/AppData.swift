@@ -15,18 +15,6 @@ class AppData {
     
     var feedURLs: [URL?]
     
-//    var parsers: [FeedParser]? = {
-//
-//        var parsers = [FeedParser]()
-//        for url in feedURLs {
-//
-//            guard let url = url else { continue }
-//            parsers.append(FeedParser(URL: url))
-//        }
-//
-//        return parsers
-//    }()
-    
     private init() {
         
         feedURLs = []
@@ -45,5 +33,14 @@ class AppData {
         
         AppData.shared.feedURLs.append(url)
         UserDefaults.feedStrs.append(feedStr)
+    }
+    
+    static func deleteFeed(at index: Int) {
+        
+        AppData.shared.feedURLs.remove(at: index)
+        
+        var feedStrs = UserDefaults.feedStrs
+        feedStrs.remove(at: index)
+        UserDefaults.feedStrs = feedStrs
     }
 }
