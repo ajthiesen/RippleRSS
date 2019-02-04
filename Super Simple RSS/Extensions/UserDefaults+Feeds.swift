@@ -15,7 +15,7 @@ fileprivate extension String {
 
 extension UserDefaults {
 
-    static var feeds: [String] {
+    static var feedStrs: [String] {
         
         get {
             

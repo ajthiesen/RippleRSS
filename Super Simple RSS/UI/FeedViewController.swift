@@ -50,9 +50,8 @@ class FeedViewController: UIViewController {
             if let textField = textFields.first {
                 
                 guard let urlStr = textField.text else { return }
-                guard let url = URL(string: urlStr) else { return }
                 
-                AppData.shared.feedURLs.append(url)
+                AppData.addFeed(urlStr)
             }
             
             strongSelf.feedView.tableView.reloadData()

@@ -13,7 +13,7 @@ class AppData {
 
     static let shared = AppData()
     
-    var feedURLs: [URL?] = []
+    var feedURLs: [URL?]
     
     lazy var parsers: [FeedParser]? = {
         
@@ -31,7 +31,21 @@ class AppData {
     
     private init() {
         
+        feedURLs = []
+        
         // add URLs from UserDefaults
-//        for 
+        for feedStr in UserDefaults.feedStrs {
+            
+            guard let url = URL(string: feedStr) else { continue }
+            feedURLs.append(url)
+        }
+    }
+    
+    static func addFeed(_ feedStr: String) {
+        
+        guard let url = URL(string: feedStr) else { return }
+        
+        AppData.shared.feedURLs.append(url)
+        UserDefaults.feedStrs.append(feedStr)
     }
 }
