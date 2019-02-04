@@ -15,6 +15,7 @@ class FeedView: UIView {
     init() {
         
         super.init(frame: .zero)
+        backgroundColor = .white
         
         tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: FeedTableViewCell.identifier)
         tableView.tableFooterView = UIView(frame: .zero)    // blank if empty dataset
