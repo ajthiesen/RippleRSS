@@ -91,18 +91,73 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let feedURL = AppData.shared.feedURLs[indexPath.row] else { return }
+        var cell: FeedTableViewCell?
+        if let _cell = tableView.cellForRow(at: indexPath) as? FeedTableViewCell {
+            cell = _cell
+            cell?.activityIndicator.startAnimating()
+        }
         
+        guard let feedURL = AppData.shared.feedURLs[indexPath.row] else { return }
         let parser = FeedParser(URL: feedURL)
         
         parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
             
             DispatchQueue.main.async { [unowned self] in
                 
+                cell?.activityIndicator.stopAnimating()
                 let pVC = PostsViewController(withResult: result)
-                self.navigationController?.showDetailViewController(pVC, sender: self)
+                self.navigationController?.show(pVC, sender: self)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        // Edit feed
+        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { [unowned self] (action, indexPath)  in
+            
+            let alert = UIAlertController(title: "Edit Feed", message: "Feed URL?", preferredStyle: .alert)
+            
+            alert.addTextField { (textField) in
+                textField.returnKeyType = .done
+                textField.text = AppData.shared.feedURLs[indexPath.row]?.absoluteString
+            }
+            
+            alert.addAction(UIAlertAction(title: "Save Changes", style: .default, handler: { [weak self] (action) in
+                
+                guard let strongSelf = self else { return }
+                guard let textFields = alert.textFields else { return }
+                
+                if let textField = textFields.first {
+                    
+                    guard let urlStr = textField.text else { return }
+                    
+                    AppData.editFeed(urlStr, at: indexPath.row)
+                }
+                
+                strongSelf.feedView.tableView.reloadData()
+            }))
+            
+            self.navigationController?.present(alert, animated: true)
+        })
+        editAction.backgroundColor = UIColor.blue
+        
+        // Delete feed
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+            AppData.deleteFeed(at: indexPath.row)
+            tableView.reloadData()
+        })
+        deleteAction.backgroundColor = UIColor.red
+        
+        return [deleteAction, editAction]
     }
     
 }
