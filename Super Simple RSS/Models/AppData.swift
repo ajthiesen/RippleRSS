@@ -17,8 +17,6 @@ class AppData {
     
     lazy var parsers: [FeedParser]? = {
         
-        guard let feedURLs = feedURLs else { return nil }
-        
         var parsers = [FeedParser]()
         for url in feedURLs {
             
@@ -31,5 +29,9 @@ class AppData {
     
     var parsedFeeds: [Any?]?
     
-    private init() {}
+    private init() {
+        
+        // add URLs from UserDefaults
+//        for 
+    }
 }
