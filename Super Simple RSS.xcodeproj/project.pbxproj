@@ -11,6 +11,7 @@
 		3C0155B02207C8E000139618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AF2207C8E000139618 /* ViewController.swift */; };
 		3C0155B52207C8E200139618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C0155B82207C8E200139618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B62207C8E200139618 /* LaunchScreen.storyboard */; };
+		8901060414EFC5810FE1588F /* Pods_Super_Simple_RSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,9 @@
 		3C0155B42207C8E200139618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C0155B72207C8E200139618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C0155B92207C8E200139618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS.debug.xcconfig"; sourceTree = "<group>"; };
+		95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS.release.xcconfig"; sourceTree = "<group>"; };
+		AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Super_Simple_RSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8901060414EFC5810FE1588F /* Pods_Super_Simple_RSS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,8 @@
 			children = (
 				3C0155AC2207C8E000139618 /* Super Simple RSS */,
 				3C0155AB2207C8E000139618 /* Products */,
+				FF95CB7781797EA92F2D27F5 /* Pods */,
+				6637269970BBA0290CE542E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +68,23 @@
 			path = "Super Simple RSS";
 			sourceTree = "<group>";
 		};
+		6637269970BBA0290CE542E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF95CB7781797EA92F2D27F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */,
+				95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C0155BC2207C8E200139618 /* Build configuration list for PBXNativeTarget "Super Simple RSS" */;
 			buildPhases = (
+				49C7F564CC179FB5C73628EB /* [CP] Check Pods Manifest.lock */,
 				3C0155A62207C8E000139618 /* Sources */,
 				3C0155A72207C8E000139618 /* Frameworks */,
 				3C0155A82207C8E000139618 /* Resources */,
+				E9CC347C1B4204C8418537E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +151,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49C7F564CC179FB5C73628EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Super Simple RSS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9CC347C1B4204C8418537E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C0155A62207C8E000139618 /* Sources */ = {
@@ -268,6 +333,7 @@
 		};
 		3C0155BD2207C8E200139618 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +353,7 @@
 		};
 		3C0155BE2207C8E200139618 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
