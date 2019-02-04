@@ -14,12 +14,25 @@ class PostsViewController: UIViewController {
     
     var postsView = PostsView()
     var result: Result
+    var error: Error?
 
     init(withResult _result: Result) {
         result = _result
+        
         super.init(nibName: nil, bundle: nil)
         
-        title = result.rssFeed?.title ?? "Feed Posts"
+        // TODO: Abstract feed types
+        switch result {
+        case let .atom(feed):
+            title = feed.title
+        case let .rss(feed):
+            title = feed.title
+        case let .json(feed):
+            title = feed.title
+        case let .failure(_error):
+            title = "Feed error"
+            error = _error
+        }
     }
     
     override func loadView() {
@@ -28,14 +41,36 @@ class PostsViewController: UIViewController {
         
         postsView.tableView.dataSource = self
         postsView.tableView.delegate = self
+        
+        showErrorIfPresent(error)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isToolbarHidden = true
         
+//        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//        navigationItem.leftItemsSupplementBackButton = true
+        
         if let selectedIndexPath = postsView.tableView.indexPathForSelectedRow {
             postsView.tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
+    }
+    
+    @discardableResult
+    func showErrorIfPresent(_ error: Error?) -> Bool {
+        
+        if let error = error {
+            
+            let alert = UIAlertController(title: "Feed Error (FeedKit)", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.navigationController?.present(alert, animated: true)
+            
+            // There is an error
+            return true
+        }
+        
+        // No Error
+        return false
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,8 +82,20 @@ class PostsViewController: UIViewController {
 extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if result.isSuccess {
-            return result.rssFeed?.items?.count ?? 0
+            // TODO: Abstract feed types
+            switch result {
+            case let .atom(feed):
+                return feed.entries?.count ?? 0
+            case let .rss(feed):
+                return feed.items?.count ?? 0
+            case let .json(feed):
+                return feed.items?.count ?? 0
+            case .failure:
+                return 0
+            }
+            
         }
         return 0
     }
@@ -57,23 +104,47 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = postsView.tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier) as? PostTableViewCell else { return UITableViewCell() }
         
-        guard let feed = result.rssFeed else { return UITableViewCell() }
-        
-        cell.textLabel?.text = feed.items?[indexPath.row].title
+        // TODO: Abstract feed types
+        switch result {
+        case let .atom(feed):
+            cell.textLabel?.text = feed.entries?[indexPath.row].title
+        case let .rss(feed):
+            cell.textLabel?.text = feed.items?[indexPath.row].title
+        case let .json(feed):
+            cell.textLabel?.text = feed.items?[indexPath.row].title
+        case let .failure(_error):
+            cell.textLabel?.text = _error.localizedDescription
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let feed = result.rssFeed else { return }
-        guard let items = feed.items else { return }
-        let item = items[indexPath.row]
+        var urlStr: String?
+        var error: Error?
         
-        if let url = URL(string: item.link ?? "") {
-            let sVC = SFSafariViewController(url: url)
-            navigationController?.present(sVC, animated: true)
+        // TODO: Abstract feed types
+        switch result {
+        case let .atom(feed):
+            // This doesn't seem right
+            urlStr = feed.entries?[indexPath.row].links?.first?.attributes?.href
+        case let .rss(feed):
+            urlStr = feed.items?[indexPath.row].link
+        case let .json(feed):
+            urlStr = feed.items?[indexPath.row].url
+        case let .failure(_error):
+            error = _error
         }
+        
+        if showErrorIfPresent(error) { return }
+        
+        guard let _str = urlStr else { return }
+        guard let url = URL(string: _str) else { return }
+            
+        // TODO: Fix so "done" button returns to blank VC
+        let sVC = SFSafariViewController(url: url)
+        navigationController?.showDetailViewController(sVC, sender: self)
     }
     
 }
