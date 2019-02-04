@@ -15,19 +15,17 @@ class AppData {
     
     var feedURLs: [URL?]
     
-    lazy var parsers: [FeedParser]? = {
-        
-        var parsers = [FeedParser]()
-        for url in feedURLs {
-            
-            guard let url = url else { continue }
-            parsers.append(FeedParser(URL: url))
-        }
-        
-        return parsers
-    }()
-    
-    var parsedFeeds: [Any?]?
+//    var parsers: [FeedParser]? = {
+//
+//        var parsers = [FeedParser]()
+//        for url in feedURLs {
+//
+//            guard let url = url else { continue }
+//            parsers.append(FeedParser(URL: url))
+//        }
+//
+//        return parsers
+//    }()
     
     private init() {
         
