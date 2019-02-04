@@ -33,8 +33,9 @@ class PostsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isToolbarHidden = true
         
-        let selectedIndexPath = postsView.tableView.indexPathForSelectedRow
-        postsView.tableView.deselectRow(at: selectedIndexPath, animated: true)
+        if let selectedIndexPath = postsView.tableView.indexPathForSelectedRow {
+            postsView.tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

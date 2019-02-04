@@ -37,8 +37,9 @@ class FeedViewController: UIViewController {
         
         navigationController?.isToolbarHidden = false
         
-        let selectedIndexPath = feedView.tableView.indexPathForSelectedRow
-        feedView.tableView.deselectRow(at: selectedIndexPath, animated: true)
+        if let selectedIndexPath = feedView.tableView.indexPathForSelectedRow {
+            feedView.tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
     }
     
     @objc func addFeedItem() {
