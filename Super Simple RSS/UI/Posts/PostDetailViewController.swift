@@ -11,8 +11,6 @@ import WebKit
 
 class PostDetailViewController: UIViewController {
     
-//    static var shared = PostDetailViewController()
-    
     var webView: WKWebView?
     var url: URL
     
