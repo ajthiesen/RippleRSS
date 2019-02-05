@@ -139,11 +139,9 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let _str = urlStr else { return }
         guard let url = URL(string: _str) else { return }
-            
-        // TODO: Fix so "done" button returns to blank VC
+        
         let pDVC = PostDetailViewController(url: url)
         let navVC = UINavigationController(rootViewController: pDVC)
-        navVC.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationController?.showDetailViewController(navVC, sender: self)
     }
     
