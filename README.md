@@ -7,4 +7,4 @@ A really simple RSS reader for iOS. Works on iPad and iPhone.
 
 ### TODO
 
-- Make TODO list
+- Parse and find RSS feed in a site's HTML
