@@ -46,10 +46,8 @@ class PostsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isToolbarHidden = true
         
-//        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//        navigationItem.leftItemsSupplementBackButton = true
+        navigationController?.isToolbarHidden = true
         
         if let selectedIndexPath = postsView.tableView.indexPathForSelectedRow {
             postsView.tableView.deselectRow(at: selectedIndexPath, animated: true)
@@ -143,8 +141,10 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let url = URL(string: _str) else { return }
             
         // TODO: Fix so "done" button returns to blank VC
-        let sVC = SFSafariViewController(url: url)
-        navigationController?.showDetailViewController(sVC, sender: self)
+        let pDVC = PostDetailViewController(url: url)
+        let navVC = UINavigationController(rootViewController: pDVC)
+        navVC.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationController?.showDetailViewController(navVC, sender: self)
     }
     
 }
