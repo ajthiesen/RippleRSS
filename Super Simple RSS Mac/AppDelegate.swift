@@ -9,18 +9,48 @@
 import Cocoa
 import FeedKit
 
+var appDelegate: AppDelegate?
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    @IBOutlet weak var window: NSWindow!
-
+    
+    let feedWC = FeedWindowController()
+    var addFeedWindowController: AddFeedWindowController?
+    
+    override init() {
+        NSWindow.allowsAutomaticWindowTabbing = false
+        super.init()
+        appDelegate = self
+        
+        // Debug Network
+        //        setenv("CFNETWORK_DIAGNOSTICS", "3", 1);
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        
+        feedWC.loadWindow()
+        feedWC.showWindow(self)
+        
+        appDelegate?.refreshFeeds()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+    }
+    
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
+    
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        return true
+    }
+    
+    // MARK: - Main Functions
+    
+    func newFeed(_ sender: Any) {
+        print("ADD NEW FEED!")
+        // TODO…
     }
 
     // MARK: - Core Data stack
@@ -122,3 +152,36 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
+//
+// MARK: - Modal Windows
+//
+
+extension AppDelegate {
+    
+    public func showAddFeedWindow(_ window: NSWindow) {
+        
+        addFeedWindowController = AddFeedWindowController()
+        addFeedWindowController!.runSheetOnWindow(window)
+    }
+    
+}
+
+//
+// MARK: - Global functions
+//
+
+extension AppDelegate {
+    
+    public func refreshFeeds() {
+        
+        AppData.refreshFeeds { [unowned self] in
+            self.feedWC.feedWindow?.feedSplitVC.feedListVC.feedListView.outlineView.reloadData()
+        }
+        
+    }
+    
+    public func showPostDetail(url: URL) {
+        feedWC.feedWindow?.feedSplitVC.detailVC.load(url: url)
+    }
+    
+}
