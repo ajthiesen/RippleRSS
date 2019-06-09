@@ -11,7 +11,7 @@ import UIKit
 class FeedNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
-        isToolbarHidden = false
+//        isToolbarHidden = false
     }
     
 }
