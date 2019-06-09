@@ -78,6 +78,7 @@
 		3C601E822241A50D00675734 /* Super Simple RSS Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Super Simple RSS Mac.entitlements"; sourceTree = "<group>"; };
 		3C6767232207ED9C00D7F452 /* FeedSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSplitViewController.swift; sourceTree = "<group>"; };
 		3C6767252207F7FF00D7F452 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3C862F3C22ADA30900F245E5 /* Super Simple RSS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Super Simple RSS.entitlements"; sourceTree = "<group>"; };
 		3CC2589E2242BE8700BA7534 /* AddFeedWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedWindowController.swift; sourceTree = "<group>"; };
 		3CC258A82242C7ED00BA7534 /* AddFeedSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFeedSheet.xib; sourceTree = "<group>"; };
 		3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFeedsToolbarItem.swift; sourceTree = "<group>"; };
@@ -140,6 +141,7 @@
 		3C0155AC2207C8E000139618 /* Super Simple RSS */ = {
 			isa = PBXGroup;
 			children = (
+				3C862F3C22ADA30900F245E5 /* Super Simple RSS.entitlements */,
 				3C0155AD2207C8E000139618 /* AppDelegate.swift */,
 				3C0ECF982207DF19005FB711 /* Extensions */,
 				3C0ECF932207CFF6005FB711 /* Models */,
@@ -676,7 +678,9 @@
 			baseConfigurationReference = 7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -686,6 +690,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -696,7 +701,9 @@
 			baseConfigurationReference = 95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -706,6 +713,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
