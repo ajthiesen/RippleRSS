@@ -19,7 +19,7 @@ class RefreshFeedsToolbarItem: NSToolbarItem {
     
     init() {
         button = NSButton(frame: NSRect(x: 0, y: 0, width: 32, height: 32))
-        icon = NSImage(imageLiteralResourceName: "ico-toolbar-refresh")
+        icon = NSImage(named: NSImage.refreshTemplateName)!
         
         super.init(itemIdentifier: RefreshFeedsToolbarItem.itemIdentifier)
         label = "Refresh Feeds"

@@ -8,6 +8,10 @@
 
 import Cocoa
 
+fileprivate extension Selector {
+    static let deleteItem = #selector(FeedListViewController.deleteItem(sender:))
+}
+
 class FeedListViewController: NSViewController {
     
     let feedListView = FeedListView()
@@ -33,9 +37,14 @@ class FeedListViewController: NSViewController {
         feedListView.outlineView.reloadData()
     }
     
+    @objc func deleteItem(sender: Any) {
+        
+    }
+    
 }
 
 extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource {
+    
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         
@@ -83,7 +92,7 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
 //            return _tf.frame.size.height + 8
 //        }
         
-        return 72
+        return 48
     }
     
     func outlineView(_ outlineView: NSOutlineView, toolTipFor cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, item: Any, mouseLocation: NSPoint) -> String {

@@ -20,7 +20,7 @@ class FeedTableCellView: NSTableCellView {
         leftLabel.isSelectable = false
         leftLabel.isBezeled = false
         leftLabel.backgroundColor = .clear
-        leftLabel.maximumNumberOfLines = 3
+        leftLabel.maximumNumberOfLines = 2
         
         addSubview(leftLabel)
     }
