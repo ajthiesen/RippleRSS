@@ -71,11 +71,19 @@ class AppData {
         UserDefaults.feedStrs = feedStrs
     }
     
+    static func refreshFeed(at index: Int, completion: (()->Void)? ) {
+        if index < AppData.shared.feeds.count && index >= 0 {
+            AppData.shared.feeds[index].load(completion: completion)
+        }
+    }
+    
     static func refreshFeeds(completion: (()->Void)? ) {
         for feed in AppData.shared.feeds {
             feed.load(completion: completion)
         }
     }
+    
+
 }
 
 class Feed: Equatable {

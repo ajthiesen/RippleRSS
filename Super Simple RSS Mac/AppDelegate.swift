@@ -172,11 +172,24 @@ extension AppDelegate {
 
 extension AppDelegate {
     
+    public func refreshFeed(at index: Int) {
+        
+        AppData.refreshFeed(at: index) { [unowned self] in
+            
+            let outlineView = self.feedWC.feedWindow?.feedSplitVC.feedListVC.feedListView.outlineView
+            
+            let feed = AppData.shared.feeds[index]
+            
+            outlineView?.reloadItem(feed, reloadChildren: true)
+        }
+        
+    }
+    
     public func refreshFeeds() {
         
-        AppData.refreshFeeds { [unowned self] in
-            self.feedWC.feedWindow?.feedSplitVC.feedListVC.feedListView.outlineView.reloadData()
-        }
+        for index in 0...AppData.shared.feeds.count {
+             refreshFeed(at: index)
+         }
         
     }
     
