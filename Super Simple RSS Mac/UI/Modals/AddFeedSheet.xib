@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AddFeedWindowController" customModule="Super_Simple_RSS_Mac" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="Yjs-JY-EKt" id="BKx-La-Reh"/>
+                <outlet property="errorTextField" destination="ePz-6P-ceq" id="dD5-ab-3QR"/>
                 <outlet property="feedUrlTextField" destination="n3Q-DN-PMR" id="MPd-g4-Chd"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="pqQ-s2-NLm"/>
             </connections>
@@ -33,7 +35,7 @@
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n3Q-DN-PMR">
                         <rect key="frame" x="107" y="85" width="341" height="21"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="hXh-JZ-jA3">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="http://www.example.com" drawsBackground="YES" id="hXh-JZ-jA3">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -65,9 +67,21 @@ Gw
                             <action selector="cancel:" target="-2" id="NeA-dr-Mp4"/>
                         </connections>
                     </button>
+                    <progressIndicator hidden="YES" wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Yjs-JY-EKt">
+                        <rect key="frame" x="228" y="35" width="16" height="16"/>
+                    </progressIndicator>
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ePz-6P-ceq">
+                        <rect key="frame" x="105" y="61" width="34" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Error" id="dja-sC-bnN">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="KMx-9G-wk9" firstAttribute="centerY" secondItem="xMx-Qh-QM6" secondAttribute="centerY" id="NfB-kr-e7P"/>
+                    <constraint firstItem="ePz-6P-ceq" firstAttribute="top" secondItem="n3Q-DN-PMR" secondAttribute="bottom" constant="8" id="PmC-sW-Ufb"/>
                     <constraint firstItem="xMx-Qh-QM6" firstAttribute="width" secondItem="KMx-9G-wk9" secondAttribute="width" id="Qdz-pt-BIW"/>
                     <constraint firstAttribute="trailing" secondItem="n3Q-DN-PMR" secondAttribute="trailing" constant="32" id="TPW-JE-Hw2"/>
                     <constraint firstItem="n3Q-DN-PMR" firstAttribute="leading" secondItem="NEc-DE-Qn2" secondAttribute="trailing" constant="16" id="Tfb-gB-JYY"/>
@@ -76,8 +90,11 @@ Gw
                     <constraint firstItem="NEc-DE-Qn2" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="32" id="d7r-d7-25V"/>
                     <constraint firstItem="n3Q-DN-PMR" firstAttribute="centerY" secondItem="NEc-DE-Qn2" secondAttribute="centerY" id="dhU-Zk-0z2"/>
                     <constraint firstAttribute="trailing" secondItem="KMx-9G-wk9" secondAttribute="trailing" constant="32" id="hmy-2u-7ei"/>
+                    <constraint firstItem="ePz-6P-ceq" firstAttribute="leading" secondItem="n3Q-DN-PMR" secondAttribute="leading" id="nrE-t1-7X6"/>
                     <constraint firstAttribute="bottom" secondItem="KMx-9G-wk9" secondAttribute="bottom" constant="32" id="pgN-Lo-iu7"/>
+                    <constraint firstItem="xMx-Qh-QM6" firstAttribute="leading" secondItem="Yjs-JY-EKt" secondAttribute="trailing" constant="16" id="qrB-dc-UWc"/>
                     <constraint firstItem="NEc-DE-Qn2" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="32" id="r4M-Dn-zOR"/>
+                    <constraint firstItem="Yjs-JY-EKt" firstAttribute="centerY" secondItem="xMx-Qh-QM6" secondAttribute="centerY" id="wgK-vh-aqK"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="132" y="147"/>

@@ -7,12 +7,17 @@
 //
 
 import Cocoa
+import SwiftSoup
 
 class AddFeedWindowController: NSWindowController {
+    
+    typealias CompletionHandler = (() -> Void)
     
     var hostWindow: NSWindow?
     
     @IBOutlet var feedUrlTextField: NSTextField!
+    @IBOutlet var activityIndicator: NSProgressIndicator!
+    @IBOutlet var errorTextField: NSTextField!
     
     convenience init() {
 
@@ -29,17 +34,59 @@ class AddFeedWindowController: NSWindowController {
                 self.addFeed()
             }
         }
+        
+        feedUrlTextField.stringValue = "http://www."
+    }
+    
+    func findFeed(onSuccess: @escaping CompletionHandler, onError: @escaping CompletionHandler) {
+            
+        let siteURLString = feedUrlTextField.stringValue
+        let siteURL = URL(string: siteURLString)!
+        
+        let relative = siteURL.relativePath
+        let baseURLStr = siteURLString.replacingOccurrences(of: relative, with: "")
+        
+        // TODO: Check if URL is actuall a feed URL
+        
+        // TODO: Check URL for validity
+        if siteURLString.isEmpty {
+            return
+        }
+
+        var feedURL: URL?
+        
+        do {
+        
+            try FindFeed.getHtml(urlStr: siteURLString) { htmlStr in
+                
+                guard let htmlStr = htmlStr else { return }
+                
+                feedURL = try! FindFeed.getFeedUrl(htmlStr: htmlStr, baseURLStr: baseURLStr)
+                
+                DispatchQueue.main.async {
+                    self.feedUrlTextField.stringValue = feedURL?.absoluteString ?? siteURLString
+                    onSuccess()
+                }
+                
+            }
+            
+        } catch {
+            DispatchQueue.main.async {
+                onError()
+            }
+        }
     }
     
     func addFeed() {
         
-        let feedUrlStr = feedUrlTextField.stringValue
+        let feedURLString = feedUrlTextField.stringValue
         
-        if feedUrlStr.isEmpty {
+        // TODO: Check URL for validity
+        if feedURLString.isEmpty {
             return
         }
         
-        AppData.addFeed(feedUrlStr)
+        AppData.addFeed(feedURLString)
         appDelegate?.refreshFeeds()
     }
     
@@ -48,7 +95,70 @@ class AddFeedWindowController: NSWindowController {
     }
     
     @IBAction func addFeed(_ sender: Any) {
-        hostWindow!.endSheet(window!, returnCode: NSApplication.ModalResponse.OK)
+        
+        errorTextField.isHidden = true
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimation(self)
+        
+        findFeed(onSuccess: {
+            
+            self.activityIndicator.stopAnimation(self)
+            self.hostWindow!.endSheet(self.window!, returnCode: NSApplication.ModalResponse.OK)
+            
+        }, onError: {
+            
+            self.errorTextField.isHidden = false
+            self.errorTextField.stringValue = "Could not find a feed at this URL"
+        })
+        
+        
     }
 
+}
+
+class FindFeed {
+    
+    typealias HtmlStrCompletionHandler = (_ htmlStr: String?) -> Void
+    
+    enum FeedError: Error {
+        case invalidURL
+        case missingFeed
+    }
+    
+    static func getFeedUrl(htmlStr: String, baseURLStr: String) throws -> URL? {
+        
+        let doc: Document = try SwiftSoup.parse(htmlStr)
+        
+        let elements: Elements? = try doc.head()!.select("link[type=\"application/rss+xml\"")
+        
+        if elements == nil { throw FeedError.missingFeed }
+        
+        guard let feedLocation = try! elements?.first()!.attr("href") else {
+            throw FeedError.missingFeed
+        }
+        
+        let feedURLStr = baseURLStr + feedLocation
+        
+        return URL(string: feedURLStr)
+    }
+    
+    static func getHtml(urlStr: String, completion: @escaping HtmlStrCompletionHandler) throws {
+        
+        guard let url = URL(string: urlStr) else { throw FeedError.invalidURL }
+        
+        var htmlStr: String?
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if error != nil { return }
+            
+            if let data = data {
+                htmlStr = String(data: data, encoding: String.Encoding.ascii)
+                
+                completion(htmlStr)
+            }
+        }
+        
+        task.resume()
+    }
 }

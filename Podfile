@@ -1,5 +1,4 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '11.0'
 
 target 'Super Simple RSS' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -8,6 +7,7 @@ target 'Super Simple RSS' do
 
   # Pods for Super Simple RSS
   pod 'FeedKit', '~> 8.0'
+  pod 'SwiftSoup'
 
 end
 
@@ -18,5 +18,6 @@ target 'Super Simple RSS Mac' do
 
   # Pods for Super Simple RSS
   pod 'FeedKit', '~> 8.0'
+  pod 'SwiftSoup'
 
 end
