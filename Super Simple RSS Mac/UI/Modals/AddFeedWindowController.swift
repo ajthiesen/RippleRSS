@@ -61,11 +61,18 @@ class AddFeedWindowController: NSWindowController {
                 
                 guard let htmlStr = htmlStr else { return }
                 
-                feedURL = try! FindFeed.getFeedUrl(htmlStr: htmlStr, baseURLStr: baseURLStr)
-                
-                DispatchQueue.main.async {
-                    self.feedUrlTextField.stringValue = feedURL?.absoluteString ?? siteURLString
-                    onSuccess()
+                do {
+                    feedURL = try FindFeed.getFeedUrl(htmlStr: htmlStr, baseURLStr: baseURLStr)
+                    
+                    DispatchQueue.main.async {
+                        self.feedUrlTextField.stringValue = feedURL?.absoluteString ?? siteURLString
+                        onSuccess()
+                    }
+                    
+                } catch {
+                    DispatchQueue.main.async {
+                        onError()
+                    }
                 }
                 
             }
@@ -97,7 +104,6 @@ class AddFeedWindowController: NSWindowController {
     @IBAction func addFeed(_ sender: Any) {
         
         errorTextField.isHidden = true
-        activityIndicator.isHidden = false
         activityIndicator.startAnimation(self)
         
         findFeed(onSuccess: {
@@ -107,6 +113,7 @@ class AddFeedWindowController: NSWindowController {
             
         }, onError: {
             
+            self.activityIndicator.stopAnimation(self)
             self.errorTextField.isHidden = false
             self.errorTextField.stringValue = "Could not find a feed at this URL"
         })
@@ -133,7 +140,7 @@ class FindFeed {
         
         if elements == nil { throw FeedError.missingFeed }
         
-        guard let feedLocation = try! elements?.first()!.attr("href") else {
+        guard let feedLocation = try elements?.first()?.attr("href") else {
             throw FeedError.missingFeed
         }
         
