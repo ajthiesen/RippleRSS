@@ -18,6 +18,7 @@ class FeedWindow: NSWindow {
     
     let feedSplitVC = FeedSplitViewController()
     let feedToolbar = NSToolbar(identifier: NSToolbar.Identifier("FeedToolbar"))
+    var deleteFeedSheet: DeleteFeedSheetWindowController?
     
     static var defaultWidth: CGFloat {
         return 800
@@ -54,6 +55,14 @@ class FeedWindow: NSWindow {
         feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 1)
         feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 2)
         feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 3)
+    }
+    
+    func showDeleteFeedSheet() {
+        
+        let selectedFeedRow = feedSplitVC.feedListVC.feedListView.outlineView.selectedRow
+        
+        deleteFeedSheet = DeleteFeedSheetWindowController(feed: AppData.shared.feeds[selectedFeedRow])
+        deleteFeedSheet?.runSheetOnWindow(self)
     }
 
 }

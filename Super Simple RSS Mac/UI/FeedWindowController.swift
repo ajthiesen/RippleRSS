@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import FeedKit
 
 class FeedWindowController: NSWindowController {
 
@@ -29,4 +30,13 @@ class FeedWindowController: NSWindowController {
         super.windowDidLoad()
     }
 
+    @IBAction func deleteSelectedFeed(_ sender: Any) {
+        
+        feedWindow?.showDeleteFeedSheet()
+    }
+    
+    @IBAction func refreshFeeds(_ sender: Any) {
+        
+        appDelegate?.refreshFeeds()
+    }
 }
