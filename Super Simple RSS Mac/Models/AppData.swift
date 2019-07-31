@@ -38,6 +38,13 @@ class AppData {
         UserDefaults.feedStrs.append(feedStr)
     }
     
+    static func deleteFeed(_ feed: Feed) {
+        
+        if let index = AppData.shared.feeds.firstIndex(where: { $0 == feed }) {
+            AppData.deleteFeed(at: index)
+        }
+    }
+    
     static func deleteFeed(at index: Int) {
         
         AppData.shared.feedURLs.remove(at: index)
