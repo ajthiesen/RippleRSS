@@ -67,7 +67,7 @@ Gw
                             <action selector="cancel:" target="-2" id="NeA-dr-Mp4"/>
                         </connections>
                     </button>
-                    <progressIndicator hidden="YES" wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Yjs-JY-EKt">
+                    <progressIndicator wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Yjs-JY-EKt">
                         <rect key="frame" x="228" y="35" width="16" height="16"/>
                     </progressIndicator>
                     <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ePz-6P-ceq">
