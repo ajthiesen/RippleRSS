@@ -12,7 +12,6 @@ class AddFeedWindowController: NSWindowController {
     
     var hostWindow: NSWindow?
     
-//    var addFeedWindow: AddFeedWindow?
     @IBOutlet var feedUrlTextField: NSTextField!
     
     convenience init() {
