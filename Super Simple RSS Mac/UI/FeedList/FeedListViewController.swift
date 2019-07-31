@@ -45,7 +45,6 @@ class FeedListViewController: NSViewController {
 
 extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource {
     
-
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         
         if let feed = item as? Feed {
