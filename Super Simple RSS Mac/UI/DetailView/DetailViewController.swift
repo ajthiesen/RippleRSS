@@ -21,6 +21,8 @@ class DetailViewController: NSViewController {
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView?.uiDelegate = self
         
+        webView?.isHidden = true
+        
         if let webView = webView {
             view = webView
         } else {
@@ -34,6 +36,8 @@ class DetailViewController: NSViewController {
     }
     
     func load(url: URL) {
+        
+        webView?.isHidden = false
         
         title = url.absoluteString
         let request = URLRequest(url: url)
