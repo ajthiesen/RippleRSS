@@ -61,6 +61,9 @@ class FeedWindow: NSWindow {
         
         let selectedFeedRow = feedSplitVC.feedListVC.feedListView.outlineView.selectedRow
         
+        if selectedFeedRow >= AppData.shared.feeds.count { return }
+        if selectedFeedRow < 0 { return }
+        
         deleteFeedSheet = DeleteFeedSheetWindowController(feed: AppData.shared.feeds[selectedFeedRow])
         deleteFeedSheet?.runSheetOnWindow(self)
     }
