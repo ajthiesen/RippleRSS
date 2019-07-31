@@ -71,12 +71,16 @@ class AppData {
     }
 }
 
-class Feed {
+class Feed: Equatable {
     
     let url: URL?
     var result: Result?
     var items: [FeedItem]?
     var name: String?
+    
+    static func == (lhs: Feed, rhs: Feed) -> Bool {
+        return lhs.url == rhs.url
+    }
     
     init(_ _url: URL?) {
         url = _url
