@@ -6,8 +6,8 @@ target 'Super Simple RSS' do
   platform :ios, '13.0'
 
   # Pods for Super Simple RSS
-  pod 'FeedKit', '~> 8.0'
-  pod 'SwiftSoup'
+  pod 'FeedKit'
+  pod 'SwiftSoup', '~> 2.0'
 
 end
 
@@ -17,7 +17,7 @@ target 'Super Simple RSS Mac' do
   platform :macos, '10.13'
 
   # Pods for Super Simple RSS
-  pod 'FeedKit', '~> 8.0'
-  pod 'SwiftSoup'
+  pod 'FeedKit'
+  pod 'SwiftSoup', '~> 2.0'
 
 end
