@@ -369,6 +369,7 @@
 					};
 					3CF823B1223EDC6500AEC06A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
 								enabled = 1;
@@ -429,19 +430,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FeedKit-macOS/FeedKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftSoup-macOS/SwiftSoup.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2389D3152DB9CBA141FEA1DC /* [CP] Check Pods Manifest.lock */ = {
@@ -485,19 +483,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FeedKit-iOS/FeedKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftSoup-iOS/SwiftSoup.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -756,7 +751,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -781,7 +776,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
