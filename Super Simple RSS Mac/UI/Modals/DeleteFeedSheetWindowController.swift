@@ -14,12 +14,14 @@ class DeleteFeedSheetWindowController: NSWindowController {
     
     var hostWindow: NSWindow?
     var feed: Feed!
+    var feedIndex: Int!
     
-    convenience init(feed _feed: Feed) {
+    convenience init(feedIndex _feedIndex: Int) {
         
         self.init(windowNibName: NSNib.Name("DeleteFeedSheet"))
         
-        feed = _feed
+        feedIndex = _feedIndex
+        feed = AppData.shared.feeds[_feedIndex]
     }
 
     func runSheetOnWindow(_ _hostWindow: NSWindow) {
@@ -46,10 +48,7 @@ class DeleteFeedSheetWindowController: NSWindowController {
     
     func delete() {
         
-        guard let feed = feed else { return }
-        
-        AppData.deleteFeed(feed)
-        appDelegate?.refreshFeeds()
+        appDelegate?.deleteFromFeed(at: feedIndex)
     }
     
     @IBAction func cancel(_ sender: Any) {

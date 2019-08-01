@@ -180,7 +180,12 @@ extension AppDelegate {
             
             let feed = AppData.shared.feeds[index]
             
-            outlineView?.reloadItem(feed, reloadChildren: true)
+            // check if item exists, otherwise reload everything
+            if let _ = outlineView?.item(atRow: index) {
+                outlineView?.reloadItem(feed, reloadChildren: true)
+            } else {
+                outlineView?.reloadData()
+            }
         }
         
     }
@@ -190,6 +195,15 @@ extension AppDelegate {
         for index in 0...AppData.shared.feeds.count {
              refreshFeed(at: index)
          }
+        
+    }
+    
+    public func deleteFromFeed(at index: Int) {
+        
+        let outlineView = self.feedWC.feedWindow?.feedSplitVC.feedListVC.feedListView.outlineView
+        
+        AppData.deleteFeed(at: index)
+        outlineView?.reloadData()
         
     }
     
