@@ -688,6 +688,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
@@ -713,6 +714,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
@@ -739,6 +741,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Super Simple RSS Mac/Info.plist";
@@ -764,6 +767,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Super Simple RSS Mac/Info.plist";
