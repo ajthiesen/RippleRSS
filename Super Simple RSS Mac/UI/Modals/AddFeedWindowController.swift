@@ -46,12 +46,12 @@ class AddFeedWindowController: NSWindowController {
         let relative = siteURL.relativePath
         let baseURLStr = siteURLString.replacingOccurrences(of: relative, with: "")
         
-        // TODO: Check if URL is actuall a feed URL
-        
         // TODO: Check URL for validity
         if siteURLString.isEmpty {
             return
         }
+        
+        // TODO: Check if URL is actually a feed URL
 
         var feedURL: URL?
         
@@ -66,6 +66,15 @@ class AddFeedWindowController: NSWindowController {
                     
                     DispatchQueue.main.async {
                         self.feedUrlTextField.stringValue = feedURL?.absoluteString ?? siteURLString
+                        onSuccess()
+                    }
+                    
+                } catch FindFeed.FeedError.missingFeed {
+                
+                    // Didn't find a feed, maybe this is a feed URL?
+                    print("AddFeedWindowController: Couldn't find feed; maybe URL is a feed?")
+                    DispatchQueue.main.async {
+                        self.feedUrlTextField.stringValue = siteURLString
                         onSuccess()
                     }
                     
@@ -144,7 +153,14 @@ class FindFeed {
             throw FeedError.missingFeed
         }
         
-        let feedURLStr = baseURLStr + feedLocation
+        var feedURLStr: String
+        
+        // If the feed is offsite or contains an absolute path
+        if !feedLocation.contains("http") {
+            feedURLStr = baseURLStr + feedLocation
+        } else {
+            feedURLStr = feedLocation
+        }
         
         return URL(string: feedURLStr)
     }
