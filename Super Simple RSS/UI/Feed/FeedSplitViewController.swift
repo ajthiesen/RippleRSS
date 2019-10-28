@@ -38,7 +38,7 @@ class FeedSplitViewController: UISplitViewController {
         
         delegate = self
         
-        #if targetEnvironment(UIKitForMac)
+        #if targetEnvironment(macCatalyst)
             primaryBackgroundStyle = .sidebar
         #endif
     }
