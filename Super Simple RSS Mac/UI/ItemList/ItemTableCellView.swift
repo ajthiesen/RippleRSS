@@ -20,7 +20,7 @@ class ItemTableCellView: NSTableCellView {
         leftLabel.isSelectable = false
         leftLabel.isBezeled = false
         leftLabel.backgroundColor = .clear
-        leftLabel.maximumNumberOfLines = 2
+        leftLabel.maximumNumberOfLines = 0
         
         addSubview(leftLabel)
     }
@@ -33,6 +33,24 @@ class ItemTableCellView: NSTableCellView {
         leftLabel.frame.origin.y = 0
         leftLabel.frame.size.width = bounds.width
         leftLabel.frame.size.height = bounds.height - 8
+        
+//        leftLabel.frame.size = leftLabel.size(thatFitsWidth: bounds.width, multiline: true)
+    }
+    
+    static func height(tableViewWidth: CGFloat, labelString: String) -> CGFloat {
+        
+        let verticalMargin: CGFloat = 16
+        let textWidth: CGFloat = tableViewWidth - 16
+        
+        let textLabelString = NSString(string: labelString)
+        
+        let labelFont = NSFont.systemFont(ofSize: 13)
+        
+        let textLabelHeight = textLabelString.height(fitsWidth: textWidth, font: labelFont, multiline: true)
+        
+        let combinedHeight = textLabelHeight + verticalMargin
+        
+        return combinedHeight
     }
     
     required init?(coder decoder: NSCoder) {
