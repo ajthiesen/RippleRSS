@@ -47,20 +47,10 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         
-        if let feed = item as? Feed {
-            guard let items = feed.items else { return 0 }
-            return items.count
-        }
-        
         return feeds.count
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        
-        if let feed = item as? Feed {
-            guard let items = feed.items else { return FeedItem(title: "N/A", url: nil) }
-            return items[index]
-        }
         
         return feeds[index]
     }
@@ -72,15 +62,11 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
     
     func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
         
-        if let _ = item as? Feed {
-            return 32
-        }
-        
-        return 48
+        return 32
     }
     
     func outlineView(_ outlineView: NSOutlineView, toolTipFor cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, item: Any, mouseLocation: NSPoint) -> String {
-        return "Feed Item"
+        return "Feed"
     }
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
@@ -99,11 +85,6 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
             cell.objectValue = feed
         }
         
-        if let feedItem = item as? FeedItem {
-            cell.leftLabel.stringValue = feedItem.title
-            cell.objectValue = feedItem
-        }
-        
         return cell
     }
     
@@ -119,17 +100,6 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
         if let feed = outlineView.item(atRow: selectedRow) as? Feed {
             appDelegate?.showFeed(feed: feed)
         }
-        
-        
-//        if let feedItem = outlineView.item(atRow: selectedIndex) as? FeedItem {
-//
-//            let url = URL(string: feedItem.url)
-//
-//            if let url = url {
-//
-//                self.webView.mainFrame.load(URLRequest(url: url))
-//            }
-//        }
     }
     
 }
