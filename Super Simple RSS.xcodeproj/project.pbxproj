@@ -99,7 +99,7 @@
 		3CC2589E2242BE8700BA7534 /* AddFeedWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedWindowController.swift; sourceTree = "<group>"; };
 		3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFeedsToolbarItem.swift; sourceTree = "<group>"; };
 		3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
-		3CF823B2223EDC6500AEC06A /* Super Simple RSS Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF823B4223EDC6500AEC06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CF823B7223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Super_Simple_RSS_Mac.xcdatamodel; sourceTree = "<group>"; };
 		3CF823B9223EDC6700AEC06A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				3C0155AA2207C8E000139618 /* Super Simple RSS.app */,
-				3CF823B2223EDC6500AEC06A /* Super Simple RSS Mac.app */,
+				3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 			);
 			name = "Super Simple RSS Mac";
 			productName = "Super Simple RSS Mac";
-			productReference = 3CF823B2223EDC6500AEC06A /* Super Simple RSS Mac.app */;
+			productReference = 3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -785,7 +785,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS-Mac";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Super Simple RSS";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -811,7 +811,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS-Mac";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Super Simple RSS";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
