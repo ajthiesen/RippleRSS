@@ -68,6 +68,7 @@ class ItemListViewController: NSViewController {
         print(url.absoluteString)
         
         NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(url.absoluteString, forType: .string)
         NSPasteboard.general.setData(url.dataRepresentation, forType: .URL)
     }
     
