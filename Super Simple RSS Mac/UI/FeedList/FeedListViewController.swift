@@ -10,6 +10,7 @@ import Cocoa
 
 fileprivate extension Selector {
     static let deleteItem = #selector(FeedListViewController.deleteItem(sender:))
+    static let copyFeedLink = #selector(FeedListViewController.copyFeedLink(_:))
 }
 
 class FeedListViewController: NSViewController {
@@ -35,6 +36,37 @@ class FeedListViewController: NSViewController {
         feedListView.outlineView.outlineTableColumn = column
         
         feedListView.outlineView.reloadData()
+    }
+    
+    override func rightMouseDown(with event: NSEvent) {
+        
+        let index = feedListView.outlineView.selectedRow
+        let item = feedListView.outlineView.item(atRow: index)
+        guard let rowItem = item as? Feed else { return }
+        
+        if index < 0 || index > feeds.count {
+            return
+        }
+        
+        let rMenu = NSMenu()
+        let linkItem = NSMenuItem(title: "Copy Feed URL", action: .copyFeedLink, keyEquivalent: "")
+        linkItem.representedObject = rowItem
+        rMenu.addItem(linkItem)
+        
+        let point = feedListView.convert(event.locationInWindow, from: nil)
+        
+        rMenu.popUp(positioning: nil, at: point, in: feedListView)
+    }
+    
+    @objc func copyFeedLink(_ sender: NSMenuItem) {
+        guard let rowItem = sender.representedObject as? Feed else { return }
+        guard let url = rowItem.url else { return }
+        
+        print(url.absoluteString)
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(url.absoluteString, forType: .string)
+        NSPasteboard.general.setData(url.dataRepresentation, forType: .URL)
     }
     
     @objc func deleteItem(sender: Any) {
