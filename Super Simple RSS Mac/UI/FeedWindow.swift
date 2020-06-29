@@ -39,7 +39,7 @@ class FeedWindow: NSWindow {
         
         autorecalculatesKeyViewLoop = true
         
-        title = "Color Catalogue"
+//        title = "Super Simple RSS"
         titleVisibility = .hidden
         
         contentViewController = feedSplitVC

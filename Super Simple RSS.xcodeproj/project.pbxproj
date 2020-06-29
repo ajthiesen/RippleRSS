@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AD2207C8E000139618 /* AppDelegate.swift */; };
 		3C0155B02207C8E000139618 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AF2207C8E000139618 /* FeedViewController.swift */; };
-		3C0155B52207C8E200139618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C0155B82207C8E200139618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B62207C8E200139618 /* LaunchScreen.storyboard */; };
 		3C0C4E682241A71E00B37C2A /* FeedWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E672241A71E00B37C2A /* FeedWindowController.swift */; };
 		3C0C4E6A2241A76A00B37C2A /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E692241A76A00B37C2A /* Globals.swift */; };
@@ -32,6 +31,7 @@
 		3C0ECF9E2207E3B1005FB711 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF9D2207E3B1005FB711 /* PostsViewController.swift */; };
 		3C0ECFA02207E3C1005FB711 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF9F2207E3C1005FB711 /* PostsView.swift */; };
 		3C0ECFA22207E3E3005FB711 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECFA12207E3E3005FB711 /* PostTableViewCell.swift */; };
+		3C53B1A9243305270091CDB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C53BC6A22F156E200451117 /* AddFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6722F14C8500451117 /* AddFeedSheet.xib */; };
 		3C53BC6D22F158A600451117 /* DeleteFeedSheetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C53BC6B22F158A600451117 /* DeleteFeedSheetWindowController.swift */; };
 		3C53BC6E22F158A600451117 /* DeleteFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6C22F158A600451117 /* DeleteFeedSheet.xib */; };
@@ -434,7 +434,6 @@
 			files = (
 				3C6767262207F7FF00D7F452 /* README.md in Resources */,
 				3C0155B82207C8E200139618 /* LaunchScreen.storyboard in Resources */,
-				3C0155B52207C8E200139618 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +445,7 @@
 				3CF823BD223EDC6700AEC06A /* MainMenu.xib in Resources */,
 				3C53BC6A22F156E200451117 /* AddFeedSheet.xib in Resources */,
 				3C53BC6E22F158A600451117 /* DeleteFeedSheet.xib in Resources */,
+				3C53B1A9243305270091CDB1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
