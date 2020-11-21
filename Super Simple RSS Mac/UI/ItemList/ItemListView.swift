@@ -34,15 +34,22 @@ class ItemListView: NSView {
         outlineScrollView.backgroundColor = .clear
         outlineScrollView.documentView = outlineView
         outlineScrollView.hasVerticalScroller = true
-        outlineScrollView.automaticallyAdjustsContentInsets = false
-        outlineScrollView.contentInsets = NSEdgeInsets(top: 10, left: 2, bottom: 10, right: 0)
-        outlineScrollView.scrollerInsets = NSEdgeInsets(top: -10, left: 0, bottom: -10, right: 0)
+//        outlineScrollView.automaticallyAdjustsContentInsets = false
+//        outlineScrollView.contentInsets = NSEdgeInsets(top: 10, left: 2, bottom: 10, right: 0)
+//        outlineScrollView.scrollerInsets = NSEdgeInsets(top: -10, left: 0, bottom: -10, right: 0)
         
         addSubview(outlineScrollView)
     }
     
     override func layout() {
-        outlineScrollView.frame = bounds
+        if #available(OSX 11.0, *) {
+            outlineScrollView.frame.size.width = bounds.width - (safeAreaInsets.left + safeAreaInsets.right)
+            outlineScrollView.frame.size.height = bounds.height - (safeAreaInsets.top + safeAreaInsets.bottom)
+            outlineScrollView.frame.origin.x = safeAreaInsets.left
+            outlineScrollView.frame.origin.y = 0
+        } else {
+            outlineScrollView.frame = bounds
+        }
     }
     
     required init?(coder decoder: NSCoder) {

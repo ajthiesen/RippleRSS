@@ -42,7 +42,13 @@ class FeedListView: NSView {
     }
     
     override func layout() {
-        outlineScrollView.frame = bounds
+        if #available(OSX 11.0, *) {
+            outlineScrollView.frame = bounds.insetBy(dx: safeAreaInsets.left, dy: safeAreaInsets.top)
+            outlineScrollView.frame.origin.x = safeAreaInsets.left
+            outlineScrollView.frame.origin.y = safeAreaInsets.top
+        } else {
+            outlineScrollView.frame = bounds
+        }
     }
     
     required init?(coder decoder: NSCoder) {

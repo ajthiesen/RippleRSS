@@ -21,7 +21,7 @@ class FeedSplitViewController: NSSplitViewController {
         feedListSVI.minimumThickness = 200
         addSplitViewItem(feedListSVI)
         
-        let itemListSVI = NSSplitViewItem(sidebarWithViewController: itemListVC)
+        let itemListSVI = NSSplitViewItem(contentListWithViewController: itemListVC)
         itemListSVI.maximumThickness = 400
         itemListSVI.minimumThickness = 200
         addSplitViewItem(itemListSVI)

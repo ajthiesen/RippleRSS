@@ -39,22 +39,32 @@ class FeedWindow: NSWindow {
         
         autorecalculatesKeyViewLoop = true
         
-//        title = "Super Simple RSS"
-        titleVisibility = .hidden
+        title = "Super Simple RSS"
+//        titleVisibility = .hidden
         
         contentViewController = feedSplitVC
         
         toolbar = feedToolbar
         
+        feedToolbar.displayMode = .iconOnly
+        
         feedToolbar.delegate = self
+        feedToolbar.allowsUserCustomization = false
         
-        feedToolbar.sizeMode = .regular
-        feedToolbar.displayMode = .iconAndLabel
-        
-        feedToolbar.insertItem(withItemIdentifier: .toggleSidebar, at: 0)
-        feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 1)
-        feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 2)
-        feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 3)
+        if #available(OSX 11.0, *) {
+            feedToolbar.insertItem(withItemIdentifier: .toggleSidebar, at: 0)
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 1)
+            feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 2)
+            feedToolbar.insertItem(withItemIdentifier: .sidebarTrackingSeparator, at: 3)
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 4)
+            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 5)
+        } else {
+            feedToolbar.insertItem(withItemIdentifier: .toggleSidebar, at: 0)
+            feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 1)
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 2)
+            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 3)
+        }
+
     }
     
     func showDeleteFeedSheet() {
@@ -140,41 +150,57 @@ extension FeedWindow: NSToolbarDelegate {
         if itemIdentifier == .refreshFeeds {
             
             toolbarItem = RefreshFeedsToolbarItem()
-        }
-        
-        if itemIdentifier == .newFeed {
+            
+        } else if itemIdentifier == .newFeed {
             
             toolbarItem = NewFeedToolbarItem()
+            
+        } else {
+            
+            toolbarItem = NSToolbarItem(itemIdentifier: itemIdentifier)
         }
         
         return toolbarItem
     }
     
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [
-            .toggleSidebar,
-            .refreshFeeds,
-            .flexibleSpace,
-            .newFeed,
-        ]
+        if #available(OSX 11.0, *) {
+            return [
+                .toggleSidebar,
+                .flexibleSpace,
+                .refreshFeeds,
+                .sidebarTrackingSeparator,
+                .flexibleSpace,
+                .newFeed,
+            ]
+        } else {
+            return [
+                .toggleSidebar,
+                .refreshFeeds,
+                .flexibleSpace,
+                .newFeed,
+            ]
+        }
     }
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [
-            .toggleSidebar,
-            .refreshFeeds,
-            .flexibleSpace,
-            .newFeed,
-        ]
-    }
-    
-    func toolbarSelectableItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [
-            .toggleSidebar,
-            .refreshFeeds,
-            .flexibleSpace,
-            .newFeed,
-        ]
+        if #available(OSX 11.0, *) {
+            return [
+                .toggleSidebar,
+                .flexibleSpace,
+                .refreshFeeds,
+                .sidebarTrackingSeparator,
+                .flexibleSpace,
+                .newFeed,
+            ]
+        } else {
+            return [
+                .toggleSidebar,
+                .refreshFeeds,
+                .flexibleSpace,
+                .newFeed,
+            ]
+        }
     }
     
 }
