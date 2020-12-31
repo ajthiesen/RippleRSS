@@ -19,7 +19,6 @@
 		3C0C4E752241A89000B37C2A /* FeedListOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E742241A89000B37C2A /* FeedListOutlineView.swift */; };
 		3C0C4E772241A8D900B37C2A /* FeedTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E762241A8D900B37C2A /* FeedTableCellView.swift */; };
 		3C0C4E792241A8FF00B37C2A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E782241A8FF00B37C2A /* DetailViewController.swift */; };
-		3C0C4E7F2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E7E2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift */; };
 		3C0C4E812241AA4F00B37C2A /* NewFeedToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E802241AA4F00B37C2A /* NewFeedToolbarItem.swift */; };
 		3C0C4E842241B0B100B37C2A /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E832241B0B100B37C2A /* AppData.swift */; };
 		3C0C4E872241B10100B37C2A /* UserDefaults+Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E862241B10100B37C2A /* UserDefaults+Feeds.swift */; };
@@ -72,7 +71,6 @@
 		3C0C4E742241A89000B37C2A /* FeedListOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListOutlineView.swift; sourceTree = "<group>"; };
 		3C0C4E762241A8D900B37C2A /* FeedTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableCellView.swift; sourceTree = "<group>"; };
 		3C0C4E782241A8FF00B37C2A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		3C0C4E7E2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSToolbarItem+CustomIdentifiers.swift"; sourceTree = "<group>"; };
 		3C0C4E802241AA4F00B37C2A /* NewFeedToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedToolbarItem.swift; sourceTree = "<group>"; };
 		3C0C4E832241B0B100B37C2A /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		3C0C4E862241B10100B37C2A /* UserDefaults+Feeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Feeds.swift"; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 		3C0C4E7D2241A93B00B37C2A /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
-				3C0C4E7E2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift */,
 				3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */,
 				3C0C4E802241AA4F00B37C2A /* NewFeedToolbarItem.swift */,
 			);
@@ -489,7 +486,6 @@
 				3C9A24D9237B89D90083C471 /* ItemListView.swift in Sources */,
 				3C53BC6D22F158A600451117 /* DeleteFeedSheetWindowController.swift in Sources */,
 				3CF823B5223EDC6500AEC06A /* AppDelegate.swift in Sources */,
-				3C0C4E7F2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift in Sources */,
 				3C0C4E842241B0B100B37C2A /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

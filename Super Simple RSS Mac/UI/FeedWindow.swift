@@ -40,24 +40,26 @@ class FeedWindow: NSWindow {
         autorecalculatesKeyViewLoop = true
         
         title = "Super Simple RSS"
-//        titleVisibility = .hidden
-        
         contentViewController = feedSplitVC
         
+        if #available(OSX 11.0, *) {
+            toolbarStyle = .unified
+            subtitle = "Feed Name"
+        }
         toolbar = feedToolbar
         
         feedToolbar.displayMode = .iconOnly
-        
         feedToolbar.delegate = self
         feedToolbar.allowsUserCustomization = false
         
         if #available(OSX 11.0, *) {
-            feedToolbar.insertItem(withItemIdentifier: .toggleSidebar, at: 0)
-            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 1)
-            feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 2)
-//            feedToolbar.insertItem(withItemIdentifier: .sidebarTrackingSeparator, at: 3)
-            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 3)
-            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 4)
+            
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 0)
+            feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 1)
+            feedToolbar.insertItem(withItemIdentifier: .trackFeedSidebar, at: 2)
+            feedToolbar.insertItem(withItemIdentifier: .trackItemSidebar, at: 3)
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 4)
+            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 5)
         } else {
             feedToolbar.insertItem(withItemIdentifier: .toggleSidebar, at: 0)
             feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 1)
@@ -155,6 +157,18 @@ extension FeedWindow: NSToolbarDelegate {
             
             toolbarItem = NewFeedToolbarItem()
             
+        } else if itemIdentifier == .trackFeedSidebar {
+            
+            if #available(OSX 11.0, *) {
+                toolbarItem = NSTrackingSeparatorToolbarItem(identifier: .trackFeedSidebar, splitView: feedSplitVC.splitView, dividerIndex: 0)
+            }
+            
+        } else if itemIdentifier == .trackItemSidebar {
+            
+            if #available(OSX 11.0, *) {
+                toolbarItem = NSTrackingSeparatorToolbarItem(identifier: .trackItemSidebar, splitView: feedSplitVC.splitView, dividerIndex: 1)
+            }
+            
         } else {
             
             toolbarItem = NSToolbarItem(itemIdentifier: itemIdentifier)
@@ -169,8 +183,8 @@ extension FeedWindow: NSToolbarDelegate {
                 .toggleSidebar,
                 .flexibleSpace,
                 .refreshFeeds,
-//                .sidebarTrackingSeparator,
-                .flexibleSpace,
+                .trackFeedSidebar,
+                .trackItemSidebar,
                 .newFeed,
             ]
         } else {
@@ -189,8 +203,8 @@ extension FeedWindow: NSToolbarDelegate {
                 .toggleSidebar,
                 .flexibleSpace,
                 .refreshFeeds,
-//                .sidebarTrackingSeparator,
-                .flexibleSpace,
+                .trackFeedSidebar,
+                .trackItemSidebar,
                 .newFeed,
             ]
         } else {
@@ -203,4 +217,11 @@ extension FeedWindow: NSToolbarDelegate {
         }
     }
     
+}
+
+public extension NSToolbarItem.Identifier {
+    static let newFeed = NSToolbarItem.Identifier(rawValue: "NewFeed")
+    static let refreshFeeds = NSToolbarItem.Identifier(rawValue: "RefreshFeeds")
+    static let trackFeedSidebar = NSToolbarItem.Identifier(rawValue: "TrackFeedSidebar")
+    static let trackItemSidebar = NSToolbarItem.Identifier(rawValue: "TrackItemSidebar")
 }
