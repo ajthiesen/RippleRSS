@@ -10,6 +10,7 @@
 		3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AD2207C8E000139618 /* AppDelegate.swift */; };
 		3C0155B02207C8E000139618 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AF2207C8E000139618 /* FeedViewController.swift */; };
 		3C0155B82207C8E200139618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B62207C8E200139618 /* LaunchScreen.storyboard */; };
+		3C055608259E8AE20080957B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C0C4E682241A71E00B37C2A /* FeedWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E672241A71E00B37C2A /* FeedWindowController.swift */; };
 		3C0C4E6A2241A76A00B37C2A /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E692241A76A00B37C2A /* Globals.swift */; };
 		3C0C4E6C2241A79B00B37C2A /* FeedWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E6B2241A79B00B37C2A /* FeedWindow.swift */; };
@@ -19,7 +20,6 @@
 		3C0C4E752241A89000B37C2A /* FeedListOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E742241A89000B37C2A /* FeedListOutlineView.swift */; };
 		3C0C4E772241A8D900B37C2A /* FeedTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E762241A8D900B37C2A /* FeedTableCellView.swift */; };
 		3C0C4E792241A8FF00B37C2A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E782241A8FF00B37C2A /* DetailViewController.swift */; };
-		3C0C4E7F2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E7E2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift */; };
 		3C0C4E812241AA4F00B37C2A /* NewFeedToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E802241AA4F00B37C2A /* NewFeedToolbarItem.swift */; };
 		3C0C4E842241B0B100B37C2A /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E832241B0B100B37C2A /* AppData.swift */; };
 		3C0C4E872241B10100B37C2A /* UserDefaults+Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E862241B10100B37C2A /* UserDefaults+Feeds.swift */; };
@@ -35,7 +35,6 @@
 		3C407FD6259D8C6000D13AFF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD5259D8C6000D13AFF /* FeedKit */; };
 		3C407FDA259D8CA000D13AFF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD9259D8CA000D13AFF /* SwiftSoup */; };
 		3C407FDC259D8CA300D13AFF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FDB259D8CA300D13AFF /* FeedKit */; };
-		3C53B1A9243305270091CDB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C53BC6A22F156E200451117 /* AddFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6722F14C8500451117 /* AddFeedSheet.xib */; };
 		3C53BC6D22F158A600451117 /* DeleteFeedSheetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C53BC6B22F158A600451117 /* DeleteFeedSheetWindowController.swift */; };
 		3C53BC6E22F158A600451117 /* DeleteFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6C22F158A600451117 /* DeleteFeedSheet.xib */; };
@@ -72,7 +71,6 @@
 		3C0C4E742241A89000B37C2A /* FeedListOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListOutlineView.swift; sourceTree = "<group>"; };
 		3C0C4E762241A8D900B37C2A /* FeedTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableCellView.swift; sourceTree = "<group>"; };
 		3C0C4E782241A8FF00B37C2A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		3C0C4E7E2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSToolbarItem+CustomIdentifiers.swift"; sourceTree = "<group>"; };
 		3C0C4E802241AA4F00B37C2A /* NewFeedToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedToolbarItem.swift; sourceTree = "<group>"; };
 		3C0C4E832241B0B100B37C2A /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		3C0C4E862241B10100B37C2A /* UserDefaults+Feeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Feeds.swift"; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 		3C0C4E7D2241A93B00B37C2A /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
-				3C0C4E7E2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift */,
 				3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */,
 				3C0C4E802241AA4F00B37C2A /* NewFeedToolbarItem.swift */,
 			);
@@ -425,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C6767262207F7FF00D7F452 /* README.md in Resources */,
+				3C055608259E8AE20080957B /* Assets.xcassets in Resources */,
 				3C0155B82207C8E200139618 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +435,6 @@
 				3CF823BD223EDC6700AEC06A /* MainMenu.xib in Resources */,
 				3C53BC6A22F156E200451117 /* AddFeedSheet.xib in Resources */,
 				3C53BC6E22F158A600451117 /* DeleteFeedSheet.xib in Resources */,
-				3C53B1A9243305270091CDB1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +486,6 @@
 				3C9A24D9237B89D90083C471 /* ItemListView.swift in Sources */,
 				3C53BC6D22F158A600451117 /* DeleteFeedSheetWindowController.swift in Sources */,
 				3CF823B5223EDC6500AEC06A /* AppDelegate.swift in Sources */,
-				3C0C4E7F2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift in Sources */,
 				3C0C4E842241B0B100B37C2A /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,7 +641,7 @@
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -671,7 +667,7 @@
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

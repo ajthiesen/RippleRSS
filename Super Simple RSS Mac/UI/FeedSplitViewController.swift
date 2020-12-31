@@ -19,15 +19,24 @@ class FeedSplitViewController: NSSplitViewController {
         let feedListSVI = NSSplitViewItem(sidebarWithViewController: feedListVC)
         feedListSVI.maximumThickness = 400
         feedListSVI.minimumThickness = 200
+        if #available(OSX 11.0, *) {
+            feedListSVI.allowsFullHeightLayout = true
+        }
         addSplitViewItem(feedListSVI)
         
-        let itemListSVI = NSSplitViewItem(contentListWithViewController: itemListVC)
+        let itemListSVI = NSSplitViewItem(sidebarWithViewController: itemListVC)
         itemListSVI.maximumThickness = 400
         itemListSVI.minimumThickness = 200
+        if #available(OSX 11.0, *) {
+            itemListSVI.allowsFullHeightLayout = true
+        }
         addSplitViewItem(itemListSVI)
         
         let detailSVI = NSSplitViewItem(viewController: detailVC)
         detailSVI.minimumThickness = 350
+        if #available(OSX 11.0, *) {
+            detailSVI.allowsFullHeightLayout = true
+        }
         addSplitViewItem(detailSVI)
     }
 }

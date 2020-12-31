@@ -18,8 +18,14 @@ class NewFeedToolbarItem: NSToolbarItem {
     }
     
     init() {
+        
         button = NSButton(frame: NSRect(x: 0, y: 0, width: 32, height: 32))
-        icon = NSImage(imageLiteralResourceName: "ico-toolbar-plus")
+        
+        if #available(OSX 11.0, *) {
+            icon = NSImage(systemSymbolName: "plus", accessibilityDescription: "Add New Feed")!
+        } else {
+            icon = NSImage(imageLiteralResourceName: "ico-toolbar-plus")
+        }
         
         super.init(itemIdentifier: NewFeedToolbarItem.itemIdentifier)
         label = "New Feed"

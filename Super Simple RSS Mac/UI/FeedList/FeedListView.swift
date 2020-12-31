@@ -43,9 +43,10 @@ class FeedListView: NSView {
     
     override func layout() {
         if #available(OSX 11.0, *) {
-            outlineScrollView.frame = bounds.insetBy(dx: safeAreaInsets.left, dy: safeAreaInsets.top)
+            outlineScrollView.frame.size.width = bounds.width - (safeAreaInsets.left + safeAreaInsets.right)
+            outlineScrollView.frame.size.height = bounds.height - (safeAreaInsets.top + safeAreaInsets.bottom)
             outlineScrollView.frame.origin.x = safeAreaInsets.left
-            outlineScrollView.frame.origin.y = safeAreaInsets.top
+            outlineScrollView.frame.origin.y = 0
         } else {
             outlineScrollView.frame = bounds
         }
