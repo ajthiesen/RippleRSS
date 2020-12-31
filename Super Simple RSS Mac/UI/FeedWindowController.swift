@@ -20,7 +20,7 @@ class FeedWindowController: NSWindowController {
         
         feedWindow = FeedWindow(
             contentRect: NSRect(x: offsetX, y: offsetY, width: FeedWindow.defaultWidth, height: FeedWindow.defaultHeight),
-            styleMask: [.resizable, .closable, .miniaturizable, .titled ], backing: .buffered, defer: false)
+            styleMask: [.resizable, .closable, .miniaturizable, .titled, .fullSizeContentView ], backing: .buffered, defer: false)
         
         window = feedWindow!
         window?.setFrameAutosaveName(feedWindow!.frameAutosaveName)

@@ -211,4 +211,8 @@ extension AppDelegate {
         feedWC.feedWindow?.feedSplitVC.detailVC.load(url: url)
     }
     
+    public func showFeed(feed: Feed) {
+        feedWC.feedWindow?.feedSplitVC.itemListVC.feed = feed
+    }
+    
 }

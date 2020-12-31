@@ -13,25 +13,23 @@ import SafariServices
 class PostsViewController: UIViewController {
     
     var postsView = PostsView()
-    var result: Result
-    var error: Error?
 
-    init(withResult _result: Result) {
-        result = _result
+    var error: Error?
+    var feed: Feed
+
+    init(withFeed feed: Feed) {
+        
+        self.feed = feed
         
         super.init(nibName: nil, bundle: nil)
         
-        // TODO: Abstract feed types
-        switch result {
+        switch feed {
         case let .atom(feed):
             title = feed.title
         case let .rss(feed):
             title = feed.title
         case let .json(feed):
             title = feed.title
-        case let .failure(_error):
-            title = "Feed error"
-            error = _error
         }
     }
     
@@ -81,21 +79,14 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if result.isSuccess {
-            // TODO: Abstract feed types
-            switch result {
-            case let .atom(feed):
-                return feed.entries?.count ?? 0
-            case let .rss(feed):
-                return feed.items?.count ?? 0
-            case let .json(feed):
-                return feed.items?.count ?? 0
-            case .failure:
-                return 0
-            }
-            
+        switch feed {
+        case let .atom(feed):
+            return feed.entries?.count ?? 0
+        case let .rss(feed):
+            return feed.items?.count ?? 0
+        case let .json(feed):
+            return feed.items?.count ?? 0
         }
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,15 +94,13 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = postsView.tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier) as? PostTableViewCell else { return UITableViewCell() }
         
         // TODO: Abstract feed types
-        switch result {
+        switch feed {
         case let .atom(feed):
             cell.textLabel?.text = feed.entries?[indexPath.row].title
         case let .rss(feed):
             cell.textLabel?.text = feed.items?[indexPath.row].title
         case let .json(feed):
             cell.textLabel?.text = feed.items?[indexPath.row].title
-        case let .failure(_error):
-            cell.textLabel?.text = _error.localizedDescription
         }
         
         return cell
@@ -120,10 +109,9 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         var urlStr: String?
-        var error: Error?
         
         // TODO: Abstract feed types
-        switch result {
+        switch feed {
         case let .atom(feed):
             // This doesn't seem right
             urlStr = feed.entries?[indexPath.row].links?.first?.attributes?.href
@@ -131,8 +119,6 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
             urlStr = feed.items?[indexPath.row].link
         case let .json(feed):
             urlStr = feed.items?[indexPath.row].url
-        case let .failure(_error):
-            error = _error
         }
         
         if showErrorIfPresent(error) { return }

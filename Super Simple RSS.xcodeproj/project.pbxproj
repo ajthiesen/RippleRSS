@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AD2207C8E000139618 /* AppDelegate.swift */; };
 		3C0155B02207C8E000139618 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AF2207C8E000139618 /* FeedViewController.swift */; };
-		3C0155B52207C8E200139618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C0155B82207C8E200139618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B62207C8E200139618 /* LaunchScreen.storyboard */; };
 		3C0C4E682241A71E00B37C2A /* FeedWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E672241A71E00B37C2A /* FeedWindowController.swift */; };
 		3C0C4E6A2241A76A00B37C2A /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E692241A76A00B37C2A /* Globals.swift */; };
@@ -32,11 +31,22 @@
 		3C0ECF9E2207E3B1005FB711 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF9D2207E3B1005FB711 /* PostsViewController.swift */; };
 		3C0ECFA02207E3C1005FB711 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF9F2207E3C1005FB711 /* PostsView.swift */; };
 		3C0ECFA22207E3E3005FB711 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECFA12207E3E3005FB711 /* PostTableViewCell.swift */; };
+		3C407FD1259D8C3700D13AFF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD0259D8C3700D13AFF /* SwiftSoup */; };
+		3C407FD6259D8C6000D13AFF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD5259D8C6000D13AFF /* FeedKit */; };
+		3C407FDA259D8CA000D13AFF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD9259D8CA000D13AFF /* SwiftSoup */; };
+		3C407FDC259D8CA300D13AFF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FDB259D8CA300D13AFF /* FeedKit */; };
+		3C53B1A9243305270091CDB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C53BC6A22F156E200451117 /* AddFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6722F14C8500451117 /* AddFeedSheet.xib */; };
 		3C53BC6D22F158A600451117 /* DeleteFeedSheetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C53BC6B22F158A600451117 /* DeleteFeedSheetWindowController.swift */; };
 		3C53BC6E22F158A600451117 /* DeleteFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6C22F158A600451117 /* DeleteFeedSheet.xib */; };
 		3C6767242207ED9C00D7F452 /* FeedSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6767232207ED9C00D7F452 /* FeedSplitViewController.swift */; };
 		3C6767262207F7FF00D7F452 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3C6767252207F7FF00D7F452 /* README.md */; };
+		3C9A24D8237B89D60083C471 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24D6237B89590083C471 /* ItemListViewController.swift */; };
+		3C9A24D9237B89D90083C471 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24D4237B89590083C471 /* ItemListView.swift */; };
+		3C9A24DA237B89DB0083C471 /* ItemListOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24D3237B89590083C471 /* ItemListOutlineView.swift */; };
+		3C9A24DB237B89DD0083C471 /* ItemTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24D5237B89590083C471 /* ItemTableCellView.swift */; };
+		3C9A24DD237BB69F0083C471 /* NSTextField+SizeThatFitsWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24DC237BB69F0083C471 /* NSTextField+SizeThatFitsWidth.swift */; };
+		3C9A24DF237BB6F10083C471 /* NSString+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24DE237BB6F10083C471 /* NSString+Height.swift */; };
 		3CC2589F2242BE8700BA7534 /* AddFeedWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC2589E2242BE8700BA7534 /* AddFeedWindowController.swift */; };
 		3CC258AB2242D99100BA7534 /* RefreshFeedsToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */; };
 		3CD05ED1220943FF0023B920 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */; };
@@ -44,12 +54,9 @@
 		3CF823B8223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CF823B6223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld */; };
 		3CF823BA223EDC6700AEC06A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF823B9223EDC6700AEC06A /* Assets.xcassets */; };
 		3CF823BD223EDC6700AEC06A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF823BB223EDC6700AEC06A /* MainMenu.xib */; };
-		8901060414EFC5810FE1588F /* Pods_Super_Simple_RSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */; };
-		AB98FBB93D21E1288AFFE14D /* Pods_Super_Simple_RSS_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7902446DFBF71784D1BCB447 /* Pods_Super_Simple_RSS_Mac.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		180816AB8DE7A5C8033DAFE4 /* Pods-Super Simple RSS Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS Mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac.release.xcconfig"; sourceTree = "<group>"; };
 		3C0155AA2207C8E000139618 /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0155AD2207C8E000139618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C0155AF2207C8E000139618 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -84,21 +91,22 @@
 		3C6767232207ED9C00D7F452 /* FeedSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSplitViewController.swift; sourceTree = "<group>"; };
 		3C6767252207F7FF00D7F452 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3C862F3C22ADA30900F245E5 /* Super Simple RSS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Super Simple RSS.entitlements"; sourceTree = "<group>"; };
+		3C9A24D3237B89590083C471 /* ItemListOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListOutlineView.swift; sourceTree = "<group>"; };
+		3C9A24D4237B89590083C471 /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
+		3C9A24D5237B89590083C471 /* ItemTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableCellView.swift; sourceTree = "<group>"; };
+		3C9A24D6237B89590083C471 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
+		3C9A24DC237BB69F0083C471 /* NSTextField+SizeThatFitsWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+SizeThatFitsWidth.swift"; sourceTree = "<group>"; };
+		3C9A24DE237BB6F10083C471 /* NSString+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Height.swift"; sourceTree = "<group>"; };
 		3CC2589E2242BE8700BA7534 /* AddFeedWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedWindowController.swift; sourceTree = "<group>"; };
 		3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFeedsToolbarItem.swift; sourceTree = "<group>"; };
 		3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
-		3CF823B2223EDC6500AEC06A /* Super Simple RSS Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF823B4223EDC6500AEC06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CF823B7223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Super_Simple_RSS_Mac.xcdatamodel; sourceTree = "<group>"; };
 		3CF823B9223EDC6700AEC06A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CF823BC223EDC6700AEC06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3CF823BE223EDC6700AEC06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF823BF223EDC6700AEC06A /* Super_Simple_RSS_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Super_Simple_RSS_Mac.entitlements; sourceTree = "<group>"; };
-		7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS.debug.xcconfig"; sourceTree = "<group>"; };
-		7902446DFBF71784D1BCB447 /* Pods_Super_Simple_RSS_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Super_Simple_RSS_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS.release.xcconfig"; sourceTree = "<group>"; };
-		AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Super_Simple_RSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF68D3F9EC3BF1D8AE4F47D3 /* Pods-Super Simple RSS Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS Mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8901060414EFC5810FE1588F /* Pods_Super_Simple_RSS.framework in Frameworks */,
+				3C407FD1259D8C3700D13AFF /* SwiftSoup in Frameworks */,
+				3C407FD6259D8C6000D13AFF /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB98FBB93D21E1288AFFE14D /* Pods_Super_Simple_RSS_Mac.framework in Frameworks */,
+				3C407FDA259D8CA000D13AFF /* SwiftSoup in Frameworks */,
+				3C407FDC259D8CA300D13AFF /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +138,6 @@
 				3C0155AC2207C8E000139618 /* Super Simple RSS */,
 				3CF823B3223EDC6500AEC06A /* Super Simple RSS Mac */,
 				3C0155AB2207C8E000139618 /* Products */,
-				FF95CB7781797EA92F2D27F5 /* Pods */,
 				6637269970BBA0290CE542E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -137,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				3C0155AA2207C8E000139618 /* Super Simple RSS.app */,
-				3CF823B2223EDC6500AEC06A /* Super Simple RSS Mac.app */,
+				3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +175,7 @@
 				3C0C4E6B2241A79B00B37C2A /* FeedWindow.swift */,
 				3C0C4E6D2241A7D400B37C2A /* FeedSplitViewController.swift */,
 				3C0C4E712241A84500B37C2A /* FeedList */,
+				3C9A24D2237B7D580083C471 /* ItemList */,
 				3C0C4E7A2241A90200B37C2A /* DetailView */,
 			);
 			path = UI;
@@ -212,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				3C0C4E862241B10100B37C2A /* UserDefaults+Feeds.swift */,
+				3C9A24DC237BB69F0083C471 /* NSTextField+SizeThatFitsWidth.swift */,
+				3C9A24DE237BB6F10083C471 /* NSString+Height.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,6 +276,17 @@
 			path = Posts;
 			sourceTree = "<group>";
 		};
+		3C9A24D2237B7D580083C471 /* ItemList */ = {
+			isa = PBXGroup;
+			children = (
+				3C9A24D6237B89590083C471 /* ItemListViewController.swift */,
+				3C9A24D4237B89590083C471 /* ItemListView.swift */,
+				3C9A24D3237B89590083C471 /* ItemListOutlineView.swift */,
+				3C9A24D5237B89590083C471 /* ItemTableCellView.swift */,
+			);
+			path = ItemList;
+			sourceTree = "<group>";
+		};
 		3CC2589D2242BE7200BA7534 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,21 +319,8 @@
 		6637269970BBA0290CE542E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */,
-				7902446DFBF71784D1BCB447 /* Pods_Super_Simple_RSS_Mac.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FF95CB7781797EA92F2D27F5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */,
-				95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */,
-				CF68D3F9EC3BF1D8AE4F47D3 /* Pods-Super Simple RSS Mac.debug.xcconfig */,
-				180816AB8DE7A5C8033DAFE4 /* Pods-Super Simple RSS Mac.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,17 +330,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C0155BC2207C8E200139618 /* Build configuration list for PBXNativeTarget "Super Simple RSS" */;
 			buildPhases = (
-				49C7F564CC179FB5C73628EB /* [CP] Check Pods Manifest.lock */,
 				3C0155A62207C8E000139618 /* Sources */,
 				3C0155A72207C8E000139618 /* Frameworks */,
 				3C0155A82207C8E000139618 /* Resources */,
-				E9CC347C1B4204C8418537E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Super Simple RSS";
+			packageProductDependencies = (
+				3C407FD0259D8C3700D13AFF /* SwiftSoup */,
+				3C407FD5259D8C6000D13AFF /* FeedKit */,
+			);
 			productName = "Super Simple RSS";
 			productReference = 3C0155AA2207C8E000139618 /* Super Simple RSS.app */;
 			productType = "com.apple.product-type.application";
@@ -339,19 +351,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CF823C2223EDC6700AEC06A /* Build configuration list for PBXNativeTarget "Super Simple RSS Mac" */;
 			buildPhases = (
-				2389D3152DB9CBA141FEA1DC /* [CP] Check Pods Manifest.lock */,
 				3CF823AE223EDC6500AEC06A /* Sources */,
 				3CF823AF223EDC6500AEC06A /* Frameworks */,
 				3CF823B0223EDC6500AEC06A /* Resources */,
-				1FE0F7B8F155CF2658464BD9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Super Simple RSS Mac";
+			packageProductDependencies = (
+				3C407FD9259D8CA000D13AFF /* SwiftSoup */,
+				3C407FDB259D8CA300D13AFF /* FeedKit */,
+			);
 			productName = "Super Simple RSS Mac";
-			productReference = 3CF823B2223EDC6500AEC06A /* Super Simple RSS Mac.app */;
+			productReference = 3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -361,11 +375,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Geof Crowl";
 				TargetAttributes = {
 					3C0155A92207C8E000139618 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1110;
 					};
 					3CF823B1223EDC6500AEC06A = {
 						CreatedOnToolsVersion = 10.1;
@@ -390,6 +405,10 @@
 				Base,
 			);
 			mainGroup = 3C0155A12207C8E000139618;
+			packageReferences = (
+				3C407FCF259D8C3700D13AFF /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				3C407FD4259D8C6000D13AFF /* XCRemoteSwiftPackageReference "FeedKit" */,
+			);
 			productRefGroup = 3C0155AB2207C8E000139618 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -407,7 +426,6 @@
 			files = (
 				3C6767262207F7FF00D7F452 /* README.md in Resources */,
 				3C0155B82207C8E200139618 /* LaunchScreen.storyboard in Resources */,
-				3C0155B52207C8E200139618 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,83 +437,11 @@
 				3CF823BD223EDC6700AEC06A /* MainMenu.xib in Resources */,
 				3C53BC6A22F156E200451117 /* AddFeedSheet.xib in Resources */,
 				3C53BC6E22F158A600451117 /* DeleteFeedSheet.xib in Resources */,
+				3C53B1A9243305270091CDB1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1FE0F7B8F155CF2658464BD9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2389D3152DB9CBA141FEA1DC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Super Simple RSS Mac-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		49C7F564CC179FB5C73628EB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Super Simple RSS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E9CC347C1B4204C8418537E5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C0155A62207C8E000139618 /* Sources */ = {
@@ -522,8 +468,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C0C4E792241A8FF00B37C2A /* DetailViewController.swift in Sources */,
+				3C9A24DA237B89DB0083C471 /* ItemListOutlineView.swift in Sources */,
 				3C0C4E732241A87500B37C2A /* FeedListView.swift in Sources */,
 				3CC2589F2242BE8700BA7534 /* AddFeedWindowController.swift in Sources */,
+				3C9A24DF237BB6F10083C471 /* NSString+Height.swift in Sources */,
 				3C0C4E6C2241A79B00B37C2A /* FeedWindow.swift in Sources */,
 				3C0C4E6E2241A7D400B37C2A /* FeedSplitViewController.swift in Sources */,
 				3C0C4E772241A8D900B37C2A /* FeedTableCellView.swift in Sources */,
@@ -532,9 +480,13 @@
 				3CF823B8223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld in Sources */,
 				3C0C4E682241A71E00B37C2A /* FeedWindowController.swift in Sources */,
 				3C0C4E702241A84200B37C2A /* FeedListViewController.swift in Sources */,
+				3C9A24D8237B89D60083C471 /* ItemListViewController.swift in Sources */,
 				3CC258AB2242D99100BA7534 /* RefreshFeedsToolbarItem.swift in Sources */,
 				3C0C4E812241AA4F00B37C2A /* NewFeedToolbarItem.swift in Sources */,
 				3C0C4E872241B10100B37C2A /* UserDefaults+Feeds.swift in Sources */,
+				3C9A24DD237BB69F0083C471 /* NSTextField+SizeThatFitsWidth.swift in Sources */,
+				3C9A24DB237B89DD0083C471 /* ItemTableCellView.swift in Sources */,
+				3C9A24D9237B89D90083C471 /* ItemListView.swift in Sources */,
 				3C53BC6D22F158A600451117 /* DeleteFeedSheetWindowController.swift in Sources */,
 				3CF823B5223EDC6500AEC06A /* AppDelegate.swift in Sources */,
 				3C0C4E7F2241AA1F00B37C2A /* NSToolbarItem+CustomIdentifiers.swift in Sources */,
@@ -590,6 +542,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -651,6 +604,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -682,7 +636,6 @@
 		};
 		3C0155BD2207C8E200139618 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
@@ -693,6 +646,7 @@
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -701,14 +655,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_UIKITFORMAC = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
 		3C0155BE2207C8E200139618 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
@@ -719,6 +672,7 @@
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -727,14 +681,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_UIKITFORMAC = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
 		3CF823C0223EDC6700AEC06A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF68D3F9EC3BF1D8AE4F47D3 /* Pods-Super Simple RSS Mac.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS Mac/Super Simple RSS Mac.entitlements";
@@ -752,7 +705,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS-Mac";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Super Simple RSS";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -760,7 +713,6 @@
 		};
 		3CF823C1223EDC6700AEC06A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 180816AB8DE7A5C8033DAFE4 /* Pods-Super Simple RSS Mac.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS Mac/Super Simple RSS Mac.entitlements";
@@ -778,7 +730,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS-Mac";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Super Simple RSS";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -815,6 +767,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3C407FCF259D8C3700D13AFF /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
+		3C407FD4259D8C6000D13AFF /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C407FD0259D8C3700D13AFF /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C407FCF259D8C3700D13AFF /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		3C407FD5259D8C6000D13AFF /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C407FD4259D8C6000D13AFF /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		3C407FD9259D8CA000D13AFF /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C407FCF259D8C3700D13AFF /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		3C407FDB259D8CA300D13AFF /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C407FD4259D8C6000D13AFF /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3CF823B6223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld */ = {

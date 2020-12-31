@@ -89,7 +89,6 @@ class AppData {
 class Feed: Equatable {
     
     let url: URL?
-    var result: Result?
     var items: [FeedItem]?
     var name: String?
     
@@ -111,37 +110,42 @@ class Feed: Equatable {
             var _items: [FeedItem] = []
             
             switch result {
+            
+            case .success(let feed):
                 
-            case let .atom(feed):
+                switch feed {
                 
-                feed.entries?.forEach({ (entry) in
-                    guard let urlStr = entry.links?.first?.attributes?.href else { return }
-                    let url = URL(string: urlStr)
-                    _items.append(FeedItem(title: entry.title ?? "No title", url: url))
-                })
-                
-                self.name = feed.title
-                
-            case let .rss(feed):
-                
-                feed.items?.forEach({ (entry) in
-                    guard let urlStr = entry.link else { return }
-                    let url = URL(string: urlStr)
-                    _items.append(FeedItem(title: entry.title ?? "No title", url: url))
-                })
-                
-                self.name = feed.title
-                
-            case let .json(feed):
-                
-                feed.items?.forEach({ (entry) in
-                    guard let urlStr = entry.url else { return }
-                    let url = URL(string: urlStr)
-                    _items.append(FeedItem(title: entry.title ?? "No title", url: url))
-                })
-                
-                self.name = feed.title
-                
+                case let .atom(feed):
+                    
+                    feed.entries?.forEach({ (entry) in
+                        guard let urlStr = entry.links?.first?.attributes?.href else { return }
+                        let url = URL(string: urlStr)
+                        _items.append(FeedItem(title: entry.title ?? "No title", url: url))
+                    })
+                    
+                    self.name = feed.title
+                    
+                case let .rss(feed):
+                    
+                    feed.items?.forEach({ (entry) in
+                        guard let urlStr = entry.link else { return }
+                        let url = URL(string: urlStr)
+                        _items.append(FeedItem(title: entry.title ?? "No title", url: url))
+                    })
+                    
+                    self.name = feed.title
+                    
+                case let .json(feed):
+                    
+                    feed.items?.forEach({ (entry) in
+                        guard let urlStr = entry.url else { return }
+                        let url = URL(string: urlStr)
+                        _items.append(FeedItem(title: entry.title ?? "No title", url: url))
+                    })
+                    
+                    self.name = feed.title
+                }
+            
             case .failure(_):
                 return
             }

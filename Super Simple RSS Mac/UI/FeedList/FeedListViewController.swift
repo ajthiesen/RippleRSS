@@ -10,6 +10,7 @@ import Cocoa
 
 fileprivate extension Selector {
     static let deleteItem = #selector(FeedListViewController.deleteItem(sender:))
+    static let copyFeedLink = #selector(FeedListViewController.copyFeedLink(_:))
 }
 
 class FeedListViewController: NSViewController {
@@ -37,6 +38,37 @@ class FeedListViewController: NSViewController {
         feedListView.outlineView.reloadData()
     }
     
+    override func rightMouseDown(with event: NSEvent) {
+        
+        let index = feedListView.outlineView.selectedRow
+        let item = feedListView.outlineView.item(atRow: index)
+        guard let rowItem = item as? Feed else { return }
+        
+        if index < 0 || index > feeds.count {
+            return
+        }
+        
+        let rMenu = NSMenu()
+        let linkItem = NSMenuItem(title: "Copy Feed URL", action: .copyFeedLink, keyEquivalent: "")
+        linkItem.representedObject = rowItem
+        rMenu.addItem(linkItem)
+        
+        let point = feedListView.convert(event.locationInWindow, from: nil)
+        
+        rMenu.popUp(positioning: nil, at: point, in: feedListView)
+    }
+    
+    @objc func copyFeedLink(_ sender: NSMenuItem) {
+        guard let rowItem = sender.representedObject as? Feed else { return }
+        guard let url = rowItem.url else { return }
+        
+        print(url.absoluteString)
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(url.absoluteString, forType: .string)
+        NSPasteboard.general.setData(url.dataRepresentation, forType: .URL)
+    }
+    
     @objc func deleteItem(sender: Any) {
         
     }
@@ -47,55 +79,26 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         
-        if let feed = item as? Feed {
-            guard let items = feed.items else { return 0 }
-            return items.count
-        }
-        
         return feeds.count
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        
-        if let feed = item as? Feed {
-            guard let items = feed.items else { return FeedItem(title: "N/A", url: nil) }
-            return items[index]
-        }
         
         return feeds[index]
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         
-        if let feed = item as? Feed {
-            guard let items = feed.items else { return false }
-            return items.count > 0
-        }
-        
         return false
     }
     
     func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
         
-        if let _ = item as? Feed {
-            return 32
-        }
-        
-//        if let feedItem = item as? FeedItem {
-//            let _tf = NSTextField()
-//            _tf.stringValue = feedItem.title
-//            _tf.sizeToFit()
-//            print("1", _tf.frame)
-//            _tf.frame.size.width = outlineView.bounds.width - 32
-//            print("2", _tf.frame)
-//            return _tf.frame.size.height + 8
-//        }
-        
-        return 48
+        return 32
     }
     
     func outlineView(_ outlineView: NSOutlineView, toolTipFor cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, item: Any, mouseLocation: NSPoint) -> String {
-        return "Feed Item"
+        return "Feed"
     }
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
@@ -114,11 +117,6 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
             cell.objectValue = feed
         }
         
-        if let feedItem = item as? FeedItem {
-            cell.leftLabel.stringValue = feedItem.title
-            cell.objectValue = feedItem
-        }
-        
         return cell
     }
     
@@ -131,24 +129,9 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
         let selectedRow = outlineView.selectedRow
         print(selectedRow)
         
-        if let feedItem = outlineView.item(atRow: selectedRow) as? FeedItem {
-            
-            if let url = feedItem.url {
-                appDelegate?.showPostDetail(url: url)
-//                self.webView.mainFrame.load(URLRequest(url: url))
-            }
+        if let feed = outlineView.item(atRow: selectedRow) as? Feed {
+            appDelegate?.showFeed(feed: feed)
         }
-        
-        
-//        if let feedItem = outlineView.item(atRow: selectedIndex) as? FeedItem {
-//
-//            let url = URL(string: feedItem.url)
-//
-//            if let url = url {
-//
-//                self.webView.mainFrame.load(URLRequest(url: url))
-//            }
-//        }
     }
     
 }
