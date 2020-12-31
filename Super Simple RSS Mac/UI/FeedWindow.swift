@@ -54,17 +54,18 @@ class FeedWindow: NSWindow {
         
         if #available(OSX 11.0, *) {
             
-            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 0)
-            feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 1)
-            feedToolbar.insertItem(withItemIdentifier: .trackFeedSidebar, at: 2)
-            feedToolbar.insertItem(withItemIdentifier: .trackItemSidebar, at: 3)
-            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 4)
-            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 5)
+            feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 0)
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 1)
+            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 2)
+            
+            feedToolbar.insertItem(withItemIdentifier: .trackFeedSidebar, at: 3)
+            feedToolbar.insertItem(withItemIdentifier: .trackItemSidebar, at: 4)
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 5)
+            
         } else {
-            feedToolbar.insertItem(withItemIdentifier: .toggleSidebar, at: 0)
-            feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 1)
-            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 2)
-            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 3)
+            feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 0)
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 1)
+            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 2)
         }
 
     }
