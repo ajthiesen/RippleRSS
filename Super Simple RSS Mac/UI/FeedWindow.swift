@@ -55,9 +55,9 @@ class FeedWindow: NSWindow {
             feedToolbar.insertItem(withItemIdentifier: .toggleSidebar, at: 0)
             feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 1)
             feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 2)
-            feedToolbar.insertItem(withItemIdentifier: .sidebarTrackingSeparator, at: 3)
-            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 4)
-            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 5)
+//            feedToolbar.insertItem(withItemIdentifier: .sidebarTrackingSeparator, at: 3)
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 3)
+            feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 4)
         } else {
             feedToolbar.insertItem(withItemIdentifier: .toggleSidebar, at: 0)
             feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 1)
@@ -169,7 +169,7 @@ extension FeedWindow: NSToolbarDelegate {
                 .toggleSidebar,
                 .flexibleSpace,
                 .refreshFeeds,
-                .sidebarTrackingSeparator,
+//                .sidebarTrackingSeparator,
                 .flexibleSpace,
                 .newFeed,
             ]
@@ -189,7 +189,7 @@ extension FeedWindow: NSToolbarDelegate {
                 .toggleSidebar,
                 .flexibleSpace,
                 .refreshFeeds,
-                .sidebarTrackingSeparator,
+//                .sidebarTrackingSeparator,
                 .flexibleSpace,
                 .newFeed,
             ]
