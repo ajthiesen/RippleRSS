@@ -33,6 +33,8 @@
 		3C0ECFA22207E3E3005FB711 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECFA12207E3E3005FB711 /* PostTableViewCell.swift */; };
 		3C407FD1259D8C3700D13AFF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD0259D8C3700D13AFF /* SwiftSoup */; };
 		3C407FD6259D8C6000D13AFF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD5259D8C6000D13AFF /* FeedKit */; };
+		3C407FDA259D8CA000D13AFF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD9259D8CA000D13AFF /* SwiftSoup */; };
+		3C407FDC259D8CA300D13AFF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FDB259D8CA300D13AFF /* FeedKit */; };
 		3C53B1A9243305270091CDB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C53BC6A22F156E200451117 /* AddFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6722F14C8500451117 /* AddFeedSheet.xib */; };
 		3C53BC6D22F158A600451117 /* DeleteFeedSheetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C53BC6B22F158A600451117 /* DeleteFeedSheetWindowController.swift */; };
@@ -121,6 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C407FDA259D8CA000D13AFF /* SwiftSoup in Frameworks */,
+				3C407FDC259D8CA300D13AFF /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +364,10 @@
 			dependencies = (
 			);
 			name = "Super Simple RSS Mac";
+			packageProductDependencies = (
+				3C407FD9259D8CA000D13AFF /* SwiftSoup */,
+				3C407FDB259D8CA300D13AFF /* FeedKit */,
+			);
 			productName = "Super Simple RSS Mac";
 			productReference = 3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */;
 			productType = "com.apple.product-type.application";
@@ -863,6 +871,16 @@
 			productName = SwiftSoup;
 		};
 		3C407FD5259D8C6000D13AFF /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C407FD4259D8C6000D13AFF /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		3C407FD9259D8CA000D13AFF /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C407FCF259D8C3700D13AFF /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		3C407FDB259D8CA300D13AFF /* FeedKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3C407FD4259D8C6000D13AFF /* XCRemoteSwiftPackageReference "FeedKit" */;
 			productName = FeedKit;
