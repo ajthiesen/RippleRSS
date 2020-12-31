@@ -50,12 +50,9 @@
 		3CF823B8223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CF823B6223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld */; };
 		3CF823BA223EDC6700AEC06A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF823B9223EDC6700AEC06A /* Assets.xcassets */; };
 		3CF823BD223EDC6700AEC06A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF823BB223EDC6700AEC06A /* MainMenu.xib */; };
-		8901060414EFC5810FE1588F /* Pods_Super_Simple_RSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */; };
-		AB98FBB93D21E1288AFFE14D /* Pods_Super_Simple_RSS_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7902446DFBF71784D1BCB447 /* Pods_Super_Simple_RSS_Mac.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		180816AB8DE7A5C8033DAFE4 /* Pods-Super Simple RSS Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS Mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac.release.xcconfig"; sourceTree = "<group>"; };
 		3C0155AA2207C8E000139618 /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0155AD2207C8E000139618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C0155AF2207C8E000139618 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -106,11 +103,6 @@
 		3CF823BC223EDC6700AEC06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3CF823BE223EDC6700AEC06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF823BF223EDC6700AEC06A /* Super_Simple_RSS_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Super_Simple_RSS_Mac.entitlements; sourceTree = "<group>"; };
-		7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS.debug.xcconfig"; sourceTree = "<group>"; };
-		7902446DFBF71784D1BCB447 /* Pods_Super_Simple_RSS_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Super_Simple_RSS_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS/Pods-Super Simple RSS.release.xcconfig"; sourceTree = "<group>"; };
-		AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Super_Simple_RSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF68D3F9EC3BF1D8AE4F47D3 /* Pods-Super Simple RSS Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Super Simple RSS Mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Super Simple RSS Mac/Pods-Super Simple RSS Mac.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +110,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8901060414EFC5810FE1588F /* Pods_Super_Simple_RSS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB98FBB93D21E1288AFFE14D /* Pods_Super_Simple_RSS_Mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +130,6 @@
 				3C0155AC2207C8E000139618 /* Super Simple RSS */,
 				3CF823B3223EDC6500AEC06A /* Super Simple RSS Mac */,
 				3C0155AB2207C8E000139618 /* Products */,
-				FF95CB7781797EA92F2D27F5 /* Pods */,
 				6637269970BBA0290CE542E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -322,21 +311,8 @@
 		6637269970BBA0290CE542E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AAD75A2525993813DBA8B640 /* Pods_Super_Simple_RSS.framework */,
-				7902446DFBF71784D1BCB447 /* Pods_Super_Simple_RSS_Mac.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FF95CB7781797EA92F2D27F5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */,
-				95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */,
-				CF68D3F9EC3BF1D8AE4F47D3 /* Pods-Super Simple RSS Mac.debug.xcconfig */,
-				180816AB8DE7A5C8033DAFE4 /* Pods-Super Simple RSS Mac.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -717,7 +693,6 @@
 		};
 		3C0155BD2207C8E200139618 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7535F998AC8481D39C6C6403 /* Pods-Super Simple RSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
@@ -744,7 +719,6 @@
 		};
 		3C0155BE2207C8E200139618 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95618D21D2B89E4C18315052 /* Pods-Super Simple RSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
@@ -771,7 +745,6 @@
 		};
 		3CF823C0223EDC6700AEC06A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF68D3F9EC3BF1D8AE4F47D3 /* Pods-Super Simple RSS Mac.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS Mac/Super Simple RSS Mac.entitlements";
@@ -797,7 +770,6 @@
 		};
 		3CF823C1223EDC6700AEC06A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 180816AB8DE7A5C8033DAFE4 /* Pods-Super Simple RSS Mac.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS Mac/Super Simple RSS Mac.entitlements";
