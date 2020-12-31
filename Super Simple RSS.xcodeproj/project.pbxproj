@@ -32,6 +32,7 @@
 		3C0ECFA02207E3C1005FB711 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF9F2207E3C1005FB711 /* PostsView.swift */; };
 		3C0ECFA22207E3E3005FB711 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECFA12207E3E3005FB711 /* PostTableViewCell.swift */; };
 		3C407FD1259D8C3700D13AFF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD0259D8C3700D13AFF /* SwiftSoup */; };
+		3C407FD6259D8C6000D13AFF /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C407FD5259D8C6000D13AFF /* FeedKit */; };
 		3C53B1A9243305270091CDB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C53BC6A22F156E200451117 /* AddFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6722F14C8500451117 /* AddFeedSheet.xib */; };
 		3C53BC6D22F158A600451117 /* DeleteFeedSheetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C53BC6B22F158A600451117 /* DeleteFeedSheetWindowController.swift */; };
@@ -112,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C407FD1259D8C3700D13AFF /* SwiftSoup in Frameworks */,
+				3C407FD6259D8C6000D13AFF /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +339,7 @@
 			name = "Super Simple RSS";
 			packageProductDependencies = (
 				3C407FD0259D8C3700D13AFF /* SwiftSoup */,
+				3C407FD5259D8C6000D13AFF /* FeedKit */,
 			);
 			productName = "Super Simple RSS";
 			productReference = 3C0155AA2207C8E000139618 /* Super Simple RSS.app */;
@@ -400,6 +403,7 @@
 			mainGroup = 3C0155A12207C8E000139618;
 			packageReferences = (
 				3C407FCF259D8C3700D13AFF /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				3C407FD4259D8C6000D13AFF /* XCRemoteSwiftPackageReference "FeedKit" */,
 			);
 			productRefGroup = 3C0155AB2207C8E000139618 /* Products */;
 			projectDirPath = "";
@@ -842,6 +846,14 @@
 				minimumVersion = 2.3.2;
 			};
 		};
+		3C407FD4259D8C6000D13AFF /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -849,6 +861,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3C407FCF259D8C3700D13AFF /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
+		};
+		3C407FD5259D8C6000D13AFF /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C407FD4259D8C6000D13AFF /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 
