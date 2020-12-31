@@ -104,9 +104,14 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             
             DispatchQueue.main.async { [unowned self] in
                 
-                cell?.activityIndicator.stopAnimating()
-                let pVC = PostsViewController(withResult: result)
-                self.navigationController?.show(pVC, sender: self)
+                switch result {
+                case .success(let feed):
+                    cell?.activityIndicator.stopAnimating()
+                    let pVC = PostsViewController(withFeed: feed)
+                    self.navigationController?.show(pVC, sender: self)
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
             }
         }
     }
