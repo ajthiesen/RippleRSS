@@ -4,6 +4,9 @@
 
 A really simple RSS reader for iOS and macOS.
 
+### Installation
+There are no binary builds available at the moment. You'll need to download or clone the source and build it in Xcode.
+
 ### Goals
 
 #### Fast and lightweight RSS reader with a minimal but system native look and feel.
@@ -25,3 +28,10 @@ Currently all dependencies are managed with Swift Package Manager through Xcode.
 ### OS Support
 - The AppKit version of Super Simple RSS (deprecated) supports 10.13.0+
 - The iOS/Catalyst version supports iOS 14.0 and macOS 11.0 and newer.
+
+### Contributing
+- Fork it
+- Create your feature branch: `git checkout -b feature/fooBar`
+- Commit your changes: `git commit -am 'Add some fooBar'`
+- Push to the branch: `git push origin feature/fooBar`
+- Create a new Pull Request
