@@ -22,21 +22,13 @@ class ItemListView: NSView {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         
-        outlineView.backgroundColor = .clear
         outlineView.headerView = nil
-        outlineView.selectionHighlightStyle = .sourceList
         
         outlineView.allowsColumnReordering = false
         outlineView.allowsMultipleSelection = false
-//        outlineView.indentationPerLevel = 5
-//        outlineView.indentationMarkerFollowsCell = true
-//        outlineScrollView.backgroundColor = .windowBackgroundColor
-        outlineScrollView.backgroundColor = .clear
+        
         outlineScrollView.documentView = outlineView
         outlineScrollView.hasVerticalScroller = true
-//        outlineScrollView.automaticallyAdjustsContentInsets = false
-//        outlineScrollView.contentInsets = NSEdgeInsets(top: 10, left: 2, bottom: 10, right: 0)
-//        outlineScrollView.scrollerInsets = NSEdgeInsets(top: -10, left: 0, bottom: -10, right: 0)
         
         addSubview(outlineScrollView)
     }
