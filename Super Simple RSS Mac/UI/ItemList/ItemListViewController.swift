@@ -70,10 +70,12 @@ class ItemListViewController: NSViewController {
         if selected == -1 {
             // If there's no selection, selectedRow will return -1
             selected = 0
-        } else if selected == items.count {
-            selected = items.count - 1
         } else {
-            selected = reverse ? selected + 1 : selected - 1
+            selected = reverse ? selected - 1 : selected + 1
+        }
+        
+        if selected == items.count {
+            selected = items.count - 1
         }
         
         itemListView.outlineView.selectRowIndexes(IndexSet(integer: selected), byExtendingSelection: false)

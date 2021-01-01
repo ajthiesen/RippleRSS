@@ -64,11 +64,14 @@ class FeedListViewController: NSViewController {
         if selected == -1 {
             // If there's no selection, selectedRow will return -1
             selected = 0
-        } else if selected == feeds.count {
-            selected = feeds.count - 1
         } else {
-            selected = reverse ? selected + 1 : selected - 1
+            selected = reverse ? selected - 1 : selected + 1
         }
+        
+        if selected == feeds.count {
+            selected = feeds.count - 1
+        }
+        
         feedListView.outlineView.selectRowIndexes(IndexSet(integer: selected), byExtendingSelection: false)
         feedListView.outlineView.scrollRowToVisible(selected)
     }
