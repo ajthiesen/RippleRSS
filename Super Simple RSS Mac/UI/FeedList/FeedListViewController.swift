@@ -58,6 +58,24 @@ class FeedListViewController: NSViewController {
         rMenu.popUp(positioning: nil, at: point, in: feedListView)
     }
     
+    func moveToNextFeed(reverse: Bool = false) {
+        
+        var selected = feedListView.outlineView.selectedRow
+        if selected == -1 {
+            // If there's no selection, selectedRow will return -1
+            selected = 0
+        } else {
+            selected = reverse ? selected - 1 : selected + 1
+        }
+        
+        if selected == feeds.count {
+            selected = feeds.count - 1
+        }
+        
+        feedListView.outlineView.selectRowIndexes(IndexSet(integer: selected), byExtendingSelection: false)
+        feedListView.outlineView.scrollRowToVisible(selected)
+    }
+    
     @objc func copyFeedLink(_ sender: NSMenuItem) {
         guard let rowItem = sender.representedObject as? Feed else { return }
         guard let url = rowItem.url else { return }

@@ -24,13 +24,9 @@ class FeedListView: NSView {
         
         outlineView.backgroundColor = .clear
         outlineView.headerView = nil
-        outlineView.selectionHighlightStyle = .sourceList
         
         outlineView.allowsColumnReordering = false
         outlineView.allowsMultipleSelection = false
-//        outlineView.indentationPerLevel = 5
-//        outlineView.indentationMarkerFollowsCell = true
-//        outlineScrollView.backgroundColor = .windowBackgroundColor
         outlineScrollView.backgroundColor = .clear
         outlineScrollView.documentView = outlineView
         outlineScrollView.hasVerticalScroller = true

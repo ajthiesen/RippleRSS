@@ -19,7 +19,12 @@ class RefreshFeedsToolbarItem: NSToolbarItem {
     
     init() {
         button = NSButton(frame: NSRect(x: 0, y: 0, width: 32, height: 32))
-        icon = NSImage(named: NSImage.refreshTemplateName)!
+        
+        if #available(OSX 11.0, *) {
+            icon = NSImage(systemSymbolName: "arrow.clockwise", accessibilityDescription: "Refresh Feeds")!
+        } else {
+            icon = NSImage(named: NSImage.refreshTemplateName)!
+        }
         
         super.init(itemIdentifier: RefreshFeedsToolbarItem.itemIdentifier)
         label = "Refresh Feeds"
