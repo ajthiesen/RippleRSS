@@ -60,6 +60,26 @@ class ItemListViewController: NSViewController {
         rMenu.popUp(positioning: nil, at: point, in: itemListView)
     }
     
+    func moveToNextItem(reverse: Bool = false) {
+        
+        guard let feed = feed else { return }
+        guard let items = feed.items else { return }
+        
+        var selected = itemListView.outlineView.selectedRow
+        
+        if selected == -1 {
+            // If there's no selection, selectedRow will return -1
+            selected = 0
+        } else if selected == items.count {
+            selected = items.count - 1
+        } else {
+            selected = reverse ? selected + 1 : selected - 1
+        }
+        
+        itemListView.outlineView.selectRowIndexes(IndexSet(integer: selected), byExtendingSelection: false)
+        itemListView.outlineView.scrollRowToVisible(selected)
+    }
+    
     @objc func copyLink(_ sender: NSMenuItem) {
         
         guard let rowItem = sender.representedObject as? FeedItem else { return }
