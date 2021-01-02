@@ -39,8 +39,6 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        navigationController?.isToolbarHidden = false
-        
         if let selectedIndexPath = feedView.tableView.indexPathForSelectedRow {
             feedView.tableView.deselectRow(at: selectedIndexPath, animated: true)
         }

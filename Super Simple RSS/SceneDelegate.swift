@@ -28,6 +28,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = feedSplitVC
             window.makeKeyAndVisible()
             
+            #if targetEnvironment(macCatalyst)
+            if let titlebar = windowScene.titlebar {
+                
+                let toolbar = NSToolbar(identifier: "com.geofcrowl.Super-Simple-RSS.toolbar")
+                
+                toolbar.delegate = self
+                toolbar.allowsUserCustomization = false
+                
+                titlebar.toolbar = toolbar
+                // TODO: Unified is larger and the toolbar button
+                // items don't properly fill the space
+                titlebar.toolbarStyle = .unified
+                titlebar.titleVisibility = .hidden
+            }
+            #endif
+            
             self.window = window
             window.makeKeyAndVisible()
         }
@@ -64,3 +80,58 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+#if targetEnvironment(macCatalyst)
+
+private extension NSToolbarItem.Identifier {
+    
+    static let refreshFeeds = NSToolbarItem.Identifier("com.geofcrowl.Super-Simple-RSS.refreshFeeds")
+    static let newFeed = NSToolbarItem.Identifier("com.geofcrowl.Super-Simple-RSS.newFeed")
+}
+
+extension SceneDelegate: NSToolbarDelegate {
+    
+    var toolbarIdentifiers: [NSToolbarItem.Identifier] {
+        [
+            .refreshFeeds,
+            .flexibleSpace,
+            .newFeed,
+            .primarySidebarTrackingSeparatorItemIdentifier,
+            .supplementarySidebarTrackingSeparatorItemIdentifier,
+            .flexibleSpace,
+        ]
+    }
+    
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return toolbarIdentifiers
+    }
+    
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return toolbarIdentifiers
+    }
+    
+    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        
+        var toolbarItem: NSToolbarItem?
+        
+        switch itemIdentifier {
+        
+        case .refreshFeeds:
+            
+            let barItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
+            
+            toolbarItem = NSToolbarItem(itemIdentifier: .refreshFeeds, barButtonItem: barItem)
+            
+        case .newFeed:
+            
+            let barItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+            
+            toolbarItem = NSToolbarItem(itemIdentifier: .newFeed, barButtonItem: barItem)
+            
+        default:
+            toolbarItem = NSToolbarItem(itemIdentifier: itemIdentifier)
+        }
+        
+        return toolbarItem
+    }
+}
+#endif
