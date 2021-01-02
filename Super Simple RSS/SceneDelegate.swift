@@ -139,18 +139,12 @@ extension SceneDelegate: NSToolbarDelegate {
     }
     
     @objc func refreshFeeds(_ sender: Any) {
-        
-        print("Reloading")
+
+        guard let window = self.window else { return }
+        guard let feedsSplitVC = window.rootViewController as? FeedsSplitViewController else { return }
         
         AppData.refreshFeeds {
-            
-            print("window")
-            guard let window = self.window else { return }
-            print("splitVC")
-            guard let feedsSplitVC = window.rootViewController as? FeedsSplitViewController else { return }
-            
             // TODO: Refresh notification or combine publisher
-            print("Reloading")
             feedsSplitVC.feedsVC.feedsView.tableView.reloadData()
         }
     }
