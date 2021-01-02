@@ -49,6 +49,10 @@
 		3CC258AB2242D99100BA7534 /* RefreshFeedsToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */; };
 		3CCEAC3E25A0F36B0023EA4E /* FindFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */; };
 		3CCEAC3F25A0F36B0023EA4E /* FindFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */; };
+		3CCEAC4625A10D8F0023EA4E /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC4525A10D8F0023EA4E /* Feed.swift */; };
+		3CCEAC4725A10D8F0023EA4E /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC4525A10D8F0023EA4E /* Feed.swift */; };
+		3CCEAC4D25A10DB50023EA4E /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC4C25A10DB50023EA4E /* FeedItem.swift */; };
+		3CCEAC4E25A10DB50023EA4E /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC4C25A10DB50023EA4E /* FeedItem.swift */; };
 		3CD05ED1220943FF0023B920 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */; };
 		3CF3AA0D25A0206B00BB4D37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AA0C25A0206B00BB4D37 /* SceneDelegate.swift */; };
 		3CF823B5223EDC6500AEC06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF823B4223EDC6500AEC06A /* AppDelegate.swift */; };
@@ -99,6 +103,8 @@
 		3CC2589E2242BE8700BA7534 /* AddFeedWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedWindowController.swift; sourceTree = "<group>"; };
 		3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFeedsToolbarItem.swift; sourceTree = "<group>"; };
 		3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFeed.swift; sourceTree = "<group>"; };
+		3CCEAC4525A10D8F0023EA4E /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		3CCEAC4C25A10DB50023EA4E /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		3CF3AA0C25A0206B00BB4D37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,13 +218,14 @@
 			path = Toolbar;
 			sourceTree = "<group>";
 		};
-		3C0C4E852241B0B400B37C2A /* Models */ = {
+		3C0C4E852241B0B400B37C2A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3CCEAC4425A10D720023EA4E /* Models */,
 				3C0C4E832241B0B100B37C2A /* AppData.swift */,
 				3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */,
 			);
-			path = Models;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		3C0C4E882241B10500B37C2A /* Extensions */ = {
@@ -281,7 +288,7 @@
 		3C94525E25A0E685006DF8AA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				3C0C4E852241B0B400B37C2A /* Models */,
+				3C0C4E852241B0B400B37C2A /* Data */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -306,6 +313,15 @@
 				3CC2589E2242BE8700BA7534 /* AddFeedWindowController.swift */,
 			);
 			path = Modals;
+			sourceTree = "<group>";
+		};
+		3CCEAC4425A10D720023EA4E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3CCEAC4525A10D8F0023EA4E /* Feed.swift */,
+				3CCEAC4C25A10DB50023EA4E /* FeedItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3CF823B3223EDC6500AEC06A /* Super Simple RSS Mac */ = {
@@ -460,10 +476,12 @@
 				3C94527725A0E89F006DF8AA /* AppData.swift in Sources */,
 				3C0ECF922207CF61005FB711 /* FeedsView.swift in Sources */,
 				3C0ECF972207DC4E005FB711 /* UserDefaults+Feeds.swift in Sources */,
+				3CCEAC4625A10D8F0023EA4E /* Feed.swift in Sources */,
 				3C0ECF9A2207E148005FB711 /* FeedTableViewCell.swift in Sources */,
 				3CD05ED1220943FF0023B920 /* PostDetailViewController.swift in Sources */,
 				3C0155B02207C8E000139618 /* FeedsViewController.swift in Sources */,
 				3C0ECF9E2207E3B1005FB711 /* PostsViewController.swift in Sources */,
+				3CCEAC4D25A10DB50023EA4E /* FeedItem.swift in Sources */,
 				3C6767242207ED9C00D7F452 /* FeedsSplitViewController.swift in Sources */,
 				3CCEAC3E25A0F36B0023EA4E /* FindFeed.swift in Sources */,
 				3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */,
@@ -483,6 +501,8 @@
 				3CC2589F2242BE8700BA7534 /* AddFeedWindowController.swift in Sources */,
 				3C9A24DF237BB6F10083C471 /* NSString+Height.swift in Sources */,
 				3C0C4E6C2241A79B00B37C2A /* FeedWindow.swift in Sources */,
+				3CCEAC4E25A10DB50023EA4E /* FeedItem.swift in Sources */,
+				3CCEAC4725A10D8F0023EA4E /* Feed.swift in Sources */,
 				3C0C4E6E2241A7D400B37C2A /* FeedSplitViewController.swift in Sources */,
 				3C0C4E772241A8D900B37C2A /* FeedTableCellView.swift in Sources */,
 				3C0C4E752241A89000B37C2A /* FeedListOutlineView.swift in Sources */,

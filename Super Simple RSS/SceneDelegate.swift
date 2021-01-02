@@ -145,7 +145,7 @@ extension SceneDelegate: NSToolbarDelegate {
         
         AppData.refreshFeeds {
             // TODO: Refresh notification or combine publisher
-            feedsSplitVC.feedsVC.feedsView.tableView.reloadData()
+            feedsSplitVC.feedsVC.applySnapshot()
         }
     }
     

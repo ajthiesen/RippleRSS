@@ -17,6 +17,23 @@ class FeedsViewController: UIViewController {
     
     let feedsView = FeedsView()
     
+    private lazy var dataSource = makeDataSource()
+    
+    typealias DataSource = UITableViewDiffableDataSource<Section, Feed>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Feed>
+    
+    enum Section: CaseIterable {
+        case smart
+        case feeds
+        
+        var header: String? {
+            switch self {
+            case .smart: return "Smart Groups"
+            case .feeds: return "Feeds"
+            }
+        }
+    }
+    
     fileprivate var feeds: [Feed] {
         return AppData.shared.feeds
     }
@@ -33,7 +50,6 @@ class FeedsViewController: UIViewController {
         
         view = feedsView
         
-        feedsView.tableView.dataSource = self
         feedsView.tableView.delegate = self
         
         #if targetEnvironment(macCatalyst)
@@ -41,7 +57,7 @@ class FeedsViewController: UIViewController {
         #endif
         
         AppData.refreshFeeds { [unowned self] in
-            self.feedsView.tableView.reloadData()
+            self.applySnapshot()
         }
     }
     
@@ -50,6 +66,38 @@ class FeedsViewController: UIViewController {
         if let selectedIndexPath = feedsView.tableView.indexPathForSelectedRow {
             feedsView.tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
+        
+        applySnapshot(animatingDifferences: false)
+    }
+    
+    func makeDataSource() -> FeedsDataSource {
+        
+        let dataSource = FeedsDataSource(
+            tableView: feedsView.tableView,
+            cellProvider: { (tableView, indexPath, feed) ->
+                UITableViewCell? in
+                
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: FeedTableViewCell.identifier,
+                    for: indexPath)// as? UITableViewCell
+                
+                cell.textLabel?.text = feed.name ?? feed.url?.absoluteString
+                
+                return cell
+        })
+        
+        return dataSource
+    }
+    
+    func applySnapshot(animatingDifferences: Bool = true) {
+        
+        var snapshot = Snapshot()
+        
+        snapshot.appendSections([.smart, .feeds])
+        
+        snapshot.appendItems(feeds, toSection: .feeds)
+        
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
     
     func feedItemSuccess(url: URL) {
@@ -61,7 +109,7 @@ class FeedsViewController: UIViewController {
             AppData.addFeed(url.absoluteString)
             AppData.refreshFeeds {
                 // TODO: This runs on every feed item
-                self.feedsView.tableView.reloadData()
+                self.applySnapshot()
             }
         }))
         
@@ -101,7 +149,7 @@ class FeedsViewController: UIViewController {
                 }
             }
             
-            strongSelf.feedsView.tableView.reloadData()
+            strongSelf.applySnapshot()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
@@ -117,23 +165,38 @@ class FeedsViewController: UIViewController {
 
 }
 
-extension FeedsViewController: UITableViewDelegate, UITableViewDataSource {
+//
+// MARK: - DataSource overrides
+//
+
+extension FeedsViewController {
+    
+    class FeedsDataSource: DataSource {
+        
+        override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+            let section = self.snapshot().sectionIdentifiers[section]
+            if self.snapshot().itemIdentifiers(inSection: section).count == 0 {
+                return nil
+            }
+            return section.header
+        }
+        
+    }
+}
+
+//
+// MARK: - UITableViewDelegate Methods
+//
+
+extension FeedsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AppData.shared.feedURLs.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = feedsView.tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier) as? FeedTableViewCell else { return UITableViewCell() }
-        
-        if indexPath.row >= feeds.count { return cell }
-        if indexPath.row < 0 { return cell }
-        
-        let feed = feeds[indexPath.row]
-        cell.textLabel?.text = feed.name ?? feed.url?.absoluteString
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -153,14 +216,6 @@ extension FeedsViewController: UITableViewDelegate, UITableViewDataSource {
         if let feedsSplitVC = splitViewController as? FeedsSplitViewController {
             feedsSplitVC.postsVC.feed = feed
         }
-    }
-    
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
@@ -188,10 +243,10 @@ extension FeedsViewController: UITableViewDelegate, UITableViewDataSource {
                         guard let urlStr = textField.text else { return }
                         
                         AppData.editFeed(urlStr, at: indexPath.row)
-                        self?.feedsView.tableView.reloadData()
+                        strongSelf.applySnapshot()
                     }
                     
-                    strongSelf.feedsView.tableView.reloadData()
+                    strongSelf.applySnapshot()
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
@@ -204,7 +259,7 @@ extension FeedsViewController: UITableViewDelegate, UITableViewDataSource {
             let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash")) { [unowned self] (action) in
                 
                 AppData.deleteFeed(feed)
-                self.feedsView.tableView.reloadData()
+                self.applySnapshot()
             }
             
             return UIMenu(title: "", image: nil, children: [edit, delete])
