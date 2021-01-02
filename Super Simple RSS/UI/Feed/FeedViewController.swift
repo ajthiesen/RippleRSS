@@ -31,6 +31,10 @@ class FeedViewController: UIViewController {
         
         feedView.tableView.dataSource = self
         feedView.tableView.delegate = self
+        
+        #if targetEnvironment(macCatalyst)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {

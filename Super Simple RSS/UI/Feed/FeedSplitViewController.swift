@@ -15,13 +15,13 @@ class FeedSplitViewController: UISplitViewController {
         super.viewDidLoad()
         
         #if targetEnvironment(macCatalyst)
-            primaryBackgroundStyle = .sidebar
+        primaryBackgroundStyle = .sidebar
         #endif
         
         preferredDisplayMode = .twoBesideSecondary
         
         setViewController(FeedViewController(), for: .primary)
-        setViewController(FeedViewController(), for: .supplementary)
+        setViewController(ItemViewController(), for: .supplementary)
     }
     
 }
