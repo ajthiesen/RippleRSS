@@ -10,46 +10,18 @@ import UIKit
 
 class FeedSplitViewController: UISplitViewController {
     
-    var masterViewController: UIViewController? {
+    override func viewDidLoad() {
         
-        if viewControllers.indices.contains(0) {
-            return viewControllers[0]
-        }
-        return nil
-    }
-    
-    var detailViewController: UIViewController? {
-        
-        if viewControllers.indices.contains(1) {
-            return viewControllers[1]
-        }
-        return nil
-    }
-    
-    init() {
-        
-        super.init(nibName: nil, bundle: nil)
-        
-        preferredDisplayMode = .allVisible
-        
-        viewControllers = [
-            FeedNavigationViewController(rootViewController: FeedViewController()),
-        ]
-        
-        delegate = self
+        super.viewDidLoad()
         
         #if targetEnvironment(macCatalyst)
             primaryBackgroundStyle = .sidebar
         #endif
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        
+        preferredDisplayMode = .twoBesideSecondary
+        
+        setViewController(FeedViewController(), for: .primary)
+        setViewController(FeedViewController(), for: .supplementary)
     }
     
 }
-
-extension FeedSplitViewController: UISplitViewControllerDelegate {
-    
-}
-

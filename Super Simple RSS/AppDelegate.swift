@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let feedSplitVC = FeedSplitViewController()
+        let feedSplitVC = FeedSplitViewController(style: .tripleColumn)
+        
         window?.rootViewController = feedSplitVC
         window?.makeKeyAndVisible()
         
