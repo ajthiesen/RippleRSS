@@ -140,10 +140,27 @@ extension SceneDelegate: NSToolbarDelegate {
     
     @objc func refreshFeeds(_ sender: Any) {
         
+        print("Reloading")
+        
+        AppData.refreshFeeds {
+            
+            print("window")
+            guard let window = self.window else { return }
+            print("splitVC")
+            guard let feedsSplitVC = window.rootViewController as? FeedsSplitViewController else { return }
+            
+            // TODO: Refresh notification or combine publisher
+            print("Reloading")
+            feedsSplitVC.feedsVC.feedsView.tableView.reloadData()
+        }
     }
     
     @objc func newFeed(_ sender: Any) {
+        guard let window = window else { return }
+        guard let feedsSplitVC = window.rootViewController as? FeedsSplitViewController else { return }
         
+        // TODO: Refresh notification or combine publisher
+        feedsSplitVC.feedsVC.addFeedItem()
     }
 }
 #endif

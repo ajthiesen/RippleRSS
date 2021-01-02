@@ -17,6 +17,7 @@ class PostsViewController: UIViewController {
     var feed: Feed? {
         didSet {
             title = feed?.name
+            postsView.tableView.reloadData()
         }
     }
     
@@ -31,8 +32,6 @@ class PostsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        navigationController?.isToolbarHidden = true
         
         #if targetEnvironment(macCatalyst)
         navigationController?.setNavigationBarHidden(true, animated: false)

@@ -77,12 +77,11 @@ class AppData {
         }
     }
     
-    static func refreshFeeds(completion: (()->Void)? ) {
+    static func refreshFeeds(rowCompletion: (()->Void)? ) {
         for feed in AppData.shared.feeds {
-            feed.load(completion: completion)
+            feed.load(completion: rowCompletion)
         }
     }
-    
 
 }
 
@@ -147,6 +146,7 @@ class Feed: Equatable {
                 }
             
             case .failure(_):
+                // TODO: Throw failure
                 return
             }
             

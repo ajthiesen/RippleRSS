@@ -47,6 +47,8 @@
 		3C9A24DF237BB6F10083C471 /* NSString+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24DE237BB6F10083C471 /* NSString+Height.swift */; };
 		3CC2589F2242BE8700BA7534 /* AddFeedWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC2589E2242BE8700BA7534 /* AddFeedWindowController.swift */; };
 		3CC258AB2242D99100BA7534 /* RefreshFeedsToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */; };
+		3CCEAC3E25A0F36B0023EA4E /* FindFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */; };
+		3CCEAC3F25A0F36B0023EA4E /* FindFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */; };
 		3CD05ED1220943FF0023B920 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */; };
 		3CF3AA0D25A0206B00BB4D37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AA0C25A0206B00BB4D37 /* SceneDelegate.swift */; };
 		3CF823B5223EDC6500AEC06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF823B4223EDC6500AEC06A /* AppDelegate.swift */; };
@@ -96,6 +98,7 @@
 		3C9A24DE237BB6F10083C471 /* NSString+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Height.swift"; sourceTree = "<group>"; };
 		3CC2589E2242BE8700BA7534 /* AddFeedWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedWindowController.swift; sourceTree = "<group>"; };
 		3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFeedsToolbarItem.swift; sourceTree = "<group>"; };
+		3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFeed.swift; sourceTree = "<group>"; };
 		3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		3CF3AA0C25A0206B00BB4D37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				3C0C4E832241B0B100B37C2A /* AppData.swift */,
+				3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,6 +465,7 @@
 				3C0155B02207C8E000139618 /* FeedsViewController.swift in Sources */,
 				3C0ECF9E2207E3B1005FB711 /* PostsViewController.swift in Sources */,
 				3C6767242207ED9C00D7F452 /* FeedsSplitViewController.swift in Sources */,
+				3CCEAC3E25A0F36B0023EA4E /* FindFeed.swift in Sources */,
 				3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */,
 				3C0ECFA22207E3E3005FB711 /* PostTableViewCell.swift in Sources */,
 				3C0ECFA02207E3C1005FB711 /* PostsView.swift in Sources */,
@@ -486,6 +491,7 @@
 				3C0C4E682241A71E00B37C2A /* FeedWindowController.swift in Sources */,
 				3C0C4E702241A84200B37C2A /* FeedListViewController.swift in Sources */,
 				3C9A24D8237B89D60083C471 /* ItemListViewController.swift in Sources */,
+				3CCEAC3F25A0F36B0023EA4E /* FindFeed.swift in Sources */,
 				3CC258AB2242D99100BA7534 /* RefreshFeedsToolbarItem.swift in Sources */,
 				3C0C4E812241AA4F00B37C2A /* NewFeedToolbarItem.swift in Sources */,
 				3C0C4E872241B10100B37C2A /* UserDefaults+Feeds.swift in Sources */,
@@ -645,7 +651,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
@@ -655,9 +661,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
@@ -671,7 +678,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Super Simple RSS/Super Simple RSS.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
@@ -681,9 +688,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";

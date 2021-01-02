@@ -10,6 +10,9 @@ import UIKit
 
 class FeedsSplitViewController: UISplitViewController {
     
+    let feedsVC = FeedsViewController()
+    let postsVC = PostsViewController()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -20,8 +23,8 @@ class FeedsSplitViewController: UISplitViewController {
         
         preferredDisplayMode = .twoBesideSecondary
         
-        setViewController(FeedsViewController(), for: .primary)
-        setViewController(PostsViewController(), for: .supplementary)
+        setViewController(feedsVC, for: .primary)
+        setViewController(postsVC, for: .supplementary)
     }
     
 }

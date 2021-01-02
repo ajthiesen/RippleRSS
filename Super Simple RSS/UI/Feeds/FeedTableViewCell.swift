@@ -20,7 +20,6 @@ class FeedTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = .blue
         accessoryView = activityIndicator
     }
     

@@ -39,6 +39,10 @@ class FeedsViewController: UIViewController {
         #if targetEnvironment(macCatalyst)
         navigationController?.setNavigationBarHidden(true, animated: false)
         #endif
+        
+        AppData.refreshFeeds { [unowned self] in
+            self.feedsView.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +58,8 @@ class FeedsViewController: UIViewController {
         
         alert.addTextField { (textField) in
             textField.returnKeyType = .done
+            textField.placeholder = "Site or Feed URL"
+            textField.text = "http://www."
         }
         
         alert.addAction(UIAlertAction(title: "Add Feed", style: .default, handler: { [weak self] (action) in
@@ -65,10 +71,22 @@ class FeedsViewController: UIViewController {
                 
                 guard let urlStr = textField.text else { return }
                 
-                AppData.addFeed(urlStr)
+                FindFeed.findFeedHandler(urlStr: urlStr) { [unowned self] (url) in
+                    AppData.addFeed(url.absoluteString)
+                    AppData.refreshFeeds {
+                        // TODO: This runs on every feed item
+                        self?.feedsView.tableView.reloadData()
+                    }
+                } onError: { (error) in
+                    print(error?.localizedDescription ?? "nil error")
+                }
             }
             
             strongSelf.feedsView.tableView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
         }))
         
         navigationController?.present(alert, animated: true)
@@ -90,24 +108,32 @@ extension FeedsViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = feedsView.tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier) as? FeedTableViewCell else { return UITableViewCell() }
         
-        cell.textLabel?.text = AppData.shared.feedURLs[indexPath.row]?.absoluteString
+        if indexPath.row >= feeds.count { return cell }
+        if indexPath.row < 0 { return cell }
+        
+        let feed = feeds[indexPath.row]
+        cell.textLabel?.text = feed.name ?? feed.url?.absoluteString
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if indexPath.row >= feeds.count { return }
+        if indexPath.row < 0 { return }
+        let feed = feeds[indexPath.row]
+        
         var cell: FeedTableViewCell?
         if let _cell = tableView.cellForRow(at: indexPath) as? FeedTableViewCell {
             cell = _cell
             cell?.activityIndicator.startAnimating()
         }
-        
-        let feed = feeds[indexPath.row]
-        
+
         cell?.activityIndicator.stopAnimating()
-        let pVC = PostsViewController()
-        pVC.feed = feed
+        
+        if let feedsSplitVC = splitViewController as? FeedsSplitViewController {
+            feedsSplitVC.postsVC.feed = feed
+        }
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -118,45 +144,54 @@ extension FeedsViewController: UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         
-        // Edit feed
-        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { [unowned self] (action, indexPath)  in
+        let feed = feeds[indexPath.row]
+        
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (menuElement) -> UIMenu? in
             
-            let alert = UIAlertController(title: "Edit Feed", message: "Feed URL?", preferredStyle: .alert)
-            
-            alert.addTextField { (textField) in
-                textField.returnKeyType = .done
-                textField.text = AppData.shared.feedURLs[indexPath.row]?.absoluteString
-            }
-            
-            alert.addAction(UIAlertAction(title: "Save Changes", style: .default, handler: { [weak self] (action) in
+            let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { (action) in
                 
-                guard let strongSelf = self else { return }
-                guard let textFields = alert.textFields else { return }
+                let alert = UIAlertController(title: "Edit Feed", message: "Feed URL?", preferredStyle: .alert)
                 
-                if let textField = textFields.first {
-                    
-                    guard let urlStr = textField.text else { return }
-                    
-                    AppData.editFeed(urlStr, at: indexPath.row)
+                alert.addTextField { (textField) in
+                    textField.returnKeyType = .done
+                    textField.text = AppData.shared.feeds[indexPath.row].url?.absoluteString
                 }
                 
-                strongSelf.feedsView.tableView.reloadData()
-            }))
+                alert.addAction(UIAlertAction(title: "Save Changes", style: .default, handler: { [weak self] (action) in
+                    
+                    guard let strongSelf = self else { return }
+                    guard let textFields = alert.textFields else { return }
+                    
+                    if let textField = textFields.first {
+                        
+                        guard let urlStr = textField.text else { return }
+                        
+                        AppData.editFeed(urlStr, at: indexPath.row)
+                        self?.feedsView.tableView.reloadData()
+                    }
+                    
+                    strongSelf.feedsView.tableView.reloadData()
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                
+                self.navigationController?.present(alert, animated: true)
+            }
             
-            self.navigationController?.present(alert, animated: true)
-        })
-        editAction.backgroundColor = UIColor.blue
+            let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash")) { [unowned self] (action) in
+                
+                AppData.deleteFeed(feed)
+                self.feedsView.tableView.reloadData()
+            }
+            
+            return UIMenu(title: "", image: nil, children: [edit, delete])
+        }
         
-        // Delete feed
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-            AppData.deleteFeed(at: indexPath.row)
-            tableView.reloadData()
-        })
-        deleteAction.backgroundColor = UIColor.red
-        
-        return [deleteAction, editAction]
+        return configuration
     }
     
 }

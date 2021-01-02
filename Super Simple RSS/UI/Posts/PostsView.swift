@@ -15,7 +15,6 @@ class PostsView: UIView {
     init() {
         
         super.init(frame: .zero)
-//        backgroundColor = .white
         
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
