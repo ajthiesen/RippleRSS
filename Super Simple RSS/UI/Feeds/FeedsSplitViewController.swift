@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedSplitViewController: UISplitViewController {
+class FeedsSplitViewController: UISplitViewController {
     
     override func viewDidLoad() {
         
@@ -20,8 +20,8 @@ class FeedSplitViewController: UISplitViewController {
         
         preferredDisplayMode = .twoBesideSecondary
         
-        setViewController(FeedViewController(), for: .primary)
-        setViewController(ItemViewController(), for: .supplementary)
+        setViewController(FeedsViewController(), for: .primary)
+        setViewController(PostsViewController(), for: .supplementary)
     }
     
 }

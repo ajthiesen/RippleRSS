@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedView: UIView {
+class FeedsView: UIView {
     
     let tableView = UITableView()
 

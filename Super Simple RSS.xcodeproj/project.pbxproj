@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AD2207C8E000139618 /* AppDelegate.swift */; };
-		3C0155B02207C8E000139618 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AF2207C8E000139618 /* FeedViewController.swift */; };
+		3C0155B02207C8E000139618 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AF2207C8E000139618 /* FeedsViewController.swift */; };
 		3C0155B82207C8E200139618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B62207C8E200139618 /* LaunchScreen.storyboard */; };
 		3C055608259E8AE20080957B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
 		3C0C4E682241A71E00B37C2A /* FeedWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E672241A71E00B37C2A /* FeedWindowController.swift */; };
@@ -23,8 +23,7 @@
 		3C0C4E812241AA4F00B37C2A /* NewFeedToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E802241AA4F00B37C2A /* NewFeedToolbarItem.swift */; };
 		3C0C4E842241B0B100B37C2A /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E832241B0B100B37C2A /* AppData.swift */; };
 		3C0C4E872241B10100B37C2A /* UserDefaults+Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E862241B10100B37C2A /* UserDefaults+Feeds.swift */; };
-		3C0ECF922207CF61005FB711 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF912207CF61005FB711 /* FeedView.swift */; };
-		3C0ECF952207D010005FB711 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF942207D010005FB711 /* AppData.swift */; };
+		3C0ECF922207CF61005FB711 /* FeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF912207CF61005FB711 /* FeedsView.swift */; };
 		3C0ECF972207DC4E005FB711 /* UserDefaults+Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF962207DC4E005FB711 /* UserDefaults+Feeds.swift */; };
 		3C0ECF9A2207E148005FB711 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF992207E148005FB711 /* FeedTableViewCell.swift */; };
 		3C0ECF9E2207E3B1005FB711 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0ECF9D2207E3B1005FB711 /* PostsViewController.swift */; };
@@ -37,8 +36,9 @@
 		3C53BC6A22F156E200451117 /* AddFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6722F14C8500451117 /* AddFeedSheet.xib */; };
 		3C53BC6D22F158A600451117 /* DeleteFeedSheetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C53BC6B22F158A600451117 /* DeleteFeedSheetWindowController.swift */; };
 		3C53BC6E22F158A600451117 /* DeleteFeedSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53BC6C22F158A600451117 /* DeleteFeedSheet.xib */; };
-		3C6767242207ED9C00D7F452 /* FeedSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6767232207ED9C00D7F452 /* FeedSplitViewController.swift */; };
+		3C6767242207ED9C00D7F452 /* FeedsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6767232207ED9C00D7F452 /* FeedsSplitViewController.swift */; };
 		3C6767262207F7FF00D7F452 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3C6767252207F7FF00D7F452 /* README.md */; };
+		3C94527725A0E89F006DF8AA /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C4E832241B0B100B37C2A /* AppData.swift */; };
 		3C9A24D8237B89D60083C471 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24D6237B89590083C471 /* ItemListViewController.swift */; };
 		3C9A24D9237B89D90083C471 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24D4237B89590083C471 /* ItemListView.swift */; };
 		3C9A24DA237B89DB0083C471 /* ItemListOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A24D3237B89590083C471 /* ItemListOutlineView.swift */; };
@@ -49,8 +49,6 @@
 		3CC258AB2242D99100BA7534 /* RefreshFeedsToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */; };
 		3CD05ED1220943FF0023B920 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */; };
 		3CF3AA0D25A0206B00BB4D37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AA0C25A0206B00BB4D37 /* SceneDelegate.swift */; };
-		3CF3AA1325A0219C00BB4D37 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AA1225A0219C00BB4D37 /* ItemViewController.swift */; };
-		3CF3AA1725A021B500BB4D37 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3AA1625A021B500BB4D37 /* ItemView.swift */; };
 		3CF823B5223EDC6500AEC06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF823B4223EDC6500AEC06A /* AppDelegate.swift */; };
 		3CF823B8223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CF823B6223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld */; };
 		3CF823BA223EDC6700AEC06A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF823B9223EDC6700AEC06A /* Assets.xcassets */; };
@@ -60,7 +58,7 @@
 /* Begin PBXFileReference section */
 		3C0155AA2207C8E000139618 /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0155AD2207C8E000139618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3C0155AF2207C8E000139618 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		3C0155AF2207C8E000139618 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
 		3C0155B42207C8E200139618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C0155B72207C8E200139618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C0155B92207C8E200139618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,7 +74,7 @@
 		3C0C4E802241AA4F00B37C2A /* NewFeedToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedToolbarItem.swift; sourceTree = "<group>"; };
 		3C0C4E832241B0B100B37C2A /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		3C0C4E862241B10100B37C2A /* UserDefaults+Feeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Feeds.swift"; sourceTree = "<group>"; };
-		3C0ECF912207CF61005FB711 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		3C0ECF912207CF61005FB711 /* FeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsView.swift; sourceTree = "<group>"; };
 		3C0ECF942207D010005FB711 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		3C0ECF962207DC4E005FB711 /* UserDefaults+Feeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Feeds.swift"; sourceTree = "<group>"; };
 		3C0ECF992207E148005FB711 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -87,7 +85,7 @@
 		3C53BC6B22F158A600451117 /* DeleteFeedSheetWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFeedSheetWindowController.swift; sourceTree = "<group>"; };
 		3C53BC6C22F158A600451117 /* DeleteFeedSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteFeedSheet.xib; sourceTree = "<group>"; };
 		3C601E822241A50D00675734 /* Super Simple RSS Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Super Simple RSS Mac.entitlements"; sourceTree = "<group>"; };
-		3C6767232207ED9C00D7F452 /* FeedSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSplitViewController.swift; sourceTree = "<group>"; };
+		3C6767232207ED9C00D7F452 /* FeedsSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsSplitViewController.swift; sourceTree = "<group>"; };
 		3C6767252207F7FF00D7F452 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3C862F3C22ADA30900F245E5 /* Super Simple RSS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Super Simple RSS.entitlements"; sourceTree = "<group>"; };
 		3C9A24D3237B89590083C471 /* ItemListOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListOutlineView.swift; sourceTree = "<group>"; };
@@ -100,8 +98,6 @@
 		3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFeedsToolbarItem.swift; sourceTree = "<group>"; };
 		3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		3CF3AA0C25A0206B00BB4D37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3CF3AA1225A0219C00BB4D37 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
-		3CF3AA1625A021B500BB4D37 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF823B4223EDC6500AEC06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CF823B7223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Super_Simple_RSS_Mac.xcdatamodel; sourceTree = "<group>"; };
@@ -137,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				3C6767252207F7FF00D7F452 /* README.md */,
+				3C94525E25A0E685006DF8AA /* Shared */,
 				3C0155AC2207C8E000139618 /* Super Simple RSS */,
 				3CF823B3223EDC6500AEC06A /* Super Simple RSS Mac */,
 				3C0155AB2207C8E000139618 /* Products */,
@@ -233,8 +230,7 @@
 		3C0ECF902207CE92005FB711 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3C0ECF9B2207E33B005FB711 /* Feed */,
-				3CF3A9CC25A01FE400BB4D37 /* Item */,
+				3C0ECF9B2207E33B005FB711 /* Feeds */,
 				3C0ECF9C2207E34A005FB711 /* Posts */,
 			);
 			path = UI;
@@ -256,15 +252,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3C0ECF9B2207E33B005FB711 /* Feed */ = {
+		3C0ECF9B2207E33B005FB711 /* Feeds */ = {
 			isa = PBXGroup;
 			children = (
-				3C6767232207ED9C00D7F452 /* FeedSplitViewController.swift */,
-				3C0155AF2207C8E000139618 /* FeedViewController.swift */,
-				3C0ECF912207CF61005FB711 /* FeedView.swift */,
+				3C6767232207ED9C00D7F452 /* FeedsSplitViewController.swift */,
+				3C0155AF2207C8E000139618 /* FeedsViewController.swift */,
+				3C0ECF912207CF61005FB711 /* FeedsView.swift */,
 				3C0ECF992207E148005FB711 /* FeedTableViewCell.swift */,
 			);
-			path = Feed;
+			path = Feeds;
 			sourceTree = "<group>";
 		};
 		3C0ECF9C2207E34A005FB711 /* Posts */ = {
@@ -276,6 +272,14 @@
 				3CD05ED0220943FF0023B920 /* PostDetailViewController.swift */,
 			);
 			path = Posts;
+			sourceTree = "<group>";
+		};
+		3C94525E25A0E685006DF8AA /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3C0C4E852241B0B400B37C2A /* Models */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		3C9A24D2237B7D580083C471 /* ItemList */ = {
@@ -300,22 +304,12 @@
 			path = Modals;
 			sourceTree = "<group>";
 		};
-		3CF3A9CC25A01FE400BB4D37 /* Item */ = {
-			isa = PBXGroup;
-			children = (
-				3CF3AA1225A0219C00BB4D37 /* ItemViewController.swift */,
-				3CF3AA1625A021B500BB4D37 /* ItemView.swift */,
-			);
-			path = Item;
-			sourceTree = "<group>";
-		};
 		3CF823B3223EDC6500AEC06A /* Super Simple RSS Mac */ = {
 			isa = PBXGroup;
 			children = (
 				3CF823B4223EDC6500AEC06A /* AppDelegate.swift */,
 				3C0C4E882241B10500B37C2A /* Extensions */,
 				3C0C4E662241A6A000B37C2A /* UI */,
-				3C0C4E852241B0B400B37C2A /* Models */,
 				3C601E822241A50D00675734 /* Super Simple RSS Mac.entitlements */,
 				3CF823B9223EDC6700AEC06A /* Assets.xcassets */,
 				3CF823BB223EDC6700AEC06A /* MainMenu.xib */,
@@ -459,18 +453,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C0ECF922207CF61005FB711 /* FeedView.swift in Sources */,
+				3C94527725A0E89F006DF8AA /* AppData.swift in Sources */,
+				3C0ECF922207CF61005FB711 /* FeedsView.swift in Sources */,
 				3C0ECF972207DC4E005FB711 /* UserDefaults+Feeds.swift in Sources */,
 				3C0ECF9A2207E148005FB711 /* FeedTableViewCell.swift in Sources */,
-				3CF3AA1325A0219C00BB4D37 /* ItemViewController.swift in Sources */,
 				3CD05ED1220943FF0023B920 /* PostDetailViewController.swift in Sources */,
-				3C0155B02207C8E000139618 /* FeedViewController.swift in Sources */,
+				3C0155B02207C8E000139618 /* FeedsViewController.swift in Sources */,
 				3C0ECF9E2207E3B1005FB711 /* PostsViewController.swift in Sources */,
-				3C6767242207ED9C00D7F452 /* FeedSplitViewController.swift in Sources */,
+				3C6767242207ED9C00D7F452 /* FeedsSplitViewController.swift in Sources */,
 				3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */,
 				3C0ECFA22207E3E3005FB711 /* PostTableViewCell.swift in Sources */,
-				3C0ECF952207D010005FB711 /* AppData.swift in Sources */,
-				3CF3AA1725A021B500BB4D37 /* ItemView.swift in Sources */,
 				3C0ECFA02207E3C1005FB711 /* PostsView.swift in Sources */,
 				3CF3AA0D25A0206B00BB4D37 /* SceneDelegate.swift in Sources */,
 			);

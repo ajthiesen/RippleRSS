@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             
             let window = UIWindow(windowScene: windowScene)
-            let feedSplitVC = FeedSplitViewController(style: .tripleColumn)
+            let feedSplitVC = FeedsSplitViewController(style: .tripleColumn)
             
             window.rootViewController = feedSplitVC
             window.makeKeyAndVisible()
@@ -81,6 +81,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 #if targetEnvironment(macCatalyst)
+fileprivate extension Selector {
+    static let refreshFeeds = #selector(SceneDelegate.refreshFeeds(_:))
+    static let newFeed = #selector(SceneDelegate.newFeed(_:))
+}
 
 private extension NSToolbarItem.Identifier {
     
@@ -117,13 +121,13 @@ extension SceneDelegate: NSToolbarDelegate {
         
         case .refreshFeeds:
             
-            let barItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
+            let barItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: .refreshFeeds)
             
             toolbarItem = NSToolbarItem(itemIdentifier: .refreshFeeds, barButtonItem: barItem)
             
         case .newFeed:
             
-            let barItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+            let barItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: .newFeed)
             
             toolbarItem = NSToolbarItem(itemIdentifier: .newFeed, barButtonItem: barItem)
             
@@ -132,6 +136,14 @@ extension SceneDelegate: NSToolbarDelegate {
         }
         
         return toolbarItem
+    }
+    
+    @objc func refreshFeeds(_ sender: Any) {
+        
+    }
+    
+    @objc func newFeed(_ sender: Any) {
+        
     }
 }
 #endif

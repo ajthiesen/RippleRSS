@@ -10,12 +10,16 @@ import UIKit
 import FeedKit
 
 fileprivate extension Selector {
-    static let addFeedItem = #selector(FeedViewController.addFeedItem)
+    static let addFeedItem = #selector(FeedsViewController.addFeedItem)
 }
 
-class FeedViewController: UIViewController {
+class FeedsViewController: UIViewController {
     
-    let feedView = FeedView()
+    let feedsView = FeedsView()
+    
+    fileprivate var feeds: [Feed] {
+        return AppData.shared.feeds
+    }
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -27,10 +31,10 @@ class FeedViewController: UIViewController {
     
     override func loadView() {
         
-        view = feedView
+        view = feedsView
         
-        feedView.tableView.dataSource = self
-        feedView.tableView.delegate = self
+        feedsView.tableView.dataSource = self
+        feedsView.tableView.delegate = self
         
         #if targetEnvironment(macCatalyst)
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -39,8 +43,8 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if let selectedIndexPath = feedView.tableView.indexPathForSelectedRow {
-            feedView.tableView.deselectRow(at: selectedIndexPath, animated: true)
+        if let selectedIndexPath = feedsView.tableView.indexPathForSelectedRow {
+            feedsView.tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
     }
     
@@ -64,7 +68,7 @@ class FeedViewController: UIViewController {
                 AppData.addFeed(urlStr)
             }
             
-            strongSelf.feedView.tableView.reloadData()
+            strongSelf.feedsView.tableView.reloadData()
         }))
         
         navigationController?.present(alert, animated: true)
@@ -76,7 +80,7 @@ class FeedViewController: UIViewController {
 
 }
 
-extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
+extension FeedsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AppData.shared.feedURLs.count
@@ -84,7 +88,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = feedView.tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier) as? FeedTableViewCell else { return UITableViewCell() }
+        guard let cell = feedsView.tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier) as? FeedTableViewCell else { return UITableViewCell() }
         
         cell.textLabel?.text = AppData.shared.feedURLs[indexPath.row]?.absoluteString
         
@@ -99,23 +103,11 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             cell?.activityIndicator.startAnimating()
         }
         
-        guard let feedURL = AppData.shared.feedURLs[indexPath.row] else { return }
-        let parser = FeedParser(URL: feedURL)
+        let feed = feeds[indexPath.row]
         
-        parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-            
-            DispatchQueue.main.async { [unowned self] in
-                
-                switch result {
-                case .success(let feed):
-                    cell?.activityIndicator.stopAnimating()
-                    let pVC = PostsViewController(withFeed: feed)
-                    self.navigationController?.show(pVC, sender: self)
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
+        cell?.activityIndicator.stopAnimating()
+        let pVC = PostsViewController()
+        pVC.feed = feed
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -150,7 +142,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
                     AppData.editFeed(urlStr, at: indexPath.row)
                 }
                 
-                strongSelf.feedView.tableView.reloadData()
+                strongSelf.feedsView.tableView.reloadData()
             }))
             
             self.navigationController?.present(alert, animated: true)
