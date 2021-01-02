@@ -52,14 +52,33 @@ class FeedsViewController: UIViewController {
         }
     }
     
-    @objc func addFeedItem() {
+    func feedItemSuccess(url: URL) {
         
-        let alert = UIAlertController(title: "Add A Feed", message: "Feed URL?", preferredStyle: .alert)
+        print("Success")
+        let alert = UIAlertController(title: "Feed Found", message: "Found a feed at: \(url.absoluteString)", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+            AppData.addFeed(url.absoluteString)
+            AppData.refreshFeeds {
+                // TODO: This runs on every feed item
+                self.feedsView.tableView.reloadData()
+            }
+        }))
+        
+        navigationController?.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    @objc func addFeedItem(message: String? = nil, urlString: String? = nil) {
+        
+        let message = message ?? "Enter a website or URL to a RSS/JSON feed"
+        
+        let alert = UIAlertController(title: "Add A Feed", message: message, preferredStyle: .alert)
         
         alert.addTextField { (textField) in
             textField.returnKeyType = .done
             textField.placeholder = "Site or Feed URL"
-            textField.text = "http://www."
+            textField.text = urlString ?? "http://www."
         }
         
         alert.addAction(UIAlertAction(title: "Add Feed", style: .default, handler: { [weak self] (action) in
@@ -71,14 +90,14 @@ class FeedsViewController: UIViewController {
                 
                 guard let urlStr = textField.text else { return }
                 
-                FindFeed.findFeedHandler(urlStr: urlStr) { [unowned self] (url) in
-                    AppData.addFeed(url.absoluteString)
-                    AppData.refreshFeeds {
-                        // TODO: This runs on every feed item
-                        self?.feedsView.tableView.reloadData()
-                    }
-                } onError: { (error) in
+                FindFeed.findFeedHandler(urlStr: urlStr) { (url) in
+                    
+                    strongSelf.feedItemSuccess(url: url)
+                    
+                } onError: { [unowned self] (error) in
+                    
                     print(error?.localizedDescription ?? "nil error")
+                    self?.addFeedItem(message: "There was an error finding a feed", urlString: urlStr)
                 }
             }
             
