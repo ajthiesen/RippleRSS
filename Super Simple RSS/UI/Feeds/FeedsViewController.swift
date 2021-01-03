@@ -226,6 +226,7 @@ extension FeedsViewController: UITableViewDelegate {
         
         if let feedsSplitVC = splitViewController as? FeedsSplitViewController {
             feedsSplitVC.postsVC.feed = feed
+            feedsSplitVC.show(.supplementary)
         }
     }
     
