@@ -6,7 +6,7 @@
 //  Copyright © 2021 Geof Crowl. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import FeedKit
 
 class Feed: NSObject {

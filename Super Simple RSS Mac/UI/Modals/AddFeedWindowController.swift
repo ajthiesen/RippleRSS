@@ -62,7 +62,7 @@ class AddFeedWindowController: NSWindowController {
                 guard let htmlStr = htmlStr else { return }
                 
                 do {
-                    feedURL = try FindFeed.getFeedUrl(htmlStr: htmlStr, baseURLStr: baseURLStr)
+                    feedURL = try FindFeed.getFeedUrlFromHTML(htmlStr: htmlStr, baseURLStr: baseURLStr)
                     
                     DispatchQueue.main.async {
                         self.feedUrlTextField.stringValue = feedURL?.absoluteString ?? siteURLString
@@ -132,56 +132,56 @@ class AddFeedWindowController: NSWindowController {
 
 }
 
-class FindFeed {
-    
-    typealias HtmlStrCompletionHandler = (_ htmlStr: String?) -> Void
-    
-    enum FeedError: Error {
-        case invalidURL
-        case missingFeed
-    }
-    
-    static func getFeedUrl(htmlStr: String, baseURLStr: String) throws -> URL? {
-        
-        let doc: Document = try SwiftSoup.parse(htmlStr)
-        
-        let elements: Elements? = try doc.head()!.select("link[type=\"application/rss+xml\"")
-        
-        if elements == nil { throw FeedError.missingFeed }
-        
-        guard let feedLocation = try elements?.first()?.attr("href") else {
-            throw FeedError.missingFeed
-        }
-        
-        var feedURLStr: String
-        
-        // If the feed is offsite or contains an absolute path
-        if !feedLocation.contains("http") {
-            feedURLStr = baseURLStr + feedLocation
-        } else {
-            feedURLStr = feedLocation
-        }
-        
-        return URL(string: feedURLStr)
-    }
-    
-    static func getHtml(urlStr: String, completion: @escaping HtmlStrCompletionHandler) throws {
-        
-        guard let url = URL(string: urlStr) else { throw FeedError.invalidURL }
-        
-        var htmlStr: String?
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            if error != nil { return }
-            
-            if let data = data {
-                htmlStr = String(data: data, encoding: String.Encoding.ascii)
-                
-                completion(htmlStr)
-            }
-        }
-        
-        task.resume()
-    }
-}
+//class FindFeed {
+//
+//    typealias HtmlStrCompletionHandler = (_ htmlStr: String?) -> Void
+//
+//    enum FeedError: Error {
+//        case invalidURL
+//        case missingFeed
+//    }
+//
+//    static func getFeedUrl(htmlStr: String, baseURLStr: String) throws -> URL? {
+//
+//        let doc: Document = try SwiftSoup.parse(htmlStr)
+//
+//        let elements: Elements? = try doc.head()!.select("link[type=\"application/rss+xml\"")
+//
+//        if elements == nil { throw FeedError.missingFeed }
+//
+//        guard let feedLocation = try elements?.first()?.attr("href") else {
+//            throw FeedError.missingFeed
+//        }
+//
+//        var feedURLStr: String
+//
+//        // If the feed is offsite or contains an absolute path
+//        if !feedLocation.contains("http") {
+//            feedURLStr = baseURLStr + feedLocation
+//        } else {
+//            feedURLStr = feedLocation
+//        }
+//
+//        return URL(string: feedURLStr)
+//    }
+//
+//    static func getHtml(urlStr: String, completion: @escaping HtmlStrCompletionHandler) throws {
+//
+//        guard let url = URL(string: urlStr) else { throw FeedError.invalidURL }
+//
+//        var htmlStr: String?
+//
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//
+//            if error != nil { return }
+//
+//            if let data = data {
+//                htmlStr = String(data: data, encoding: String.Encoding.ascii)
+//
+//                completion(htmlStr)
+//            }
+//        }
+//
+//        task.resume()
+//    }
+//}

@@ -41,7 +41,7 @@ class DeleteFeedSheetWindowController: NSWindowController {
             // I would like to improve this.
             // Setting this earlier in the window cycle causes an error.
             
-            let feedName = feed.name ?? feed.url?.absoluteString ?? "unnamed feed"
+            let feedName = feed.name ?? feed.url.absoluteString
             windowTextField.stringValue = "Are you sure you want to delete \(feedName)?"
         }
     }

@@ -6,7 +6,7 @@
 //  Copyright © 2021 Geof Crowl. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import SwiftSoup
 
 class FindFeed {
@@ -21,7 +21,7 @@ class FindFeed {
         case unknown
     }
     
-    private static func getFeedUrlFromHTML(htmlStr: String, baseURLStr: String) throws -> URL {
+    static func getFeedUrlFromHTML(htmlStr: String, baseURLStr: String) throws -> URL {
         
         let doc: Document = try SwiftSoup.parse(htmlStr)
         
@@ -46,7 +46,7 @@ class FindFeed {
         return url
     }
     
-    private static func getHtml(urlStr: String, completion: @escaping HtmlStrCompletionHandler) throws {
+    static func getHtml(urlStr: String, completion: @escaping HtmlStrCompletionHandler) throws {
         
         guard let url = URL(string: urlStr) else { throw FeedError.invalidURL }
         
