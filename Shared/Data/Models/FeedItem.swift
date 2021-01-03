@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedItem: NSObject {
+struct FeedItem: Hashable {
     
     static func == (lhs: FeedItem, rhs: FeedItem) -> Bool {
         return lhs.url == rhs.url

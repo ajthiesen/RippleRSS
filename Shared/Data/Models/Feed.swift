@@ -11,33 +11,17 @@ import FeedKit
 
 class Feed: NSObject {
     
-    let url: URL?
+    var url: URL
     var items: [FeedItem]?
     var name: String?
     
-    static func == (lhs: Feed, rhs: Feed) -> Bool {
-        return lhs.url == rhs.url && lhs.name == rhs.name
-    }
-    
-    override var hash: Int {
-        
-        guard let url = url else { return 0 }
-        
-        if let name = name {
-            return url.absoluteString.hash | name.hash
-        }
-        
-        return url.absoluteString.hash
-    }
-    
-    init(_ _url: URL?) {
+    init(_ _url: URL) {
         url = _url
     }
     
     func load(completion: (() -> Void)? ) {
         
-        guard let feedURL = url else { return }
-        let parser = FeedParser(URL: feedURL)
+        let parser = FeedParser(URL: url)
         
         parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
             
@@ -90,6 +74,25 @@ class Feed: NSObject {
             DispatchQueue.main.async {
                 completion?()
             }
+        }
+    }
+}
+
+extension Feed {
+    struct Diffable: Hashable {
+        
+        static func == (lhs: Feed.Diffable, rhs: Feed.Diffable) -> Bool {
+            return lhs.name == rhs.name && lhs.url == rhs.url
+        }
+        
+        var name: String?
+        var url: URL
+        var feed: Feed
+        
+        init(feed: Feed) {
+            self.feed = feed
+            self.url = feed.url
+            self.name = feed.name
         }
     }
 }

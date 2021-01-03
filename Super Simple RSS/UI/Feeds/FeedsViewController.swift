@@ -19,8 +19,8 @@ class FeedsViewController: UIViewController {
     
     private lazy var dataSource = makeDataSource()
     
-    typealias DataSource = UITableViewDiffableDataSource<Section, Feed>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Feed>
+    typealias DataSource = UITableViewDiffableDataSource<Section, AnyHashable>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
     
     enum Section: CaseIterable {
         case smart
@@ -74,14 +74,17 @@ class FeedsViewController: UIViewController {
         
         let dataSource = FeedsDataSource(
             tableView: feedsView.tableView,
-            cellProvider: { (tableView, indexPath, feed) ->
+            cellProvider: { (tableView, indexPath, hashable) ->
                 UITableViewCell? in
+                
+                guard let feedDiffable = hashable as? Feed.Diffable else { return nil }
+                let feed = feedDiffable.feed
                 
                 let cell = tableView.dequeueReusableCell(
                     withIdentifier: FeedTableViewCell.identifier,
                     for: indexPath)// as? UITableViewCell
                 
-                cell.textLabel?.text = feed.name ?? feed.url?.absoluteString
+                cell.textLabel?.text = feed.name ?? feed.url.absoluteString
                 
                 return cell
         })
@@ -95,7 +98,11 @@ class FeedsViewController: UIViewController {
         
         snapshot.appendSections([.smart, .feeds])
         
-        snapshot.appendItems(feeds, toSection: .feeds)
+        let feedsDiffable = feeds.compactMap({ feed in
+            return Feed.Diffable(feed: feed)
+        })
+        
+        snapshot.appendItems(feedsDiffable, toSection: .feeds)
         
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
@@ -222,7 +229,7 @@ extension FeedsViewController: UITableViewDelegate {
         
         let feed = feeds[indexPath.row]
         
-        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (menuElement) -> UIMenu? in
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [unowned self] (menuElement) -> UIMenu? in
             
             let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { (action) in
                 
@@ -230,7 +237,7 @@ extension FeedsViewController: UITableViewDelegate {
                 
                 alert.addTextField { (textField) in
                     textField.returnKeyType = .done
-                    textField.text = AppData.shared.feeds[indexPath.row].url?.absoluteString
+                    textField.text = self.feeds[indexPath.row].url.absoluteString
                 }
                 
                 alert.addAction(UIAlertAction(title: "Save Changes", style: .default, handler: { [weak self] (action) in
