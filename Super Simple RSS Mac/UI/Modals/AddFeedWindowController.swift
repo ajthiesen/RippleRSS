@@ -127,7 +127,6 @@ class AddFeedWindowController: NSWindowController {
             self.errorTextField.stringValue = "Could not find a feed at this URL"
         })
         
-        
     }
 
 }
