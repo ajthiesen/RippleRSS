@@ -10,7 +10,7 @@ import UIKit
 import FeedKit
 
 fileprivate extension Selector {
-    static let addFeedItem = #selector(FeedsViewController.addFeedItem)
+    static let addFeedItem = #selector(FeedsViewController.addFeedItem(_:))
 }
 
 class FeedsViewController: UIViewController {
@@ -124,7 +124,11 @@ class FeedsViewController: UIViewController {
         
     }
     
-    @objc func addFeedItem(message: String? = nil, urlString: String? = nil) {
+    @objc func addFeedItem(_ sender: Any) {
+        addFeedItem()
+    }
+    
+    func addFeedItem(message: String? = nil, urlString: String? = nil) {
         
         let message = message ?? "Enter a website or URL to a RSS/JSON feed"
         

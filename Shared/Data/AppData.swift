@@ -6,7 +6,7 @@
 //  Copyright © 2019 Geof Crowl. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 import FeedKit
 
 class AppData {
