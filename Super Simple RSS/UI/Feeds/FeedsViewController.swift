@@ -276,8 +276,19 @@ extension FeedsViewController: UITableViewDelegate {
             
             let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash")) { [unowned self] (action) in
                 
-                AppData.deleteFeed(feed)
-                self.applySnapshot()
+                let alert = UIAlertController(title: "Delete \(feed.name ?? feed.url.absoluteString)?", message: "This action cannot be undone", preferredStyle: .alert)
+                
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+                    AppData.deleteFeed(feed)
+                    self.applySnapshot()
+                }))
+                
+                self.navigationController?.present(alert, animated: true, completion: nil)
             }
             
             
