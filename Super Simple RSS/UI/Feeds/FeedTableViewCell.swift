@@ -10,7 +10,7 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
     
-    var activityIndicator = UIActivityIndicatorView()
+    let activityIndicator = UIActivityIndicatorView()
     
     static var identifier: String {
         return "FeedCell"
@@ -19,6 +19,8 @@ class FeedTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        activityIndicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        activityIndicator.frame.size = CGSize(width: 24, height: 24)
         activityIndicator.hidesWhenStopped = true
         accessoryView = activityIndicator
     }
