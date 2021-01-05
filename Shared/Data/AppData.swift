@@ -77,6 +77,10 @@ class AppData {
         }
     }
     
+    static func refreshFeed(_ feed: Feed, completion: (()->Void)? ) {
+        feed.load(completion: completion)
+    }
+    
     static func refreshFeeds(rowCompletion: (()->Void)? ) {
         for feed in AppData.shared.feeds {
             feed.load(completion: rowCompletion)

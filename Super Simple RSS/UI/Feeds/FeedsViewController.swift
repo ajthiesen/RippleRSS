@@ -236,6 +236,12 @@ extension FeedsViewController: UITableViewDelegate {
         
         let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [unowned self] (menuElement) -> UIMenu? in
             
+            let refresh = UIAction(title: "Refresh", image: UIImage(systemName: "arrow.clockwise")) { (action) in
+                AppData.refreshFeed(feed) {
+                    applySnapshot()
+                }
+            }
+            
             let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { (action) in
                 
                 let alert = UIAlertController(title: "Edit Feed", message: "Feed URL?", preferredStyle: .alert)
@@ -270,11 +276,25 @@ extension FeedsViewController: UITableViewDelegate {
             
             let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash")) { [unowned self] (action) in
                 
-                AppData.deleteFeed(feed)
-                self.applySnapshot()
+                let alert = UIAlertController(title: "Delete \(feed.name ?? feed.url.absoluteString)?", message: "This action cannot be undone", preferredStyle: .alert)
+                
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+                    AppData.deleteFeed(feed)
+                    self.applySnapshot()
+                }))
+                
+                self.navigationController?.present(alert, animated: true, completion: nil)
             }
             
-            return UIMenu(title: "", image: nil, children: [edit, delete])
+            
+            let modifiers = UIMenu(title: "", image: nil, options: .displayInline, children: [edit, delete])
+            
+            return UIMenu(title: "", image: nil, children: [refresh, modifiers])
         }
         
         return configuration
