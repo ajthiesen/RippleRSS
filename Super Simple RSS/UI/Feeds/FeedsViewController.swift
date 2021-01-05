@@ -212,9 +212,8 @@ extension FeedsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row >= feeds.count { return }
-        if indexPath.row < 0 { return }
-        let feed = feeds[indexPath.row]
+        guard let feedDiffable = dataSource.itemIdentifier(for: indexPath) as? Feed.Diffable else { return }
+        let feed = feedDiffable.feed
         
         var cell: FeedTableViewCell?
         if let _cell = tableView.cellForRow(at: indexPath) as? FeedTableViewCell {
@@ -232,7 +231,8 @@ extension FeedsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         
-        let feed = feeds[indexPath.row]
+        guard let feedDiffable = dataSource.itemIdentifier(for: indexPath) as? Feed.Diffable else { return nil }
+        let feed = feedDiffable.feed
         
         let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [unowned self] (menuElement) -> UIMenu? in
             
