@@ -78,13 +78,10 @@ class FeedListViewController: NSViewController {
     
     @objc func copyFeedLink(_ sender: NSMenuItem) {
         guard let rowItem = sender.representedObject as? Feed else { return }
-        guard let url = rowItem.url else { return }
-        
-        print(url.absoluteString)
         
         NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(url.absoluteString, forType: .string)
-        NSPasteboard.general.setData(url.dataRepresentation, forType: .URL)
+        NSPasteboard.general.setString(rowItem.url.absoluteString, forType: .string)
+        NSPasteboard.general.setData(rowItem.url.dataRepresentation, forType: .URL)
     }
     
     @objc func deleteItem(sender: Any) {
@@ -131,7 +128,7 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
         }
 
         if let feed = item as? Feed {
-            cell.leftLabel.stringValue = feed.name ?? feed.url?.absoluteString ?? "N/A"
+            cell.leftLabel.stringValue = feed.name ?? feed.url.absoluteString
             cell.objectValue = feed
         }
         

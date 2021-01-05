@@ -1,8 +1,7 @@
+# Xcode workspaces
 /Super Simple RSS.xcodeproj/project.xcworkspace/xcuserdata
-/Podfile.lock
-/Pods
-/Super Simple RSS.xcworkspace/xcuserdata/geof.xcuserdatad/UserInterfaceState.xcuserstate
-/Super Simple RSS.xcworkspace/xcuserdata
-/_archives
 /Super Simple RSS.xcodeproj/xcshareddata
-Super Simple RSS.xcodeproj/xcuserdata/*
+/Super Simple RSS.xcodeproj/xcuserdata/*
+
+# Macs
+.DS_Store
