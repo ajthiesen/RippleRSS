@@ -236,6 +236,12 @@ extension FeedsViewController: UITableViewDelegate {
         
         let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [unowned self] (menuElement) -> UIMenu? in
             
+            let refresh = UIAction(title: "Refresh", image: UIImage(systemName: "arrow.clockwise")) { (action) in
+                AppData.refreshFeed(feed) {
+                    applySnapshot()
+                }
+            }
+            
             let edit = UIAction(title: "Edit", image: UIImage(systemName: "pencil")) { (action) in
                 
                 let alert = UIAlertController(title: "Edit Feed", message: "Feed URL?", preferredStyle: .alert)
@@ -274,7 +280,10 @@ extension FeedsViewController: UITableViewDelegate {
                 self.applySnapshot()
             }
             
-            return UIMenu(title: "", image: nil, children: [edit, delete])
+            
+            let modifiers = UIMenu(title: "", image: nil, options: .displayInline, children: [edit, delete])
+            
+            return UIMenu(title: "", image: nil, children: [refresh, modifiers])
         }
         
         return configuration
