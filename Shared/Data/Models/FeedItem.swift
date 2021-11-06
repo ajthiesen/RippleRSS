@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FeedItem: Hashable {
+class FeedItem: NSObject, ObservableObject {
     
     static func == (lhs: FeedItem, rhs: FeedItem) -> Bool {
         return lhs.url == rhs.url
@@ -16,6 +16,8 @@ struct FeedItem: Hashable {
     
     let url: URL?
     let title: String
+    var content: String?
+    var pubDate: Date?
     
     init(title _title: String, url _url: URL?) {
         title = _title

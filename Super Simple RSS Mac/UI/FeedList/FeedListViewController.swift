@@ -128,7 +128,7 @@ extension FeedListViewController: NSOutlineViewDelegate, NSOutlineViewDataSource
         }
 
         if let feed = item as? Feed {
-            cell.leftLabel.stringValue = feed.name ?? feed.url.absoluteString
+            cell.leftLabel.stringValue = feed.name
             cell.objectValue = feed
         }
         

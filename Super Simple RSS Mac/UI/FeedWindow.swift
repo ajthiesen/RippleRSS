@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SwiftUI
 
 fileprivate extension Selector {
     static let didClickToggleSidebar = #selector(FeedWindow.didClickToggleSidebar(sender:))
@@ -40,13 +41,15 @@ class FeedWindow: NSWindow {
         autorecalculatesKeyViewLoop = true
         
         title = "Super Simple RSS"
-        contentViewController = feedSplitVC
+//        contentViewController = feedSplitVC
+        contentViewController = NSHostingController(rootView: RootView()
+                                                        .environmentObject(AppData.shared))
         
         if #available(OSX 11.0, *) {
             toolbarStyle = .unified
             subtitle = "Feed Name"
         }
-        toolbar = feedToolbar
+//        toolbar = feedToolbar
         
         feedToolbar.displayMode = .iconOnly
         feedToolbar.delegate = self
@@ -58,9 +61,10 @@ class FeedWindow: NSWindow {
             feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 1)
             feedToolbar.insertItem(withItemIdentifier: .newFeed, at: 2)
             
-            feedToolbar.insertItem(withItemIdentifier: .trackFeedSidebar, at: 3)
-            feedToolbar.insertItem(withItemIdentifier: .trackItemSidebar, at: 4)
-            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 5)
+//            feedToolbar.insertItem(withItemIdentifier: .trackFeedSidebar, at: 3)
+//            feedToolbar.insertItem(withItemIdentifier: .trackItemSidebar, at: 4)
+            feedToolbar.insertItem(withItemIdentifier: .sidebarTrackingSeparator, at: 3)
+            feedToolbar.insertItem(withItemIdentifier: .flexibleSpace, at: 4)
             
         } else {
             feedToolbar.insertItem(withItemIdentifier: .refreshFeeds, at: 0)
@@ -72,7 +76,9 @@ class FeedWindow: NSWindow {
     
     func showDeleteFeedSheet() {
         
-        let selectedFeedRow = feedSplitVC.feedListVC.feedListView.outlineView.selectedRow
+        // TODO
+//        let selectedFeedRow = feedSplitVC.feedListVC.feedListView.outlineView.selectedRow
+        let selectedFeedRow = 1
         
         if selectedFeedRow >= AppData.shared.feeds.count { return }
         if selectedFeedRow < 0 { return }

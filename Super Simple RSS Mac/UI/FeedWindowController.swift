@@ -58,11 +58,13 @@ class FeedWindowController: NSWindowController {
     }
     
     @objc func prevFeed(_ sender: Any) {
-        feedWindow?.feedSplitVC.feedListVC.moveToNextFeed(reverse: true)
+        // TODO
+//        feedWindow?.feedSplitVC.feedListVC.moveToNextFeed(reverse: true)
     }
     
     @objc func nextFeed(_ sender: Any) {
-        feedWindow?.feedSplitVC.feedListVC.moveToNextFeed()
+        // TODO
+//        feedWindow?.feedSplitVC.feedListVC.moveToNextFeed()
     }
     
     @objc func prevItem(_ sender: Any) {

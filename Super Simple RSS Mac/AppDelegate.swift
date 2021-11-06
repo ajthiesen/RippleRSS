@@ -11,7 +11,7 @@ import FeedKit
 
 var appDelegate: AppDelegate?
 
-@NSApplicationMain
+//@NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     let feedWC = FeedWindowController()
@@ -172,38 +172,43 @@ extension AppDelegate {
 
 extension AppDelegate {
     
+    // TODO: Remove?
+    
     public func refreshFeed(at index: Int) {
         
-        AppData.refreshFeed(at: index) { [unowned self] in
-            
-            let outlineView = self.feedWC.feedWindow?.feedSplitVC.feedListVC.feedListView.outlineView
-            
-            let feed = AppData.shared.feeds[index]
-            
-            // check if item exists, otherwise reload everything
-            if let _ = outlineView?.item(atRow: index) {
-                outlineView?.reloadItem(feed, reloadChildren: true)
-            } else {
-                outlineView?.reloadData()
-            }
-        }
-        
+//
+//        AppData.refreshFeed(at: index) { [unowned self] in
+//
+//
+//            let outlineView = self.feedWC.feedWindow?.feedSplitVC.feedListVC.feedListView.outlineView
+//
+//            let feed = AppData.shared.feeds[index]
+//
+//            // check if item exists, otherwise reload everything
+//            if let _ = outlineView?.item(atRow: index) {
+//                outlineView?.reloadItem(feed, reloadChildren: true)
+//            } else {
+//                outlineView?.reloadData()
+//            }
+//        }
+//
     }
     
     public func refreshFeeds() {
         
-        for index in 0...AppData.shared.feeds.count {
-             refreshFeed(at: index)
-         }
+        AppData.refreshFeeds {
+            print("AppDelegate: refreshFeeds")
+        }
         
     }
     
     public func deleteFromFeed(at index: Int) {
         
-        let outlineView = self.feedWC.feedWindow?.feedSplitVC.feedListVC.feedListView.outlineView
+        // TODO
+//        let outlineView = self.feedWC.feedWindow?.feedSplitVC.feedListVC.feedListView.outlineView
         
-        AppData.deleteFeed(at: index)
-        outlineView?.reloadData()
+//        AppData.deleteFeed(at: index)
+//        outlineView?.reloadData()
         
     }
     

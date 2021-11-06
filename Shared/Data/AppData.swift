@@ -8,13 +8,14 @@
 
 import Foundation
 import FeedKit
+import SwiftUI
 
-class AppData {
+class AppData: ObservableObject {
     
-    static let shared = AppData()
+    static var shared = AppData()
     
-    var feedURLs: [URL?]
-    var feeds: [Feed] = []
+    @Published var feedURLs: [URL?]
+    @Published var feeds: [Feed] = []
     
     private init() {
         
@@ -24,8 +25,9 @@ class AppData {
         for feedStr in UserDefaults.feedStrs {
             
             guard let url = URL(string: feedStr) else { continue }
-            feedURLs.append(url)
-            feeds.append(Feed(url))
+            
+            self.feedURLs.append(url)
+            self.feeds.append(Feed(url))
         }
     }
     

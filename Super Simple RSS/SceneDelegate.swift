@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -23,9 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             
             let window = UIWindow(windowScene: windowScene)
-            let feedSplitVC = FeedsSplitViewController(style: .tripleColumn)
             
-            window.rootViewController = feedSplitVC
+//            let feedSplitVC = FeedsSplitViewController(style: .tripleColumn)
+            window.rootViewController = UIHostingController(rootView: RootView())
             window.makeKeyAndVisible()
             
             #if targetEnvironment(macCatalyst)
