@@ -27,6 +27,7 @@ struct RootView: View {
                     Text("")
                 }
         }
+        .navigationViewStyle(.columns)
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button(action: toggleSidebar, label: { // 1

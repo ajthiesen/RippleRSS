@@ -29,6 +29,7 @@ struct FeedList: View {
             }
             
         }
+        .listStyle(.sidebar)
         .sheet(isPresented: $showNewFeedSheet, onDismiss: {
             print("dismissed")
         }, content: {

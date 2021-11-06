@@ -25,8 +25,7 @@ struct FeedListItem: View {
         }
         .contextMenu {
             Button("Copy Feed URL", action: {
-                NSPasteboard.general.clearContents()
-                NSPasteboard.general.setData(feed.url.dataRepresentation, forType: .URL)
+                AppData.addToPasteboard(feed.url)
             })
             Button("Edit", action: {
                 // TODO: Create a new window

@@ -27,15 +27,12 @@ struct ItemList: View {
                     }
                     .contextMenu {
                         Button("Copy Link", action: {
-                            if let url = item.url {
-                                NSPasteboard.general.clearContents()
-                                NSPasteboard.general.setData(url.dataRepresentation, forType: .URL)
-                            }
+                            
+                            AppData.addToPasteboard(item.url)
+                            
                         })
                         Button("Open in Safari", action: {
-                            if let url = item.url {
-                                NSWorkspace.shared.open(url)
-                            }
+                            AppData.openURL(item.url)
                         })
                     }
                     

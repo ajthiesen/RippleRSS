@@ -35,7 +35,11 @@ struct Detail: View {
                 if let url = feedItem.url {
                     
                     if showWeb {
+                        #if os(macOS)
                         MacDetailWebView(url: url)
+                        #elseif os(iOS)
+                        iOSDetailWebView(url: url)
+                        #endif
                     } else {
                         Button {
                             showWeb = true

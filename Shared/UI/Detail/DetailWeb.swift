@@ -14,14 +14,19 @@ struct DetailWeb: View {
     @State var feedItem: FeedItem
     
     var body: some View {
-        MacDetailWebView(url: feedItem.url)
+        VStack {
+            #if os(macOS)
+            MacDetailWebView(url: feedItem.url)
+            #elseif os(iOS)
+            iOSDetailWebView(url: feedItem.url)
+            #endif
+        }
             .toolbar {
                 Spacer()
                 Button {
-                    if let url = feedItem.url {
-                        NSPasteboard.general.clearContents()
-                        NSPasteboard.general.setData(url.dataRepresentation, forType: .URL)
-                    }
+                    
+                    AppData.addToPasteboard(feedItem.url)
+                    
                 } label: {
                     Image(systemName: "doc.on.doc")
                 }
@@ -29,9 +34,7 @@ struct DetailWeb: View {
                 .keyboardShortcut("c", modifiers: .command)
                 
                 Button {
-                    if let url = feedItem.url {
-                        NSWorkspace.shared.open(url)
-                    }
+                    AppData.openURL(feedItem.url)
                 } label: {
                     Image(systemName: "safari")
                 }
@@ -39,37 +42,6 @@ struct DetailWeb: View {
                 .keyboardShortcut("o", modifiers: [.command, .shift])
             }
     }
-}
-
-struct MacDetailWebView: NSViewRepresentable {
-    
-    typealias NSViewType = WKWebView
-    typealias Context = NSViewRepresentableContext<Self>
-    
-    @State var url: URL?
-    
-    func makeNSView(context: Context) -> WKWebView {
-        
-        let webConfiguration = WKWebViewConfiguration()
-        let webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        
-        if let url = url {
-            let request = URLRequest(url: url)
-            webView.load(request)
-        }
-        
-        return webView
-    }
-    
-    func updateNSView(_ nsView: WKWebView, context: Context) {
-        
-        if let url = url {
-            let request = URLRequest(url: url)
-            nsView.load(request)
-        }
-    }
-    
-    
 }
 
 struct DetailWeb_Previews: PreviewProvider {

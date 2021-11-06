@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AD2207C8E000139618 /* AppDelegate.swift */; };
 		3C0155B02207C8E000139618 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0155AF2207C8E000139618 /* FeedsViewController.swift */; };
 		3C0155B82207C8E200139618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B62207C8E200139618 /* LaunchScreen.storyboard */; };
 		3C055608259E8AE20080957B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0155B42207C8E200139618 /* Assets.xcassets */; };
@@ -44,6 +43,9 @@
 		3CA3140E2734F7E2000C728F /* AddFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3140C2734F7E2000C728F /* AddFeed.swift */; };
 		3CA314102735FB46000C728F /* FeedListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3140F2735FB46000C728F /* FeedListItem.swift */; };
 		3CA314112735FB46000C728F /* FeedListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3140F2735FB46000C728F /* FeedListItem.swift */; };
+		3CA314132737223A000C728F /* MacDetailWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA314122737223A000C728F /* MacDetailWebView.swift */; };
+		3CA314152737225F000C728F /* iOSDetailWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA314142737225F000C728F /* iOSDetailWebView.swift */; };
+		3CA31417273723F8000C728F /* SuperSimpleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA31416273723F8000C728F /* SuperSimpleApp.swift */; };
 		3CCEAC3E25A0F36B0023EA4E /* FindFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */; };
 		3CCEAC3F25A0F36B0023EA4E /* FindFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */; };
 		3CCEAC4625A10D8F0023EA4E /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC4525A10D8F0023EA4E /* Feed.swift */; };
@@ -104,6 +106,9 @@
 		3C9A24DE237BB6F10083C471 /* NSString+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Height.swift"; sourceTree = "<group>"; };
 		3CA3140C2734F7E2000C728F /* AddFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeed.swift; sourceTree = "<group>"; };
 		3CA3140F2735FB46000C728F /* FeedListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListItem.swift; sourceTree = "<group>"; };
+		3CA314122737223A000C728F /* MacDetailWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDetailWebView.swift; sourceTree = "<group>"; };
+		3CA314142737225F000C728F /* iOSDetailWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDetailWebView.swift; sourceTree = "<group>"; };
+		3CA31416273723F8000C728F /* SuperSimpleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSimpleApp.swift; sourceTree = "<group>"; };
 		3CC2589E2242BE8700BA7534 /* AddFeedWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedWindowController.swift; sourceTree = "<group>"; };
 		3CC258AA2242D99100BA7534 /* RefreshFeedsToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFeedsToolbarItem.swift; sourceTree = "<group>"; };
 		3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFeed.swift; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 			children = (
 				3C862F3C22ADA30900F245E5 /* Super Simple RSS.entitlements */,
 				3C0155AD2207C8E000139618 /* AppDelegate.swift */,
+				3CA31416273723F8000C728F /* SuperSimpleApp.swift */,
 				3CF3AA0C25A0206B00BB4D37 /* SceneDelegate.swift */,
 				3C0ECF982207DF19005FB711 /* Extensions */,
 				3C0ECF932207CFF6005FB711 /* Models */,
@@ -322,6 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				3C0615D0273387BD008315E7 /* DetailWeb.swift */,
+				3CA314122737223A000C728F /* MacDetailWebView.swift */,
+				3CA314142737225F000C728F /* iOSDetailWebView.swift */,
 				3C2DC4062730F97400080B3E /* Detail.swift */,
 			);
 			path = Detail;
@@ -520,9 +528,11 @@
 				3CA314102735FB46000C728F /* FeedListItem.swift in Sources */,
 				3C0ECF922207CF61005FB711 /* FeedsView.swift in Sources */,
 				3C0ECF972207DC4E005FB711 /* UserDefaults+Feeds.swift in Sources */,
+				3CA314152737225F000C728F /* iOSDetailWebView.swift in Sources */,
 				3CCEAC4625A10D8F0023EA4E /* Feed.swift in Sources */,
 				3C0ECF9A2207E148005FB711 /* FeedTableViewCell.swift in Sources */,
 				3CD05ED1220943FF0023B920 /* PostDetailViewController.swift in Sources */,
+				3CA31417273723F8000C728F /* SuperSimpleApp.swift in Sources */,
 				3C2DC4072730F97400080B3E /* Detail.swift in Sources */,
 				3C0155B02207C8E000139618 /* FeedsViewController.swift in Sources */,
 				3C0ECF9E2207E3B1005FB711 /* PostsViewController.swift in Sources */,
@@ -531,7 +541,6 @@
 				3CCEAC4D25A10DB50023EA4E /* FeedItem.swift in Sources */,
 				3C6767242207ED9C00D7F452 /* FeedsSplitViewController.swift in Sources */,
 				3CCEAC3E25A0F36B0023EA4E /* FindFeed.swift in Sources */,
-				3C0155AE2207C8E000139618 /* AppDelegate.swift in Sources */,
 				3C0ECFA22207E3E3005FB711 /* PostTableViewCell.swift in Sources */,
 				3C0ECFA02207E3C1005FB711 /* PostsView.swift in Sources */,
 				3CF3AA0D25A0206B00BB4D37 /* SceneDelegate.swift in Sources */,
@@ -550,6 +559,7 @@
 				3CCEAC4725A10D8F0023EA4E /* Feed.swift in Sources */,
 				3C0615D4273393D6008315E7 /* SuperSimpleApp.swift in Sources */,
 				3C0C4E6A2241A76A00B37C2A /* Globals.swift in Sources */,
+				3CA314132737223A000C728F /* MacDetailWebView.swift in Sources */,
 				3CA3140E2734F7E2000C728F /* AddFeed.swift in Sources */,
 				3CF823B8223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld in Sources */,
 				3C2DC3FC2730C44A00080B3E /* FeedList.swift in Sources */,
@@ -638,7 +648,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -694,7 +705,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -715,7 +727,7 @@
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,7 +753,7 @@
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -88,5 +88,38 @@ class AppData: ObservableObject {
             feed.load(completion: rowCompletion)
         }
     }
+    
+    static func addToPasteboard(_ url: URL?) {
+        
+        guard let url = url else { return }
+        
+        #if os(macOS)
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setData(url.dataRepresentation, forType: .string)
+        NSPasteboard.general.setData(url.dataRepresentation, forType: .URL)
+        
+        #elseif os(iOS)
+        
+        UIPasteboard.general.string = url.absoluteString
+        UIPasteboard.general.url = url
+        
+        #endif
+    }
+    
+    static func openURL(_ url: URL?) {
+        
+        guard let url = url else { return }
+        
+        #if os(macOS)
+        
+        NSWorkspace.shared.open(url)
+        
+        #elseif os(iOS)
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        
+        #endif
+    }
 
 }
