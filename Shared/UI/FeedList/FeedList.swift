@@ -30,11 +30,6 @@ struct FeedList: View {
             
         }
         .listStyle(.sidebar)
-        .sheet(isPresented: $showNewFeedSheet, onDismiss: {
-            print("dismissed")
-        }, content: {
-            AddFeed(show: $showNewFeedSheet)
-        })
         .navigationTitle("Feeds")
         .toolbar {
             
@@ -59,8 +54,12 @@ struct FeedList: View {
                 .keyboardShortcut("n", modifiers: .command)
             }
             
-            
         }
+        .sheet(isPresented: $showNewFeedSheet, onDismiss: {
+            print("dismissed")
+        }, content: {
+            AddFeed(show: $showNewFeedSheet)
+        })
     }
 }
 

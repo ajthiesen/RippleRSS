@@ -16,14 +16,18 @@ struct AddFeed: View {
     @State private var isError = false
     
     var body: some View {
+        
         VStack (alignment: .leading) {
             
-            Text("Add New Feed")
+            Text("Add Feed")
                 .font(.title)
+                .bold()
                 .padding(.bottom)
+            
             Spacer()
             
             TextField("URL", text: $newFeed, prompt: nil)
+                .textFieldStyle(.roundedBorder)
                 .padding(.bottom)
             
             if isError {
@@ -48,10 +52,10 @@ struct AddFeed: View {
                 } label: {
                     Text("Cancel")
                 }
+                .buttonStyle(.bordered)
                 .keyboardShortcut(.escape)
                 
                 Button("Add Feed") {
-//                    AppData.addFeed(newFeed)
                     isLoading = true
                     
                     FindFeed.findFeedHandler(urlStr: newFeed) { url in
@@ -70,11 +74,13 @@ struct AddFeed: View {
 
                     
                 }
+                .buttonStyle(.borderedProminent)
                 .keyboardShortcut(.return)
             }
         }
         .padding()
         .frame(minWidth: 300)
+        
     }
 }
 
