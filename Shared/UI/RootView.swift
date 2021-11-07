@@ -38,8 +38,9 @@ struct RootView: View {
         
     }
     
-    private func toggleSidebar() { // 2
+    private func toggleSidebar() {
         #if os(iOS)
+        print("hello")
         #else
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
         #endif

@@ -22,11 +22,11 @@ struct DetailWeb: View {
             #endif
         }
             .toolbar {
+                
                 Spacer()
+                
                 Button {
-                    
                     AppData.addToPasteboard(feedItem.url)
-                    
                 } label: {
                     Image(systemName: "doc.on.doc")
                 }

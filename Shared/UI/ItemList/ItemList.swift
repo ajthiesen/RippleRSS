@@ -39,15 +39,18 @@ struct ItemList: View {
                 }
             }
         }
+        .navigationTitle(feed.name)
         .toolbar {
+            
+            #if os(macOS)
             VStack (alignment: .leading) {
                 Text(feed.name)
                     .bold()
                 Text("\(feed.items?.count ?? 0) Posts")
             }
+            #endif
+            
         }
-//        .navigationTitle()
-//        .navigationSubtitle()
     }
 }
 

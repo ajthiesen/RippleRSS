@@ -35,6 +35,7 @@ struct FeedList: View {
         }, content: {
             AddFeed(show: $showNewFeedSheet)
         })
+        .navigationTitle("Feeds")
         .toolbar {
             
             HStack {
@@ -51,13 +52,14 @@ struct FeedList: View {
                 Button {
                     print("add")
                     showNewFeedSheet = true
-//                    Window.newFeedWindow.open()
                 } label: {
                     Image(systemName: "plus")
                 }
                 .help("Add Feed")
                 .keyboardShortcut("n", modifiers: .command)
             }
+            
+            
         }
     }
 }
