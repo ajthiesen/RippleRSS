@@ -46,7 +46,6 @@
 		3CCEAC4E25A10DB50023EA4E /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC4C25A10DB50023EA4E /* FeedItem.swift */; };
 		3CF823B8223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CF823B6223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld */; };
 		3CF823BA223EDC6700AEC06A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF823B9223EDC6700AEC06A /* Assets.xcassets */; };
-		3CF823BD223EDC6700AEC06A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF823BB223EDC6700AEC06A /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +78,6 @@
 		3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF823B7223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Super_Simple_RSS_Mac.xcdatamodel; sourceTree = "<group>"; };
 		3CF823B9223EDC6700AEC06A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3CF823BC223EDC6700AEC06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3CF823BE223EDC6700AEC06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF823BF223EDC6700AEC06A /* Super_Simple_RSS_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Super_Simple_RSS_Mac.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,7 +239,6 @@
 				3C0C4E882241B10500B37C2A /* Extensions */,
 				3C601E822241A50D00675734 /* Super Simple RSS Mac.entitlements */,
 				3CF823B9223EDC6700AEC06A /* Assets.xcassets */,
-				3CF823BB223EDC6700AEC06A /* MainMenu.xib */,
 				3CF823BE223EDC6700AEC06A /* Info.plist */,
 				3CF823BF223EDC6700AEC06A /* Super_Simple_RSS_Mac.entitlements */,
 				3CF823B6223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodeld */,
@@ -368,7 +365,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CF823BA223EDC6700AEC06A /* Assets.xcassets in Resources */,
-				3CF823BD223EDC6700AEC06A /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,14 +425,6 @@
 				3C0155B72207C8E200139618 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		3CF823BB223EDC6700AEC06A /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3CF823BC223EDC6700AEC06A /* Base */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
