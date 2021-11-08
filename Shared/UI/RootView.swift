@@ -28,22 +28,9 @@ struct RootView: View {
                 }
         }
         .navigationViewStyle(.columns)
-        .toolbar {
-            ToolbarItem(placement: .navigation) {
-                Button(action: toggleSidebar, label: { // 1
-                    Image(systemName: "sidebar.leading")
-                })
-            }
-        }
         
     }
-    
-    private func toggleSidebar() {
-        #if os(iOS)
-        #else
-        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
-        #endif
-    }
+
 }
 
 struct FeedsSplitView_Previews: PreviewProvider {
