@@ -15,6 +15,7 @@ struct ItemList: View {
     var body: some View {
             
         List {
+            
             if let items = feed.items {
                 
                 ForEach(items, id: \.self) { item in

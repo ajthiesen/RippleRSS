@@ -17,23 +17,44 @@ struct FeedList: View {
     var body: some View {
         List {
             
-            DisclosureGroup (isExpanded: $folderExpanded) {
-                ForEach(appData.feeds, id: \.self) { feed in
-                    FeedListItem(feed: feed)
-                }
-            } label: {
-                HStack {
-                    Image(systemName: "folder")
-                    Text("All Feeds")
+            Section("Collections") {
+                NavigationLink {
+                    Text("All Posts")
+                } label: {
+                    HStack {
+                        Image(systemName: "list.bullet.rectangle")
+                        Text("All Posts")
+                    }
                 }
             }
+            
+            Section("Feeds") {
+//                DisclosureGroup (isExpanded: $folderExpanded) {
+                    ForEach(appData.feeds, id: \.self) { feed in
+                        FeedListItem(feed: feed)
+                    }
+//                } label: {
+//                    HStack {
+//                        Image(systemName: "folder")
+//                        Text("Feeds")
+//                    }
+//                }
+            }
+            
+            
             
         }
         .listStyle(.sidebar)
         .navigationTitle("Feeds")
         .toolbar {
             
-            HStack {
+            ToolbarItem {
+                
+                HStack {
+                Button(action: toggleSidebar, label: { // 1
+                    Image(systemName: "sidebar.leading")
+                })
+
                 Button {
                     AppData.refreshFeeds {
                         print("Refresh: from toolbar")
@@ -52,6 +73,7 @@ struct FeedList: View {
                 }
                 .help("Add Feed")
                 .keyboardShortcut("n", modifiers: .command)
+                }
             }
             
         }
@@ -60,6 +82,13 @@ struct FeedList: View {
         }, content: {
             AddFeed(show: $showNewFeedSheet)
         })
+    }
+    
+    private func toggleSidebar() {
+        #if os(iOS)
+        #else
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        #endif
     }
 }
 
