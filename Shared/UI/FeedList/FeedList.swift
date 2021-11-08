@@ -47,32 +47,37 @@ struct FeedList: View {
         .listStyle(.sidebar)
         .navigationTitle("Feeds")
         .toolbar {
-            
+
             ToolbarItem {
-                
                 HStack {
-                Button(action: toggleSidebar, label: { // 1
-                    Image(systemName: "sidebar.leading")
-                })
-
-                Button {
-                    AppData.refreshFeeds {
-                        print("Refresh: from toolbar")
+                    
+                    #if os(macOS)
+                    
+                    // TODO: Investigate why sidebar button does not appear on iOS.
+                    // My understanding is that this should automatically appear.
+                    Button(action: toggleSidebar, label: { // 1
+                        Image(systemName: "sidebar.leading")
+                    })
+                    #endif
+                    
+                    Button {
+                        AppData.refreshFeeds {
+                            print("Refresh: from toolbar")
+                        }
+                    } label: {
+                        Image(systemName: "arrow.clockwise")
                     }
-                } label: {
-                    Image(systemName: "arrow.clockwise")
-                }
-                .help("Refresh Feeds")
-                .keyboardShortcut("r", modifiers: .command)
+                    .help("Refresh Feeds")
+                    .keyboardShortcut("r", modifiers: .command)
 
-                Button {
-                    print("add")
-                    showNewFeedSheet = true
-                } label: {
-                    Image(systemName: "plus")
-                }
-                .help("Add Feed")
-                .keyboardShortcut("n", modifiers: .command)
+                    Button {
+                        print("add")
+                        showNewFeedSheet = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .help("Add Feed")
+                    .keyboardShortcut("n", modifiers: .command)
                 }
             }
             
@@ -85,11 +90,12 @@ struct FeedList: View {
     }
     
     private func toggleSidebar() {
-        #if os(iOS)
-        #else
+        #if os(macOS)
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
         #endif
     }
+    
+
 }
 
 struct FeedList_Previews: PreviewProvider {
