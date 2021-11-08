@@ -58,6 +58,7 @@ struct FeedList: View {
                     Button(action: toggleSidebar, label: { // 1
                         Image(systemName: "sidebar.leading")
                     })
+                    
                     #endif
                     
                     Button {
