@@ -15,7 +15,7 @@ struct SuperSimpleApp: App {
             RootView()
                 .onAppear {
                     AppData.refreshFeeds {
-                        print("AppDelegate: refreshFeeds")
+                        print("App: refreshFeeds")
                     }
                 }
         }

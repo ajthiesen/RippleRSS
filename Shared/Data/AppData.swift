@@ -16,6 +16,21 @@ class AppData: ObservableObject {
     
     @Published var feedURLs: [URL?]
     @Published var feeds: [Feed] = []
+    @Published var allItems = [FeedItem]()
+    
+    func getAllItems() -> [FeedItem] {
+        
+        var allItems: [FeedItem] = []
+        
+        feeds.forEach { feed in
+            guard let items = feed.items else { return }
+            allItems.append(contentsOf: items)
+        }
+        
+        allItems.sort()
+        
+        return allItems
+    }
     
     private init() {
         
@@ -28,6 +43,7 @@ class AppData: ObservableObject {
             
             self.feedURLs.append(url)
             self.feeds.append(Feed(url))
+            self.allItems = getAllItems()
         }
     }
     
@@ -85,7 +101,10 @@ class AppData: ObservableObject {
     
     static func refreshFeeds(rowCompletion: (()->Void)? ) {
         for feed in AppData.shared.feeds {
-            feed.load(completion: rowCompletion)
+            feed.load {
+                AppData.shared.allItems = AppData.shared.getAllItems()
+                rowCompletion?()
+            }
         }
     }
     

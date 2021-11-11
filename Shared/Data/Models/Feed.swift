@@ -24,7 +24,7 @@ class Feed: NSObject, ObservableObject {
     func handle(_ entry: AtomFeedEntry) -> FeedItem? {
         guard let urlStr = entry.links?.first?.attributes?.href else { return nil }
         let url = URL(string: urlStr)
-        let feedItem = FeedItem(title: entry.title ?? "No title", url: url)
+        let feedItem = FeedItem(title: entry.title ?? "No title", url: url, pubDate: entry.published)
         feedItem.content = entry.summary?.value
         
         return feedItem
@@ -33,7 +33,7 @@ class Feed: NSObject, ObservableObject {
     func handle(_ entry: RSSFeedItem) -> FeedItem? {
         guard let urlStr = entry.link else { return nil }
         let url = URL(string: urlStr)
-        let feedItem = FeedItem(title: entry.title ?? "No title", url: url)
+        let feedItem = FeedItem(title: entry.title ?? "No title", url: url, pubDate: entry.pubDate)
         feedItem.content = entry.description
         
         return feedItem
@@ -42,7 +42,7 @@ class Feed: NSObject, ObservableObject {
     func handle(_ entry: JSONFeedItem) -> FeedItem? {
         guard let urlStr = entry.url else { return nil }
         let url = URL(string: urlStr)
-        let feedItem = FeedItem(title: entry.title ?? "No title", url: url)
+        let feedItem = FeedItem(title: entry.title ?? "No title", url: url, pubDate: entry.datePublished)
         feedItem.content = entry.contentText
         
         return feedItem

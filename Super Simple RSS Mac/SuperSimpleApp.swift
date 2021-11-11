@@ -15,21 +15,27 @@ struct SuperSimpleApp: App {
             RootView()
                 .onAppear {
                     AppData.refreshFeeds {
-                        print("AppDelegate: refreshFeeds")
+                        print("App: refreshFeeds")
                     }
                 }
             
         }
         .windowToolbarStyle(.unified(showsTitle: false))
         .commands {
-//            CommandGroup(replacing: .newItem, addition: { })
-            SidebarCommands()
-            CommandMenu("Custom Menu") {
-                Button("Say Hello") {
-                    print("Hello from Menu")
+            CommandGroup(replacing: .newItem, addition: {
+                Button("Add Feed") {
+                    // TODO: Add Feed
+                    print("TODO: Super Simple App - Add Feed")
                 }
-                .keyboardShortcut("h")
-            }
+                .keyboardShortcut("n", modifiers: .command)
+            })
+            SidebarCommands()
+//            CommandMenu("Feed") {
+//                Button("Add Feed") {
+//                    print("TODO: Super Simple App - Add Feed")
+//                }
+//                .keyboardShortcut("n", modifiers: .command)
+//            }
         }
         
         WindowGroup("New Feed") {

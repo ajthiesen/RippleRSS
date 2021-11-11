@@ -38,6 +38,8 @@
 		3CA314152737225F000C728F /* iOSDetailWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA314142737225F000C728F /* iOSDetailWebView.swift */; };
 		3CA31417273723F8000C728F /* SuperSimpleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA31416273723F8000C728F /* SuperSimpleApp.swift */; };
 		3CA3141927379AE3000C728F /* UserDefaults+Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA3141827379AE3000C728F /* UserDefaults+Feeds.swift */; };
+		3CBF4279273C7266004527C1 /* CollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF4278273C7266004527C1 /* CollectionList.swift */; };
+		3CBF427A273C7266004527C1 /* CollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF4278273C7266004527C1 /* CollectionList.swift */; };
 		3CCEAC3E25A0F36B0023EA4E /* FindFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */; };
 		3CCEAC3F25A0F36B0023EA4E /* FindFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */; };
 		3CCEAC4625A10D8F0023EA4E /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEAC4525A10D8F0023EA4E /* Feed.swift */; };
@@ -72,6 +74,7 @@
 		3CA314142737225F000C728F /* iOSDetailWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSDetailWebView.swift; sourceTree = "<group>"; };
 		3CA31416273723F8000C728F /* SuperSimpleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSimpleApp.swift; sourceTree = "<group>"; };
 		3CA3141827379AE3000C728F /* UserDefaults+Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Feeds.swift"; sourceTree = "<group>"; };
+		3CBF4278273C7266004527C1 /* CollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionList.swift; sourceTree = "<group>"; };
 		3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFeed.swift; sourceTree = "<group>"; };
 		3CCEAC4525A10D8F0023EA4E /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		3CCEAC4C25A10DB50023EA4E /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
@@ -198,6 +201,7 @@
 		3C2DC4012730F66500080B3E /* ItemList */ = {
 			isa = PBXGroup;
 			children = (
+				3CBF4278273C7266004527C1 /* CollectionList.swift */,
 				3C2DC4022730F68400080B3E /* ItemList.swift */,
 			);
 			path = ItemList;
@@ -381,6 +385,7 @@
 				3CA314152737225F000C728F /* iOSDetailWebView.swift in Sources */,
 				3CCEAC4625A10D8F0023EA4E /* Feed.swift in Sources */,
 				3CA31417273723F8000C728F /* SuperSimpleApp.swift in Sources */,
+				3CBF427A273C7266004527C1 /* CollectionList.swift in Sources */,
 				3C2DC4072730F97400080B3E /* Detail.swift in Sources */,
 				3C2DC3F92730C37800080B3E /* RootView.swift in Sources */,
 				3CA3141927379AE3000C728F /* UserDefaults+Feeds.swift in Sources */,
@@ -396,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBF4279273C7266004527C1 /* CollectionList.swift in Sources */,
 				3C9A24DF237BB6F10083C471 /* NSString+Height.swift in Sources */,
 				3CCEAC4E25A10DB50023EA4E /* FeedItem.swift in Sources */,
 				3CA314112735FB46000C728F /* FeedListItem.swift in Sources */,

@@ -19,7 +19,8 @@ struct FeedList: View {
             
             Section("Collections") {
                 NavigationLink {
-                    Text("All Posts")
+                    CollectionList(items: appData.allItems, collectionName: "All Posts")
+                        .frame(minWidth: 256)
                 } label: {
                     HStack {
                         Image(systemName: "list.bullet.rectangle")
