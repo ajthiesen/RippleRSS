@@ -10,6 +10,7 @@ import SwiftUI
 
 @main
 struct SuperSimpleApp: App {
+    
     var body: some Scene {
         WindowGroup {
             RootView()
@@ -27,7 +28,7 @@ struct SuperSimpleApp: App {
                     // TODO: Add Feed
                     print("TODO: Super Simple App - Add Feed")
                 }
-                .keyboardShortcut("n", modifiers: .command)
+                .keyboardShortcut("n", modifiers: [.command])
             })
             SidebarCommands()
 //            CommandMenu("Feed") {
