@@ -41,9 +41,6 @@ struct FeedList: View {
 //                    }
 //                }
             }
-            
-            
-            
         }
         .listStyle(.sidebar)
         .navigationTitle("Feeds")
