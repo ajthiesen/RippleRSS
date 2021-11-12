@@ -19,7 +19,7 @@ struct FeedList: View {
             
             Section("Collections") {
                 NavigationLink {
-                    CollectionList(items: appData.allItems, collectionName: "All Posts")
+                    CollectionList(items: $appData.allItems, collectionName: "All Posts")
                         .frame(minWidth: 256)
                 } label: {
                     HStack {

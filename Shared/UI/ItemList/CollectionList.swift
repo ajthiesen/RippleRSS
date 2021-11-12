@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CollectionList: View {
     
-    @State var items: [FeedItem]
+    @Binding var items: [FeedItem]
     @State var collectionName: String
     
     var body: some View {
