@@ -46,7 +46,6 @@ struct DetailWeb: View {
 
 struct DetailWeb_Previews: PreviewProvider {
     static var previews: some View {
-        Detail(feedItem: FeedItem(title: "Take-Two spent $53 million on a cancelled game that was never even announced", url: URL(string: "https://www.theverge.com/2021/11/3/22762349/take-two-cancelled-unannounced-title-from-hangar-13"),
-                                  pubDate: Date.distantPast))
+        Detail(feedItem: FeedItem(parsedItem: nil))
     }
 }

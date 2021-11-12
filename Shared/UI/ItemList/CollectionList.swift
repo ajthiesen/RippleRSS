@@ -23,7 +23,7 @@ struct CollectionList: View {
 //                        Detail(feedItem: item)
                     DetailWeb(feedItem: item)
                 } label: {
-                    Text(item.title)
+                    Text(item.title ?? "nil")
                 }
                 .contextMenu {
                     Button("Copy Link", action: {

@@ -18,7 +18,7 @@ struct Detail: View {
         ScrollView {
             VStack(alignment: .leading) {
                 
-                Text(feedItem.title)
+                Text(feedItem.title ?? "nil")
                     .textSelection(.enabled)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .fixedSize(horizontal: false, vertical: true)
@@ -58,11 +58,6 @@ struct Detail: View {
 
 struct Detail_Previews: PreviewProvider {
     static var previews: some View {
-        Detail(feedItem:
-                FeedItem(
-                    title: "Take-Two spent $53 million on a cancelled game that was never even announced",
-                    url: URL(string: "https://www.theverge.com/2021/11/3/22762349/take-two-cancelled-unannounced-title-from-hangar-13"),
-                    pubDate: Date.distantPast
-                ))
+        Detail(feedItem: FeedItem(parsedItem: nil))
     }
 }

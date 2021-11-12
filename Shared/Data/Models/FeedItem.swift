@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FeedKit
 
 class FeedItem: NSObject, ObservableObject, Comparable {
     
@@ -18,14 +19,64 @@ class FeedItem: NSObject, ObservableObject, Comparable {
         return lhs.url == rhs.url
     }
     
-    let url: URL?
-    let title: String
-    var content: String?
-    var pubDate: Date?
+    var url: URL? {
+        guard let parsedItem = parsedItem else { return nil }
+        
+        if let rssItem = parsedItem as? RSSFeedItem {
+            guard let link = rssItem.link else { return nil }
+            return URL(string: link)
+        } else if let atomItem = parsedItem as? AtomFeedEntry {
+            guard let link = atomItem.links?.first?.attributes?.href else { return nil }
+            return URL(string: link)
+        } else if let jsonItem = parsedItem as? JSONFeedItem {
+            guard let link = jsonItem.url else { return nil }
+            return URL(string: link)
+        }
+        return nil
+    }
     
-    init(title _title: String, url _url: URL?, pubDate _pubDate: Date?) {
-        title = _title
-        url = _url
-        pubDate = _pubDate
+    var title: String? {
+        guard let parsedItem = parsedItem else { return nil }
+        
+        if let rssItem = parsedItem as? RSSFeedItem {
+            return rssItem.title
+        } else if let atomItem = parsedItem as? AtomFeedEntry {
+            return atomItem.title
+        } else if let jsonItem = parsedItem as? JSONFeedItem {
+            return jsonItem.title
+        }
+        return nil
+    }
+    
+    var summary: String? {
+        guard let parsedItem = parsedItem else { return nil }
+        
+        if let rssItem = parsedItem as? RSSFeedItem {
+            return rssItem.description
+        } else if let atomItem = parsedItem as? AtomFeedEntry {
+            return atomItem.summary?.value
+        } else if let jsonItem = parsedItem as? JSONFeedItem {
+            return jsonItem.summary
+        }
+        return nil
+    }
+    
+    var pubDate: Date? {
+        guard let parsedItem = parsedItem else { return nil }
+        
+        if let rssItem = parsedItem as? RSSFeedItem {
+            return rssItem.pubDate
+        } else if let atomItem = parsedItem as? AtomFeedEntry {
+            return atomItem.published
+        } else if let jsonItem = parsedItem as? JSONFeedItem {
+            return jsonItem.datePublished
+        }
+        return nil
+    }
+    
+    private var parsedItem: Any?
+    
+    init(parsedItem _parsedItem: Any?) {
+        parsedItem = _parsedItem
     }
 }
