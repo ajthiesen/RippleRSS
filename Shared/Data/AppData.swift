@@ -8,13 +8,29 @@
 
 import Foundation
 import FeedKit
+import SwiftUI
 
-class AppData {
+class AppData: ObservableObject {
     
-    static let shared = AppData()
+    static var shared = AppData()
     
-    var feedURLs: [URL?]
-    var feeds: [Feed] = []
+    @Published var feedURLs: [URL?]
+    @Published var feeds: [Feed] = []
+    @Published var allItems = [FeedItem]()
+    
+    func getAllItems() -> [FeedItem] {
+        
+        var allItems: [FeedItem] = []
+        
+        feeds.forEach { feed in
+            guard let items = feed.items else { return }
+            allItems.append(contentsOf: items)
+        }
+        
+        allItems.sort()
+        
+        return allItems
+    }
     
     private init() {
         
@@ -24,8 +40,10 @@ class AppData {
         for feedStr in UserDefaults.feedStrs {
             
             guard let url = URL(string: feedStr) else { continue }
-            feedURLs.append(url)
-            feeds.append(Feed(url))
+            
+            self.feedURLs.append(url)
+            self.feeds.append(Feed(url))
+            self.allItems = getAllItems()
         }
     }
     
@@ -83,8 +101,44 @@ class AppData {
     
     static func refreshFeeds(rowCompletion: (()->Void)? ) {
         for feed in AppData.shared.feeds {
-            feed.load(completion: rowCompletion)
+            feed.load {
+                AppData.shared.allItems = AppData.shared.getAllItems()
+                rowCompletion?()
+            }
         }
+    }
+    
+    static func addToPasteboard(_ url: URL?) {
+        
+        guard let url = url else { return }
+        
+        #if os(macOS)
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setData(url.dataRepresentation, forType: .string)
+        NSPasteboard.general.setData(url.dataRepresentation, forType: .URL)
+        
+        #elseif os(iOS)
+        
+        UIPasteboard.general.string = url.absoluteString
+        UIPasteboard.general.url = url
+        
+        #endif
+    }
+    
+    static func openURL(_ url: URL?) {
+        
+        guard let url = url else { return }
+        
+        #if os(macOS)
+        
+        NSWorkspace.shared.open(url)
+        
+        #elseif os(iOS)
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        
+        #endif
     }
 
 }

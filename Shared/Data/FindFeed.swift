@@ -18,6 +18,7 @@ class FindFeed {
     enum FeedError: Error {
         case invalidURL
         case missingFeed
+        case emptyURL
         case unknown
     }
     
@@ -70,6 +71,7 @@ class FindFeed {
         
         // TODO: Check URL for validity
         if urlStr.isEmpty {
+            onError(FeedError.emptyURL)
             return
         }
         

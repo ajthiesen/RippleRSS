@@ -8,15 +8,44 @@
 
 import Foundation
 import FeedKit
+import SwiftUI
 
-class Feed: NSObject {
+class Feed: NSObject, ObservableObject {
     
-    var url: URL
-    var items: [FeedItem]?
-    var name: String?
+    @Published var url: URL
+    @Published var items: [FeedItem]?
+    @Published var name: String
     
     init(_ _url: URL) {
         url = _url
+        name = _url.absoluteString
+    }
+    
+    func handle(_ entry: AtomFeedEntry) -> FeedItem? {
+        guard let urlStr = entry.links?.first?.attributes?.href else { return nil }
+        let url = URL(string: urlStr)
+        let feedItem = FeedItem(title: entry.title ?? "No title", url: url, pubDate: entry.published)
+        feedItem.content = entry.summary?.value
+        
+        return feedItem
+    }
+    
+    func handle(_ entry: RSSFeedItem) -> FeedItem? {
+        guard let urlStr = entry.link else { return nil }
+        let url = URL(string: urlStr)
+        let feedItem = FeedItem(title: entry.title ?? "No title", url: url, pubDate: entry.pubDate)
+        feedItem.content = entry.description
+        
+        return feedItem
+    }
+    
+    func handle(_ entry: JSONFeedItem) -> FeedItem? {
+        guard let urlStr = entry.url else { return nil }
+        let url = URL(string: urlStr)
+        let feedItem = FeedItem(title: entry.title ?? "No title", url: url, pubDate: entry.datePublished)
+        feedItem.content = entry.contentText
+        
+        return feedItem
     }
     
     func load(completion: (() -> Void)? ) {
@@ -36,32 +65,48 @@ class Feed: NSObject {
                 case let .atom(feed):
                     
                     feed.entries?.forEach({ (entry) in
-                        guard let urlStr = entry.links?.first?.attributes?.href else { return }
-                        let url = URL(string: urlStr)
-                        _items.append(FeedItem(title: entry.title ?? "No title", url: url))
+                        
+                        guard let feedItem = self.handle(entry) else { return }
+                        _items.append(feedItem)
                     })
                     
-                    self.name = feed.title
+                    DispatchQueue.main.async {
+                        if let title = feed.title {
+                            self.name = title
+                            print(title)
+                        }
+                    }
                     
                 case let .rss(feed):
                     
                     feed.items?.forEach({ (entry) in
-                        guard let urlStr = entry.link else { return }
-                        let url = URL(string: urlStr)
-                        _items.append(FeedItem(title: entry.title ?? "No title", url: url))
+                        
+                        guard let feedItem = self.handle(entry) else { return }
+                        _items.append(feedItem)
                     })
                     
-                    self.name = feed.title
+                    DispatchQueue.main.async {
+                        if let title = feed.title {
+                            self.name = title
+                            print(title)
+                        }
+                    }
                     
                 case let .json(feed):
                     
                     feed.items?.forEach({ (entry) in
-                        guard let urlStr = entry.url else { return }
-                        let url = URL(string: urlStr)
-                        _items.append(FeedItem(title: entry.title ?? "No title", url: url))
+                        
+                        guard let feedItem = self.handle(entry) else { return }
+                        _items.append(feedItem)
                     })
                     
-                    self.name = feed.title
+                    DispatchQueue.main.async {
+                        if let title = feed.title {
+                            self.name = title
+                            print(title)
+                        }
+                    }
+                    
                 }
             
             case .failure(_):
@@ -69,9 +114,8 @@ class Feed: NSObject {
                 return
             }
             
-            self.items = _items
-            
             DispatchQueue.main.async {
+                self.items = _items
                 completion?()
             }
         }
