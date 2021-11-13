@@ -28,6 +28,7 @@ This app is written fully with SwiftUI. As a result, only recent OS versions are
 - The iOS version supports iOS 15.0+
 
 ### Feature list
+- [ ] Import and export feeds via OPML
 - [ ] Add a feed by URL
 - [x] Add a URL and find a feed
 - [ ] Update a feed URL
