@@ -76,7 +76,10 @@ class FeedItem: NSObject, ObservableObject, Comparable {
     
     private var parsedItem: Any?
     
-    init(parsedItem _parsedItem: Any?) {
+    var parentFeed: Feed?
+    
+    init(parsedItem _parsedItem: Any?, parentFeed _parentFeed: Feed?) {
         parsedItem = _parsedItem
+        parentFeed = _parentFeed
     }
 }

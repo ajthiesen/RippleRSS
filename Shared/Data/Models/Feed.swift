@@ -25,21 +25,21 @@ class Feed: NSObject, ObservableObject {
     
     func handle(_ entry: AtomFeedEntry) -> FeedItem? {
 
-        let feedItem = FeedItem(parsedItem: entry)
+        let feedItem = FeedItem(parsedItem: entry, parentFeed: self)
         
         return feedItem
     }
     
     func handle(_ entry: RSSFeedItem) -> FeedItem? {
 
-        let feedItem = FeedItem(parsedItem: entry)
+        let feedItem = FeedItem(parsedItem: entry, parentFeed: self)
         
         return feedItem
     }
     
     func handle(_ entry: JSONFeedItem) -> FeedItem? {
 
-        let feedItem = FeedItem(parsedItem: entry)
+        let feedItem = FeedItem(parsedItem: entry, parentFeed: self)
         
         return feedItem
     }

@@ -46,6 +46,6 @@ struct DetailWeb: View {
 
 struct DetailWeb_Previews: PreviewProvider {
     static var previews: some View {
-        Detail(feedItem: FeedItem(parsedItem: nil))
+        Detail(feedItem: FeedItem(parsedItem: nil, parentFeed: nil))
     }
 }
