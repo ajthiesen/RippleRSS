@@ -25,12 +25,13 @@ struct ItemList: View {
                         DetailWeb(feedItem: item)
                     } label: {
                         Text(item.title ?? "nil")
+                            .padding(.top, 4)
+                            .padding(.bottom, 4)
                     }
                     .contextMenu {
+                        
                         Button("Copy Link", action: {
-                            
                             AppData.addToPasteboard(item.url)
-                            
                         })
                         Button("Open in Safari", action: {
                             AppData.openURL(item.url)

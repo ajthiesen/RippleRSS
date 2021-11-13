@@ -23,7 +23,14 @@ struct CollectionList: View {
 //                        Detail(feedItem: item)
                     DetailWeb(feedItem: item)
                 } label: {
-                    Text(item.title ?? "nil")
+                    VStack(alignment: .leading) {
+                        Text(item.parentFeed?.name ?? "nil")
+                            .font(.caption)
+                            .opacity(0.6)
+                        Text(item.title ?? "nil")
+                    }
+                    .padding(.top, 4)
+                    .padding(.bottom, 4)
                 }
                 .contextMenu {
                     Button("Copy Link", action: {
