@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -51,7 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3C0155AA2207C8E000139618 /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C0155AA2207C8E000139618 /* RippleRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RippleRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0155B42207C8E200139618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C0155B72207C8E200139618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C0155B92207C8E200139618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		3CCEAC3D25A0F36B0023EA4E /* FindFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFeed.swift; sourceTree = "<group>"; };
 		3CCEAC4525A10D8F0023EA4E /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		3CCEAC4C25A10DB50023EA4E /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
-		3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Simple RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CF823B2223EDC6500AEC06A /* RippleRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RippleRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF823B7223EDC6500AEC06A /* Super_Simple_RSS_Mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Super_Simple_RSS_Mac.xcdatamodel; sourceTree = "<group>"; };
 		3CF823B9223EDC6700AEC06A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CF823BE223EDC6700AEC06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,8 +122,8 @@
 		3C0155AB2207C8E000139618 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3C0155AA2207C8E000139618 /* Super Simple RSS.app */,
-				3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */,
+				3C0155AA2207C8E000139618 /* RippleRSS.app */,
+				3CF823B2223EDC6500AEC06A /* RippleRSS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,9 +260,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3C0155A92207C8E000139618 /* Super Simple RSS */ = {
+		3C0155A92207C8E000139618 /* RippleRSS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C0155BC2207C8E200139618 /* Build configuration list for PBXNativeTarget "Super Simple RSS" */;
+			buildConfigurationList = 3C0155BC2207C8E200139618 /* Build configuration list for PBXNativeTarget "RippleRSS" */;
 			buildPhases = (
 				3C0155A62207C8E000139618 /* Sources */,
 				3C0155A72207C8E000139618 /* Frameworks */,
@@ -272,18 +272,18 @@
 			);
 			dependencies = (
 			);
-			name = "Super Simple RSS";
+			name = RippleRSS;
 			packageProductDependencies = (
 				3C407FD0259D8C3700D13AFF /* SwiftSoup */,
 				3C407FD5259D8C6000D13AFF /* FeedKit */,
 			);
 			productName = "Super Simple RSS";
-			productReference = 3C0155AA2207C8E000139618 /* Super Simple RSS.app */;
+			productReference = 3C0155AA2207C8E000139618 /* RippleRSS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3CF823B1223EDC6500AEC06A /* Super Simple RSS Mac */ = {
+		3CF823B1223EDC6500AEC06A /* RippleRSS Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CF823C2223EDC6700AEC06A /* Build configuration list for PBXNativeTarget "Super Simple RSS Mac" */;
+			buildConfigurationList = 3CF823C2223EDC6700AEC06A /* Build configuration list for PBXNativeTarget "RippleRSS Mac" */;
 			buildPhases = (
 				3CF823AE223EDC6500AEC06A /* Sources */,
 				3CF823AF223EDC6500AEC06A /* Frameworks */,
@@ -293,13 +293,13 @@
 			);
 			dependencies = (
 			);
-			name = "Super Simple RSS Mac";
+			name = "RippleRSS Mac";
 			packageProductDependencies = (
 				3C407FD9259D8CA000D13AFF /* SwiftSoup */,
 				3C407FDB259D8CA300D13AFF /* FeedKit */,
 			);
 			productName = "Super Simple RSS Mac";
-			productReference = 3CF823B2223EDC6500AEC06A /* Super Simple RSS.app */;
+			productReference = 3CF823B2223EDC6500AEC06A /* RippleRSS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -330,7 +330,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3C0155A52207C8E000139618 /* Build configuration list for PBXProject "Super Simple RSS" */;
+			buildConfigurationList = 3C0155A52207C8E000139618 /* Build configuration list for PBXProject "RippleRSS" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -347,8 +347,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3C0155A92207C8E000139618 /* Super Simple RSS */,
-				3CF823B1223EDC6500AEC06A /* Super Simple RSS Mac */,
+				3C0155A92207C8E000139618 /* RippleRSS */,
+				3CF823B1223EDC6500AEC06A /* RippleRSS Mac */,
 			);
 		};
 /* End PBXProject section */
@@ -567,6 +567,7 @@
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = C62KGZ35B8;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -591,15 +592,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = C62KGZ35B8;
+				DEVELOPMENT_TEAM = YHWVM496Q3;
 				INFOPLIST_FILE = "Super Simple RSS/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ajthiesen.RippleRSS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -627,7 +629,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS-Mac";
-				PRODUCT_NAME = "Super Simple RSS";
+				PRODUCT_NAME = RippleRSS;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -642,7 +644,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = C62KGZ35B8;
+				DEVELOPMENT_TEAM = YHWVM496Q3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Super Simple RSS Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -651,8 +653,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 0.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.geofcrowl.Super-Simple-RSS-Mac";
-				PRODUCT_NAME = "Super Simple RSS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ajthiesen.RippleRSS;
+				PRODUCT_NAME = RippleRSS;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -661,7 +663,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3C0155A52207C8E000139618 /* Build configuration list for PBXProject "Super Simple RSS" */ = {
+		3C0155A52207C8E000139618 /* Build configuration list for PBXProject "RippleRSS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C0155BA2207C8E200139618 /* Debug */,
@@ -670,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3C0155BC2207C8E200139618 /* Build configuration list for PBXNativeTarget "Super Simple RSS" */ = {
+		3C0155BC2207C8E200139618 /* Build configuration list for PBXNativeTarget "RippleRSS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C0155BD2207C8E200139618 /* Debug */,
@@ -679,7 +681,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3CF823C2223EDC6700AEC06A /* Build configuration list for PBXNativeTarget "Super Simple RSS Mac" */ = {
+		3CF823C2223EDC6700AEC06A /* Build configuration list for PBXNativeTarget "RippleRSS Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3CF823C0223EDC6700AEC06A /* Debug */,
